@@ -56,13 +56,15 @@ public abstract class Querier {
         runSetQuery(SQL);
     }
 
-    protected void runSetQuery(String sql) {
+    protected boolean runSetQuery(String sql) {
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     protected ResultSet runGetQuery(String SQL) {
@@ -76,7 +78,7 @@ public abstract class Querier {
         return null;
     }
 
-    protected void insertMultiValues(String tableName, ArrayList<Pair<String, Object>> insertValues) {
+    protected boolean insertMultiValues(String tableName, ArrayList<Pair<String, Object>> insertValues) {
         ArrayList<Object> rows = new ArrayList<>();
         ArrayList<Object> values = new ArrayList<>();
         String commandRow = "(";
@@ -101,29 +103,18 @@ public abstract class Querier {
         String SQL = "INSERT INTO " + tableName + " " + commandRow + " VALUES " +
                 commandValue + ";";
         System.out.println(SQL);
-        runSetQuery(SQL);
+        boolean runOk = runSetQuery(SQL);
+        return runOk;
     }
 
-    public void addNewUser(String username, String password, String userRole, String Userid) {
+    public boolean addNewUser(String username, String password, String userRole, String Userid) {
         String SQL = "INSERT INTO [User] VALUES ('%s','%s','%s','%s')";
         SQL = String.format(SQL, username, password, userRole, Userid);
         System.out.println(SQL);
-        runSetQuery(SQL);
+        return runSetQuery(SQL);
     }
 
     public boolean existUsername(String tableName, String username) {
-//        String SQL = "SELECT Username FROM  %s  WHERE Username = '%s' ";
-//        SQL = String.format(SQL, tableName, username);
-//        System.out.println(SQL);
-//        ResultSet res = runGetQuery(SQL);
-//        if (res == null) return false;
-//        try {
-//            if (res.isBeforeFirst()) return true;
-//        } catch (Exception e) {
-////            e.printStackTrace();
-//            return false;
-//        }
-//        return false;
         return existValueRows(tableName, "Username", username );
     }
 
@@ -146,10 +137,10 @@ public abstract class Querier {
 
     }
 
-    public void deleteUser(String username) {
+    public boolean deleteUser(String username) {
         String SQL = String.format("DELETE FROM [User] Where Username='%s'", username);
         System.out.println(SQL);
-        runSetQuery(SQL);
+        return runSetQuery(SQL);
     }
 
     public boolean existUsername(String username) {

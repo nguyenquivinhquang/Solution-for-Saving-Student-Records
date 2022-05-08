@@ -122,7 +122,7 @@ public class AdminStudentAddController implements Initializable {
         if (isEdit == true) {
             // Todo: Update DB
             System.out.println("Edit mode");
-            updateSaveStudent();
+            editStudent();
         } else {
             // Todo: Add new User
             addStudent();
@@ -173,15 +173,17 @@ public class AdminStudentAddController implements Initializable {
         password = AuthUtil.hashString(password);
         studentQueries.addNewUser(studentId,password,"Student",studentId);
         ArrayList<Pair<String, Object>> insertValues = new ArrayList<>();
-        insertValues.add(new Pair<String, Object>("First_name", firstName));
-        insertValues.add(new Pair<String, Object>("Last_name", lastName));
-        insertValues.add(new Pair<String, Object>("Student_Id", studentId));
-        insertValues.add(new Pair<String, Object>("Birth_day", birthday));
-        insertValues.add(new Pair<String, Object>("Academic_year", academicYear));
-        insertValues.add(new Pair<String, Object>("Mail", email));
-        insertValues.add(new Pair<String, Object>("Username", studentId));
+        insertValues.add(new Pair<>("First_name", firstName));
+        insertValues.add(new Pair<>("Last_name", lastName));
+        insertValues.add(new Pair<>("Student_Id", studentId));
+        insertValues.add(new Pair<>("Birth_day", birthday));
+        insertValues.add(new Pair< >("Academic_year", academicYear));
+        insertValues.add(new Pair<>("Mail", email));
+        insertValues.add(new Pair<>("Username", studentId));
 
-        studentQueries.insertMultiValues(insertValues);
+        if (!studentQueries.insertMultiValues(insertValues)){
+            return;
+        }
 
         StudentInformation student = new StudentInformation(studentId,firstName,lastName, academicYear,birthday, email);
         studentTrace.put(studentId, student);
@@ -189,7 +191,7 @@ public class AdminStudentAddController implements Initializable {
         resetField();
         adminTableView.refresh();
     }
-    private void updateSaveStudent() {
+    private void editStudent() {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String studentId = studentIDField.getText();
@@ -205,6 +207,7 @@ public class AdminStudentAddController implements Initializable {
         studentQueries.updateAcademicYear(studentId, academicYear);
         if (!password.isEmpty()) {
             System.out.println(password);
+            password = AuthUtil.hashString(password);
             studentQueries.updateUserPass(studentId, password);
         }
         System.out.println(birthday);
@@ -223,8 +226,7 @@ public class AdminStudentAddController implements Initializable {
     public void setAdminClearButtonClick(ActionEvent event) {
         String studentId = studentIDField.getText();
         resetField();
-        if (isEdit)
-            studentIDField.setText(studentId);
+        studentIDField.setEditable(true);
     }
 
     public void setAdminEditButtonClick(ActionEvent event) {
@@ -288,7 +290,6 @@ public class AdminStudentAddController implements Initializable {
         alert.setHeaderText(null);
         // alert.setHeaderText("Results:");
         alert.setContentText(message);
-
         alert.showAndWait();
     }
 }
