@@ -1,0 +1,103 @@
+CREATE TABLE Course
+(
+  Course_Id CHAR(20) NOT NULL,
+  Course_name CHAR(50) NOT NULL,
+  Credits INT NOT NULL,
+  Description CHAR,
+  PRIMARY KEY (Course_Id)
+);
+
+CREATE TABLE Semester_billing
+(
+  Price_per_credit FLOAT NOT NULL,
+  Insurance_price FLOAT,
+  Semester INT NOT NULL,
+  Year INT NOT NULL,
+  Bid CHAR NOT NULL,
+  PRIMARY KEY (Bid)
+);
+
+CREATE TABLE [User]
+(
+  Username CHAR(30) NOT NULL,
+  Password CHAR(100) NOT NULL,
+  UserRole CHAR(10) NOT NULL,
+  UserId CHAR(20) NOT NULL,
+  PRIMARY KEY (Username)
+);
+
+CREATE TABLE Course_schedule
+(
+  Schedule CHAR(20) NOT NULL,
+  Course_Id CHAR(20) NOT NULL,
+  PRIMARY KEY (Schedule, Course_Id),
+  FOREIGN KEY (Course_Id) REFERENCES Course(Course_Id)
+);
+
+CREATE TABLE Student
+(
+  First_name CHAR(30) ,
+  Last_name CHAR(30) ,
+  Birth_day DATE ,
+  Academic_year INT ,
+  Student_Id CHAR(20) NOT NULL,
+  Bid CHAR ,
+  Mail Char,
+  Username CHAR(30) NOT NULL,
+  PRIMARY KEY (Student_Id),
+  FOREIGN KEY (Bid) REFERENCES Semester_billing(Bid),
+  FOREIGN KEY (Username) REFERENCES [User](Username)
+);
+
+CREATE TABLE Scholarship
+(
+  Semester INT NOT NULL,
+  Tuition INT NOT NULL,
+  Scholarship_type CHAR NOT NULL,
+  Year INT NOT NULL,
+  Scholarship_Id CHAR NOT NULL,
+  Student_Id CHAR(20) NOT NULL,
+  PRIMARY KEY (Scholarship_Id),
+  FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id),
+  UNIQUE (Year)
+);
+
+CREATE TABLE Teacher
+(
+  Department CHAR(50),
+  Teacher_name CHAR(60) NOT NULL,
+  Teacher_Id CHAR(20) NOT NULL,
+  Username CHAR(30) NOT NULL,
+  PRIMARY KEY (Teacher_Id),
+  FOREIGN KEY (Username) REFERENCES [User](Username)
+);
+
+CREATE TABLE Administrator
+(
+  Admin_Id CHAR(20) NOT NULL,
+  Admin_name CHAR(60) NOT NULL,
+  Username CHAR(30) NOT NULL,
+  PRIMARY KEY (Admin_Id),
+  FOREIGN KEY (Username) REFERENCES [User](Username)
+);
+
+CREATE TABLE Enrolled_Course
+(
+  Assignment NUMERIC(5,2) ,
+  Midterm NUMERIC(5,2) ,
+  Final NUMERIC(5,2) ,
+  Total NUMERIC(5,2) ,
+  Teacher_Id CHAR(20) NOT NULL,
+  Course_Id CHAR(20) NOT NULL,
+  Student_Id CHAR(20) NOT NULL,
+  PRIMARY KEY (Teacher_Id, Course_Id, Student_Id),
+  FOREIGN KEY (Teacher_Id) REFERENCES Teacher(Teacher_Id),
+  FOREIGN KEY (Course_Id) REFERENCES Course(Course_Id),
+  FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id)
+);
+
+insert into [user]
+values ('admin_quang', '22ae1b3d5a231c373930fd723ce7200847cf81ec6d49a3fa2eeb518427e324d4','admin','admin_quang');
+
+insert into [Administrator]
+values ('admin_quang','Vinh Quang','admin_quang');

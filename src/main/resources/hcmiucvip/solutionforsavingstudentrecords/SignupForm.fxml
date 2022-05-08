@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AddStudentController">
+        <children>
+        <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="321.0" layoutY="30.0" prefHeight="53.0" prefWidth="273.0" text="ADD new student" textAlignment="RIGHT" textFill="DIMGRAY" textOverrun="CLIP">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="usernameField" layoutX="33.0" layoutY="225.0" onMouseClicked="#uppperCaseStudentId" prefHeight="17.0" prefWidth="203.0" promptText="Username">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="firstNameField" layoutX="321.0" layoutY="157.0" prefHeight="17.0" prefWidth="203.0" promptText="First Name">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="lastNameField" layoutX="544.0" layoutY="157.0" prefHeight="17.0" prefWidth="203.0" promptText="Last Name">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="dayField" layoutX="330.0" layoutY="346.0" onInputMethodTextChanged="#verifyDay" onKeyPressed="#verifyDay" onKeyReleased="#verifyDay" prefHeight="17.0" prefWidth="80.0" promptText="DD">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="monthField" layoutX="447.0" layoutY="346.0" onInputMethodTextChanged="#verifyMonth" onKeyPressed="#verifyMonth" onKeyReleased="#verifyMonth" prefHeight="17.0" prefWidth="80.0" promptText="MM">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="yearField" layoutX="562.0" layoutY="346.0" onInputMethodTextChanged="#verifyYear" onKeyPressed="#verifyYear" onKeyReleased="#verifyYear" prefHeight="17.0" prefWidth="80.0" promptText="YYYY">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <Label layoutX="387.0" layoutY="290.0" prefHeight="35.0" prefWidth="147.0" text="Date Of Birth" textFill="DIMGRAY">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="420.0" layoutY="339.0" prefHeight="53.0" prefWidth="14.0" text="/" textFill="DIMGRAY">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="538.0" layoutY="339.0" text="/" textFill="DIMGRAY">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="255.0" layoutY="157.0" prefHeight="27.0" prefWidth="0.0" text="*" textFill="RED">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="255.0" layoutY="231.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="259.0" layoutY="312.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+      <TextField fx:id="studentIdField" layoutX="33.0" layoutY="151.0" onTouchMoved="#uppperCaseStudentId" prefHeight="17.0" prefWidth="203.0" promptText="Student Id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="maleButton" layoutX="321.0" layoutY="227.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="91.0" text="Male " toggleGroup="$Gender">
+         <toggleGroup>
+            <ToggleGroup fx:id="Gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="femaleButton" layoutX="384.0" layoutY="227.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="100.0" text="Female" toggleGroup="$Gender" />
+      <Button fx:id="submitButton" layoutX="321.0" layoutY="555.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="39.0" prefWidth="147.0" text="Submit" />
+      <TextField fx:id="passwordField" layoutX="33.0" layoutY="307.0" prefHeight="17.0" prefWidth="203.0" promptText="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="academicField" layoutX="33.0" layoutY="373.0" prefHeight="17.0" prefWidth="203.0" promptText="Academic Year" text="K">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="259.0" layoutY="453.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailField" layoutX="33.0" layoutY="447.0" onDragEntered="#setEmail" onInputMethodTextChanged="#setEmail" onMouseClicked="#setEmail" onMouseDragEntered="#setEmail" prefHeight="17.0" prefWidth="203.0" promptText="Academic Year" text="\@student.hcmiu.edu.vn">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="263.0" layoutY="372.0" prefHeight="21.0" prefWidth="0.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+        </children>
+</Pane>
