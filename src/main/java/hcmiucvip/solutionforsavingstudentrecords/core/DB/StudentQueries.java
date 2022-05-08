@@ -69,8 +69,8 @@ public class StudentQueries extends Querier {
     private void changeValCol(String studentId, String col, String newValue) {
         updateRowString("Student_Id",studentId, col, newValue);
     }
-    public void insertMultiValues(ArrayList<Pair<String, Object>> insertValues) {
-        this.insertMultiValues(this.tableName,insertValues);
+    public boolean insertMultiValues(ArrayList<Pair<String, Object>> insertValues) {
+        return this.insertMultiValues(this.tableName,insertValues);
     }
     public void deleteStudent(String student) {
         String SQL = String.format("DELETE FROM Student Where Username='%s'",student);
