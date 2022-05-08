@@ -22,7 +22,7 @@ public class AdminTeacherAddController implements Initializable {
     @FXML
     protected TextField firstnameField, lastnameField, teacherIdField, mailField;
     @FXML
-    protected TextField departmentField, passField;
+    protected TextField departmentField, passField, usernameField;
     @FXML
     protected TableView<TeacherInformation> teacherTableView;
     @FXML
@@ -42,6 +42,7 @@ public class AdminTeacherAddController implements Initializable {
         mailField.clear();
         departmentField.clear();
         passField.clear();
+        usernameField.clear();
 
     }
 
@@ -67,16 +68,19 @@ public class AdminTeacherAddController implements Initializable {
             //Todo: Update DB
         } else {
             //Todo: Add new teacher
+            addTeacher();
         }
     }
 
     private void addTeacher() {
+
         String firstName = firstnameField.getText(),
                 lastName = lastnameField.getText(),
                 teacherId = teacherIdField.getText(),
                 password = passField.getText(),
                 department = departmentField.getText(),
-                mail = mailField.getText();
+                mail = mailField.getText(),
+                username = usernameField.getText();
         if (teacherId.isEmpty()) {
             showWarning("Teacher Id must not empty");
         }
@@ -95,6 +99,9 @@ public class AdminTeacherAddController implements Initializable {
         if (mail.isEmpty()) {
             mail = teacherId + "@hcmiu.edu.vn";
         }
+        if (username.isEmpty()) {
+            username = teacherId;
+        }
         password = AuthUtil.hashString(password);
         ArrayList<Pair<String, Object>> insertValues = new ArrayList<>();
         insertValues.add(new Pair<>("First_name", firstName));
@@ -102,10 +109,17 @@ public class AdminTeacherAddController implements Initializable {
         insertValues.add(new Pair<>("Teacher_Id", teacherId));
         insertValues.add(new Pair<>("Department", department));
         insertValues.add(new Pair<>("Mail", mail));
-        insertValues.add(new Pair<>("Username", teacherId));
+        insertValues.add(new Pair<>("Username", username));
 
-        teacherQueries.addNewUser(teacherId,password,"Teacher",teacherId);
+        teacherQueries.addNewUser(teacherId, password, "Teacher", username);
+        teacherQueries.insertMultiValues(insertValues);
 
+        TeacherInformation teacher = new TeacherInformation(teacherId, firstName, lastName,
+                username, department, mail);
+        teacherTrace.put(teacherId, teacher);
+        teacherInformations.add(teacher);
+        teacherTableView.refresh();
+        setAdminTeacherClearButtonClick();
     }
 
 
@@ -136,10 +150,26 @@ public class AdminTeacherAddController implements Initializable {
         enableVisibleField();
         teacherIdField.setEditable(true);
         passField.setEditable(true);
+        setAdminTeacherClearButtonClick();
+        isEdit = false;
         saveButton.setText("Add");
     }
 
     public void setAdminTeacherEditButtonClick(ActionEvent event) {
+        enableVisibleField();
+        TeacherInformation teacherChose = teacherTableView.getSelectionModel().getSelectedItem();
+        if (teacherChose == null) return;
+
+        teacherIdField.setText((teacherChose.getTeacherId()));
+        teacherIdField.setEditable(false);
+
+        firstnameField.setText(teacherChose.getFirstName());
+        lastnameField.setText(teacherChose.getLastName());
+        mailField.setText(teacherChose.getMail());
+        departmentField.setText(teacherChose.getDepartment());
+        usernameField.setText(teacherChose.getUsername());
+        saveButton.setText("Save");
+        isEdit = true;
     }
 
     public void setAdminTeacherDeleteButtonClick(ActionEvent event) {
