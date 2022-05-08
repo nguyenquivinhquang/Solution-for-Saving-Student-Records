@@ -64,7 +64,10 @@ public class TeacherQueries extends Querier {
     public void updateDepartment(String teacherId, String newValue) {
         updateRowString("Teacher_Id", teacherId, "Department", newValue);
     }
+    public void updateMail(String teacherId, String newValue) {
+        updateRowString("Teacher_Id", teacherId, "Mail", newValue);
 
+    }
     public void deleteTeacher(String teacher) {
         String SQL = String.format("DELETE FROM Teacher Where Username='%s'",teacher);
         System.out.println(SQL);
