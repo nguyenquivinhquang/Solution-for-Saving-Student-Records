@@ -13,7 +13,7 @@ public class Windows extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         windowStage = stage;
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("AdminTeacherAdd.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setTitle("Student records database!");
         stage.setScene(scene);
