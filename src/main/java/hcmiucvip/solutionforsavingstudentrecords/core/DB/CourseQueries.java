@@ -35,8 +35,8 @@ public class CourseQueries extends Querier {
                         res.getString("Teacher_Id"),
                         res.getString("Description"),
                         res.getString("Section"),
-                        Integer.parseInt(res.getString("Size")),
-                        Integer.parseInt(res.getString("Remaining"))
+                        res.getInt("Size"),
+                        res.getInt("Remaining")
                 ));
 
             }
