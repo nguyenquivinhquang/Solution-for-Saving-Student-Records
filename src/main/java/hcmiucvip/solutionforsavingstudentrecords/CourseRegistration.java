@@ -38,7 +38,9 @@ public class CourseRegistration implements Initializable {
     public void setRegistrationDoneClick(ActionEvent event) {
     }
 
-    public void setRegistrationRefreshClick(ActionEvent event) {
+    public void refresh() {
+        tableCourseChosen.refresh();
+        tableCoursePossible.refresh();
     }
 
     public void setRegistrationSearchClick(ActionEvent event) {

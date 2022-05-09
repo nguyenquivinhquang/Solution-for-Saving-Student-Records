@@ -22,7 +22,7 @@ public class CourseQueries extends Querier {
     public ObservableList<CourseInformation> getCoursesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Course_Id,Course_name, Credits, Description,Teacher_Id, Section from Course;";
+            String SQL = "Select Course_Id,Course_name, Credits, Description,Teacher_Id, Section,Size, Remaining from Course;";
             System.out.println(SQL);
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
@@ -34,7 +34,9 @@ public class CourseQueries extends Querier {
                         res.getInt("Credits"),
                         res.getString("Teacher_Id"),
                         res.getString("Description"),
-                        res.getString("Section")
+                        res.getString("Section"),
+                        Integer.parseInt(res.getString("Size")),
+                        Integer.parseInt(res.getString("Remaining"))
                 ));
 
             }
@@ -47,7 +49,7 @@ public class CourseQueries extends Querier {
     }
 
     public void addCourse(String courseId, String courseName, Integer credits, String descriptions, String teacherId,
-                          String section) {
+                          String section, Integer size, Integer remaining) {
         if (descriptions == null) {
             descriptions = "";
         }
@@ -58,7 +60,8 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Teacher_Id", teacherId));
         courseInsert.add(new Pair<>("Section", section));
         courseInsert.add(new Pair<>("Credits", credits));
-
+        courseInsert.add(new Pair<>("Size", size));
+        courseInsert.add(new Pair<>("Remaining", remaining));
         this.insertMultiValues(this.tableName, courseInsert);
     }
 
@@ -85,7 +88,14 @@ public class CourseQueries extends Querier {
     public void updateCourseSection(String courseId, String newValue) {
         changeValueColumn(courseId, "Section", newValue);
     }
+    public void updateCourseSize(String courseId, Integer newValue) {
+        updateRowInteger("Course_Id", courseId, "Size", newValue);
 
+    }
+    public void updateCourseRemaining(String courseId, Integer newValue) {
+        updateRowInteger("Course_Id", courseId, "Size", newValue);
+
+    }
     private void changeValueColumn(String courseId, String columnName, String newValue) {
         updateRowString("Course_Id", courseId, columnName, newValue);
     }

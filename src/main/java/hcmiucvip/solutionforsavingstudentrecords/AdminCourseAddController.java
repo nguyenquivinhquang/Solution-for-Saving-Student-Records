@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class AdminCourseAddController implements Initializable {
+    //Todo: Add courseSize, courseRemain
     public ChoiceBox sectionSelect;
     public Button saveButton;
     boolean isEdit = false;
@@ -131,7 +132,7 @@ public class AdminCourseAddController implements Initializable {
             showWarning("Teacher Id must not empty");
             return false;
         }
-        if (!teacherQueries.existTeacherId(teacherIdField.getText().toUpperCase())) {
+        if (!teacherQueries.existTeacherId(teacherIdField.getText())) {
             showWarning("Teacher Id isn't exist");
             return false;
         }
@@ -170,11 +171,13 @@ public class AdminCourseAddController implements Initializable {
     }
 
     private void addCourse() {
+        // Todo: add course size field
         CourseInformation course = new CourseInformation(courseIdField.getText(), courseTitleField.getText(),
                 Integer.parseInt(courseCreditField.getText()), teacherIdField.getText(), descriptionTextArea.getText(), (String) sectionSelect.getValue());
-
+        Integer courseSize = 30;
         courseQueries.addCourse(courseIdField.getText(), courseTitleField.getText(),
-                Integer.parseInt(courseCreditField.getText()), descriptionTextArea.getText(), teacherIdField.getText(), (String) sectionSelect.getValue());
+                Integer.parseInt(courseCreditField.getText()), descriptionTextArea.getText(),
+                teacherIdField.getText(), (String) sectionSelect.getValue(), courseSize, courseSize);
         adminCourseView.refresh();
         courseInformations.add(course);
         courseTrace.put(course.getCourseId(), course);
