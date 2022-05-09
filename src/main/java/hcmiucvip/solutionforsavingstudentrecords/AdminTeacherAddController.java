@@ -67,9 +67,9 @@ public class AdminTeacherAddController implements Initializable {
 
     public void setAdminTeacherSaveButtonClick(ActionEvent event) {
         if (isEdit == true) {
-            //Todo: Update DB
+            //Todo: Need to check bug
+            editTeacher();
         } else {
-            //Todo: Add new teacher
             addTeacher();
         }
     }

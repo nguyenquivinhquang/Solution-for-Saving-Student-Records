@@ -76,7 +76,7 @@ public class AdminStudentAddController implements Initializable {
 
     }
 
-    public void setAdminCoursePanelClick(ActionEvent event) throws IOException {
+    public void setAdminCoursePanelClick() throws IOException {
         System.out.println("Cute");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("CourseView.fxml"));
@@ -88,8 +88,15 @@ public class AdminStudentAddController implements Initializable {
         stage.show();
     }
 
-    public void setAdminTeacherPanelClick(ActionEvent event) {
-
+    public void setAdminTeacherPanelClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AdminTeacherAdd.fxml"));
+        loader.load();
+        Parent p = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(p));
+        stage.setTitle("Course Panel");
+        stage.show();
     }
 
     public void setAdminAboutButtonClick(ActionEvent event) {

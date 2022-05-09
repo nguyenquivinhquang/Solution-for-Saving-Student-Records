@@ -38,7 +38,7 @@
             <center>
                 <AnchorPane prefHeight="584.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Text fill="#0091ea" layoutX="562.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List :">
+                        <Text fill="#0091ea" layoutX="572.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List :">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -58,16 +58,18 @@
                         <Button layoutX="335.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" />
                         <TextField fx:id="registrationTFSearch" layoutX="778.0" layoutY="1.0" promptText="Course Code" />
                         <Button layoutX="941.0" layoutY="1.0" mnemonicParsing="false" onAction="#setRegistrationSearchClick" prefHeight="25.0" prefWidth="66.0" text="Search" />
-                  <TableView fx:id="coursesPossibleList" layoutX="572.0" layoutY="40.0" prefHeight="400.0" prefWidth="402.0">
+                  <TableView fx:id="tableCoursePossible" layoutX="528.0" layoutY="40.0" prefHeight="400.0" prefWidth="503.0">
                      <columns>
                         <TableColumn fx:id="courseIdPossible" prefWidth="67.0" style="-fx-alignment: center;" text="Course ID" />
                         <TableColumn fx:id="courseTitlePossible" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
                         <TableColumn fx:id="teacherIdPossible" minWidth="0.0" prefWidth="73.0" text="Teacher ID" />
                         <TableColumn fx:id="courseCreditPossible" prefWidth="89.0" text="Course Credit" />
                         <TableColumn fx:id="courseSectionPossible" maxWidth="3000.0" prefWidth="90.0" text="Course Section" />
+                        <TableColumn fx:id="courseSizePossible" maxWidth="3000.0" prefWidth="53.0" text="Size" />
+                        <TableColumn fx:id="courseRemainPossible" maxWidth="3000.0" prefWidth="50.0" text="Remain" />
                      </columns>
                   </TableView>
-                  <TableView fx:id="coursesChosen" layoutX="2.0" layoutY="51.0" prefHeight="321.0" prefWidth="422.0">
+                  <TableView fx:id="tableCourseChosen" layoutY="66.0" prefHeight="321.0" prefWidth="422.0">
                      <columns>
                         <TableColumn fx:id="courseIdChose" prefWidth="78.0" style="-fx-alignment: center;" text="Course ID" />
                         <TableColumn fx:id="courseTitleChose" prefWidth="79.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />

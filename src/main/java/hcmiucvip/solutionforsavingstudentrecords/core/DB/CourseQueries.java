@@ -47,7 +47,36 @@ public class CourseQueries extends Querier {
 
         return coursesInformation;
     }
+    public ObservableList<CourseInformation> getCourseRegistration(String studentId) {
+        ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
+        try {
+            String SQL = "Select Course_Id,Credits from CourseRegistrationTemp where Student_Id='%s';";
+            SQL = String.format(SQL, studentId);
 
+            System.out.println(SQL);
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery(SQL);
+            if (!res.isBeforeFirst()) return coursesInformation;
+            while (res.next()) {
+                coursesInformation.add(new CourseInformation(
+                        res.getString("Course_Id"),
+                        res.getString("Course_name"),
+                        res.getInt("Credits"),
+                        res.getString("Teacher_Id"),
+                        res.getString("Description"),
+                        res.getString("Section"),
+                        res.getInt("Size"),
+                        res.getInt("Remaining")
+                ));
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(coursesInformation);
+        return coursesInformation;
+    }
     public void addCourse(String courseId, String courseName, Integer credits, String descriptions, String teacherId,
                           String section, Integer size, Integer remaining) {
         if (descriptions == null) {
@@ -104,5 +133,7 @@ public class CourseQueries extends Querier {
         System.out.println(SQL);
         runSetQuery(SQL);
     }
-
-}
+    public void getRemainSlot(String courseId) {
+        String SQL = String.format("FROM Course Where Course_Id='%s'",courseId);
+    }
+ }
