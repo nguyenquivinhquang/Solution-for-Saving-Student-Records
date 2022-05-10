@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,7 +19,7 @@ public class CourseQueries extends Querier {
 
         super(connection, "Course");
     }
-
+    String tempTable = "CourseRegistrationTemporary";
     public ObservableList<CourseInformation> getCoursesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
@@ -47,36 +48,40 @@ public class CourseQueries extends Querier {
 
         return coursesInformation;
     }
-    public ObservableList<CourseInformation> getCourseRegistration(String studentId) {
-        ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
+
+    public ArrayList<String> getCourseRegistration(String studentId) {
+//        ObservableList<String> coursesInformation = FXCollections.observableArrayList();
+        ArrayList<String> courseRegistered = new ArrayList<>();
         try {
-            String SQL = "Select Course_Id,Credits from CourseRegistrationTemp where Student_Id='%s';";
+            String SQL = "Select Course_Id,Credit from CourseRegistrationTemporary where Student_Id='%s';";
             SQL = String.format(SQL, studentId);
 
             System.out.println(SQL);
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
-            if (!res.isBeforeFirst()) return coursesInformation;
+            if (!res.isBeforeFirst()) return courseRegistered;
             while (res.next()) {
-                coursesInformation.add(new CourseInformation(
-                        res.getString("Course_Id"),
-                        res.getString("Course_name"),
-                        res.getInt("Credits"),
-                        res.getString("Teacher_Id"),
-                        res.getString("Description"),
-                        res.getString("Section"),
-                        res.getInt("Size"),
-                        res.getInt("Remaining")
-                ));
+//                coursesInformation.add(new CourseInformation(
+//                        res.getString("Course_Id"),
+//                        res.getString("Course_name"),
+//                        res.getInt("Credits"),
+//                        res.getString("Teacher_Id"),
+//                        res.getString("Description"),
+//                        res.getString("Section"),
+//                        res.getInt("Size"),
+//                        res.getInt("Remaining")
+//                ));
+                courseRegistered.add(res.getString("Course_Id").trim());
 
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(coursesInformation);
-        return coursesInformation;
+        System.out.println(courseRegistered);
+        return courseRegistered;
     }
+
     public void addCourse(String courseId, String courseName, Integer credits, String descriptions, String teacherId,
                           String section, Integer size, Integer remaining) {
         if (descriptions == null) {
@@ -93,7 +98,13 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Remaining", remaining));
         this.insertMultiValues(this.tableName, courseInsert);
     }
+    public void addCourseStudentRegistered(String studentId, String courseId) {
+        ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
+        courseInsert.add(new Pair<>("Course_Id", courseId));
+        courseInsert.add(new Pair<>("Student_Id", studentId));
 
+        this.insertMultiValues(this.tempTable,courseInsert);
+    }
     public void updateCourseId(String courseId, String newValue) {
         changeValueColumn(courseId, "Course_Id", newValue);
     }
@@ -117,23 +128,46 @@ public class CourseQueries extends Querier {
     public void updateCourseSection(String courseId, String newValue) {
         changeValueColumn(courseId, "Section", newValue);
     }
+
     public void updateCourseSize(String courseId, Integer newValue) {
         updateRowInteger("Course_Id", courseId, "Size", newValue);
 
     }
+
     public void updateCourseRemaining(String courseId, Integer newValue) {
         updateRowInteger("Course_Id", courseId, "Size", newValue);
 
     }
+
     private void changeValueColumn(String courseId, String columnName, String newValue) {
         updateRowString("Course_Id", courseId, columnName, newValue);
     }
+
     public void deleteCourse(String courseId) {
-        String SQL = String.format("DELETE FROM Course Where Course_Id='%s'",courseId);
+        String SQL = String.format("DELETE FROM Course Where Course_Id='%s'", courseId);
         System.out.println(SQL);
         runSetQuery(SQL);
     }
-    public void getRemainSlot(String courseId) {
-        String SQL = String.format("FROM Course Where Course_Id='%s'",courseId);
+
+    public int getRemainSlot(String courseId) {
+        String SQL = String.format("select Remaining " +
+                "FROM Course Where Course_Id='%s'", courseId);
+        System.out.println(SQL);
+        ResultSet result = runGetQuery(SQL);
+        if (result == null) return 0;
+//        if (!result.isBeforeFirst()) return 0;
+        try {
+            result.next();
+            return result.getInt("Remaining");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
- }
+    public boolean deleteCourseRegistered(String studentId, String courseId) {
+        String SQL = "Delete from %s where Student_Id='%s' and Course_Id='%s'";
+        SQL = String.format(SQL, this.tempTable, studentId, courseId);
+        return runSetQuery(SQL);
+    }
+}

@@ -2,6 +2,7 @@ package hcmiucvip.solutionforsavingstudentrecords;
 
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,14 +13,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
-public class CourseRegistration  {
+public class CourseRegistration {
     CourseQueries courseQueries = new CourseQueries();
     private String studentId;
     ObservableList<CourseInformation> courseInformationsChoosen, courseInformationsPossible;
+    Map<String, CourseInformation> courseInformationTrace = new HashMap<>();
+
     public CourseRegistration(String studentId) {
         super();
         this.studentId = studentId;
@@ -33,9 +34,11 @@ public class CourseRegistration  {
     public String getStudentId() {
         return studentId;
     }
+
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
+
     @FXML
     public TableView<CourseInformation> tableCourseChosen, tableCoursePossible;
     public TableColumn<CourseInformation, String> courseIdChose,
@@ -52,6 +55,7 @@ public class CourseRegistration  {
             courseSizePossible,
             courseRemainPossible;
     Set<String> courseChoosenTrace = new HashSet<>();
+
     public void setCourseCloseButtonClick(ActionEvent event) {
     }
 
@@ -71,6 +75,12 @@ public class CourseRegistration  {
     public void refresh() {
         tableCourseChosen.refresh();
         tableCoursePossible.refresh();
+
+    }
+
+    public void refreshClick() {
+        refresh();
+        loadStudentCourse();
     }
 
     public void setRegistrationSearchClick(ActionEvent event) {
@@ -82,14 +92,23 @@ public class CourseRegistration  {
         if (studentId == null) return;
         System.out.println(studentId);
     }
-    public void loadStudentCourse(){
-        courseInformationsChoosen = courseQueries.getCourseRegistration(this.studentId);
-        courseInformationsPossible = courseQueries.getCoursesList();
-        for (CourseInformation course: courseInformationsChoosen) {
-            courseChoosenTrace.add(course.getCourseTitle());
-        }
 
+    public void loadStudentCourse() {
+        courseChoosenTrace.clear();
+        ArrayList<String> courseRegistered = courseQueries.getCourseRegistration(this.studentId);
+//        courseInformationsChoosen =
+        courseInformationsPossible = courseQueries.getCoursesList();
+        for (CourseInformation course : courseInformationsPossible) {
+            courseInformationTrace.put(course.getCourseId(), course);
+        }
+        courseInformationsChoosen = FXCollections.observableArrayList();
+        for (String courseId : courseRegistered) {
+            courseInformationsChoosen.add(courseInformationTrace.get(courseId));
+            courseChoosenTrace.add(courseId);
+        }
+        System.out.println(courseInformationsChoosen);
     }
+
     public void init() {
         loadStudentCourse();
         courseIdChose.setCellValueFactory(new PropertyValueFactory<>("courseId"));
@@ -97,7 +116,6 @@ public class CourseRegistration  {
         teacherIDChose.setCellValueFactory(new PropertyValueFactory<>("teacherId"));
         courseCreditChose.setCellValueFactory(new PropertyValueFactory<>("courseCredits"));
         courseSectionChose.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
-
         tableCourseChosen.setItems(courseInformationsChoosen);
 
         courseIdPossible.setCellValueFactory(new PropertyValueFactory<>("courseId"));
@@ -110,24 +128,44 @@ public class CourseRegistration  {
         tableCoursePossible.setItems(courseInformationsPossible);
 
     }
-    public void setRegistrationRefreshClick(ActionEvent event) {
+
+    public void setRegistrationRefreshClick() {
+        refresh();
+        init();
     }
 
-    public void deleteRegisterClick(ActionEvent event) {
+    public void deleteRegisterClick() {
+        CourseInformation course = tableCourseChosen.getSelectionModel().getSelectedItem();
+
+        courseQueries.deleteCourseRegistered(this.studentId, course.getCourseId());
+        courseChoosenTrace.remove(course.getCourseTitle());
+        courseInformationsChoosen.remove(course);
     }
+
     boolean checkCanAddCourse(CourseInformation course) {
         if (courseChoosenTrace.contains(course.getCourseTitle())) {
             showWarning("Course already registered");
             return false;
         }
-        return  true;
+        if (courseQueries.getRemainSlot(course.getCourseId()) < 1) {
+            showWarning("Out of slot!!!!");
+            return false;
+        }
+        return true;
     }
+
     public void chooseRegisterClick() {
         System.out.println(tableCoursePossible.getSelectionModel().getSelectedItem());
         CourseInformation course = tableCoursePossible.getSelectionModel().getSelectedItem();
+        if (checkCanAddCourse(course) == false) {
+            return;
+        }
         courseInformationsChoosen.add(course);
+        courseChoosenTrace.add(course.getCourseTitle());
         refresh();
+        courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId());
     }
+
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");

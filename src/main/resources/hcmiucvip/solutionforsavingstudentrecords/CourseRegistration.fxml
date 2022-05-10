@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -38,7 +37,7 @@
             <center>
                 <AnchorPane prefHeight="584.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Text fill="#0091ea" layoutX="572.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List :">
+                        <Text fill="#0091ea" layoutX="529.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List :">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -56,8 +55,6 @@
                             </font>
                         </Button>
                         <Button layoutX="335.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" />
-                        <TextField fx:id="registrationTFSearch" layoutX="778.0" layoutY="1.0" promptText="Course Code" />
-                        <Button layoutX="941.0" layoutY="1.0" mnemonicParsing="false" onAction="#setRegistrationSearchClick" prefHeight="25.0" prefWidth="66.0" text="Search" />
                   <TableView fx:id="tableCoursePossible" layoutX="528.0" layoutY="40.0" prefHeight="400.0" prefWidth="503.0">
                      <columns>
                         <TableColumn fx:id="courseIdPossible" prefWidth="67.0" style="-fx-alignment: center;" text="Course ID" />
