@@ -146,4 +146,34 @@ public abstract class Querier {
     public boolean existUsername(String username) {
         return this.existUsername("[dbo].[User]", username);
     }
+    public String getCourseValStringType(String tableName, String column, String colName, String colValId) {
+        String SQL = String.format("select %s " +
+                "FROM %s Where %s='%s'", column, tableName, colName, colValId);
+        System.out.println(SQL);
+        ResultSet result = runGetQuery(SQL);
+        if (result == null) return "";
+        try {
+            result.next();
+            return result.getString(column).trim();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+    public Integer getCourseValIntType(String tableName, String column, String colName, String colValId) {
+        String SQL = String.format("select %s " +
+                "FROM %s Where %s='%s'", column, tableName, colName, colValId);
+        System.out.println(SQL);
+        ResultSet result = runGetQuery(SQL);
+        if (result == null) return 0;
+        try {
+            result.next();
+            return result.getInt(column);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
 }

@@ -30,6 +30,11 @@ public class CourseInformation {
         this.remaining = remaining;
         cleanText();
     }
+    public CourseInformation(String courseId, Integer courseCredits) {
+        this.courseId = courseId;
+        if (courseCredits == null) courseCredits = 0;
+        this.courseCredits = courseCredits;
+    }
     public void cleanText() {
         if (this.courseId != null) this.courseId = this.courseId.trim();
         if (this.courseSection != null) this.courseSection = this.courseSection.trim();

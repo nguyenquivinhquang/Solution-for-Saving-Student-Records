@@ -23,19 +23,19 @@ public class Windows extends Application {
 //        stage.setScene(scene);
 //        stage.show();
 //        temp("II");
-        temp("IU");
+        temp("ITDSIU19017");
     }
     public void temp(String mssv) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
-                        "CourseRegistration.fxml"
+                        "StudentView.fxml"
                 )
         );
         Stage stage = new Stage(StageStyle.DECORATED);
         stage.setScene(
                 new Scene(loader.load())
         );
-        CourseRegistration controller = loader.getController();
+        StudentView controller = loader.getController();
         controller.setStudentId(mssv);
         stage.show();
         controller.init();

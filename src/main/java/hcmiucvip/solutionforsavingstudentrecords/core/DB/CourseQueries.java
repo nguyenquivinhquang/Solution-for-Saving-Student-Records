@@ -19,7 +19,9 @@ public class CourseQueries extends Querier {
 
         super(connection, "Course");
     }
+
     String tempTable = "CourseRegistrationTemporary";
+
     public ObservableList<CourseInformation> getCoursesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
@@ -98,13 +100,15 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Remaining", remaining));
         this.insertMultiValues(this.tableName, courseInsert);
     }
+
     public void addCourseStudentRegistered(String studentId, String courseId) {
         ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
         courseInsert.add(new Pair<>("Course_Id", courseId));
         courseInsert.add(new Pair<>("Student_Id", studentId));
 
-        this.insertMultiValues(this.tempTable,courseInsert);
+        this.insertMultiValues(this.tempTable, courseInsert);
     }
+
     public void updateCourseId(String courseId, String newValue) {
         changeValueColumn(courseId, "Course_Id", newValue);
     }
@@ -165,6 +169,26 @@ public class CourseQueries extends Querier {
 
         return 0;
     }
+
+    public String getCourseSection(String courseId) {
+        return getCourseValStringType("Section", courseId);
+
+    }
+    public String getCourseName(String courseId) {
+        return getCourseValStringType("Course_name", courseId);
+
+    }
+    public Integer getCourseCredit(String courseId) {
+        return getCourseValIntType("Credits", courseId);
+    }
+    private String getCourseValStringType(String column, String courseId) {
+        return getCourseValStringType("Course",column,"Course_Id",courseId);
+    }
+    private Integer getCourseValIntType(String column, String courseId) {
+        return getCourseValIntType("Course",column,"Course_Id",courseId);
+
+    }
+
     public boolean deleteCourseRegistered(String studentId, String courseId) {
         String SQL = "Delete from %s where Student_Id='%s' and Course_Id='%s'";
         SQL = String.format(SQL, this.tempTable, studentId, courseId);
