@@ -4,6 +4,7 @@ public class TeacherInformation {
     private String firstName, lastName, mail;
     private String username, teacherId, department;
 
+
     public TeacherInformation(String teacherId, String firstName, String lastName,
                               String username, String department, String mail) {
         this.teacherId = teacherId;

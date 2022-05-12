@@ -110,7 +110,10 @@ public class StudentView {
         calculateRecord();
 
         totalCreditsText.setText(String.valueOf(totalCredits));
-        averageScoreText.setText(String.format("%,.2f", totalScore/totalCredits));
+        Double avgScore;
+        if (totalCredits == 0) avgScore = 0.0;
+        else avgScore = totalScore / totalCredits;
+        averageScoreText.setText(String.format("%,.2f", avgScore));
 
     }
 
@@ -169,7 +172,6 @@ public class StudentView {
         alert.setHeaderText(null);
         // alert.setHeaderText("Results:");
         alert.setContentText(message);
-
         alert.showAndWait();
     }
 }

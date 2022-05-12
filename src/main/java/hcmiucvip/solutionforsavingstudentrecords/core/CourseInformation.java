@@ -4,7 +4,9 @@ public class CourseInformation {
     private String courseId, courseTitle, courseDescription, courseSection;
     private String teacherId;
     private Integer courseCredits, size, remaining;
+    public CourseInformation() {
 
+    }
     public CourseInformation(String courseId, String courseTitle, Integer courseCredits,
                              String teacherId, String courseDescription, String courseSection) {
         this.courseId = courseId;
@@ -16,6 +18,19 @@ public class CourseInformation {
         this.size = 30;
         this.remaining = 30;
         cleanText();
+    }
+    public CourseInformation(String courseId, String teacherId, String courseSection) {
+        this.courseId = courseId;
+        this.teacherId = teacherId;
+        this.courseSection = courseSection;
+    }
+    public CourseInformation(String courseId, String teacherId, String courseSection,
+                             Integer size, Integer remaining) {
+        this.courseId = courseId;
+        this.teacherId = teacherId;
+        this.courseSection = courseSection;
+        this.size = size;
+        this.remaining = remaining;
     }
     public CourseInformation(String courseId, String courseTitle, Integer courseCredits,
                              String teacherId, String courseDescription, String courseSection,
@@ -29,6 +44,13 @@ public class CourseInformation {
         this.size = size;
         this.remaining = remaining;
         cleanText();
+    }
+    public CourseInformation(String courseId,String courseTitle, Integer courseCredits, String courseDescription) {
+        this.courseCredits = courseCredits;
+        this.courseId = courseId;
+        this.courseTitle = courseTitle;
+        this.courseDescription = courseDescription;
+
     }
     public CourseInformation(String courseId, Integer courseCredits) {
         this.courseId = courseId;
@@ -56,7 +78,7 @@ public class CourseInformation {
     public void desRemain() {
         this.remaining -= 1;
     }
-    public Integer getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -105,6 +127,7 @@ public class CourseInformation {
     }
 
     public void setCourseCredits(Integer courseCredits) {
+
         this.courseCredits = courseCredits;
     }
 
@@ -123,4 +146,6 @@ public class CourseInformation {
     public String toString() {
         return courseId + '-' + courseTitle + '-' + courseCredits + '-' + courseSection;
     }
+
+
 }

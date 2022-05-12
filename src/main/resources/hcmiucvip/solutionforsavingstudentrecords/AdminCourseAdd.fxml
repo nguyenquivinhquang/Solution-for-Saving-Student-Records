@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -19,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AdminCourseAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AdminCourseAddController">
     <children>
         <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -48,9 +47,9 @@
                 </AnchorPane>
             </top>
             <center>
-                <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <SplitPane dividerPositions="0.3829113924050633" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="291.0">
                             <children>
                                 <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseAddNewButtonClick" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0B9CE3; -fx-text-fill: white;" text="AddNew" AnchorPane.leftAnchor="14.0" />
                                 <Button layoutX="134.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Edit" textFill="WHITE" />
@@ -70,8 +69,6 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID" wrappingWidth="70.92236328125">
@@ -92,18 +89,6 @@
                                             </font>
                                         </Text>
                                         <TextField fx:id="courseCreditField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course Section" GridPane.rowIndex="3">
-                                            <font>
-                                                <Font size="15.0" />
-                                            </font>
-                                        </Text>
-                                        <ChoiceBox fx:id="sectionSelect" onMouseClicked="#setSectionSelect" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Text layoutX="10.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Id" GridPane.rowIndex="4">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="teacherIdField" layoutX="129.0" layoutY="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     </children>
                                 </GridPane>
                                 <Text layoutX="16.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Informatin" AnchorPane.bottomAnchor="444.7333984375" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="197.095703125" AnchorPane.topAnchor="120.6552734375">
@@ -122,17 +107,15 @@
                                 <TextArea fx:id="descriptionTextArea" layoutX="60.0" layoutY="368.0" prefHeight="55.0" prefWidth="239.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="632.0">
                             <children>
                                 <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="21.0" />
-                                <TableView fx:id="adminCourseView" layoutX="1.0" layoutY="61.0" prefHeight="533.0" prefWidth="822.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="61.0">
+                                <TableView fx:id="adminCourseView" layoutX="1.0" layoutY="61.0" prefHeight="533.0" prefWidth="580.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="61.0">
                                     <columns>
                                         <TableColumn fx:id="courseTableId" prefWidth="107.0" style="-fx-alignment: center;" text="Course ID" />
                                         <TableColumn fx:id="courseTableTitle" prefWidth="159.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
-                              <TableColumn fx:id="courseTeacherName" prefWidth="104.0" text="Teacher Id" />
-                                        <TableColumn fx:id="courseTableCredits" prefWidth="156.0" text="Course Credit" />
-                                        <TableColumn fx:id="courseTableDescription" prefWidth="160.0" text="Course Description" />
-                                        <TableColumn fx:id="courseTableSection" maxWidth="3000.0" prefWidth="135.0" text="Course Section" />
+                                        <TableColumn fx:id="courseTableCredits" prefWidth="134.0" text="Course Credit" />
+                                        <TableColumn fx:id="courseTableDescription" prefWidth="179.0" text="Course Description" />
                                     </columns>
                                 </TableView>
                             </children>

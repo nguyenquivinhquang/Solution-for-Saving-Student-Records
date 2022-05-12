@@ -141,7 +141,7 @@ public class StudentQueries extends Querier {
 //    }
     public ArrayList<CourseStudentScore> courseStudentScore(String studentId) {
         ArrayList<CourseStudentScore> records = new ArrayList<>();
-        String SQL = "Select Course_Id, Final, Total, Assignment, Midterm from Enrolled_Course where Student_Id = '%s'";
+        String SQL = "Select Course_Id, Final, Total, In_class, Midterm from Enrolled_Course where Student_Id = '%s'";
 
         SQL = String.format(SQL, studentId);
 
@@ -151,7 +151,7 @@ public class StudentQueries extends Querier {
                 records.add(new CourseStudentScore(
                         studentId,
                         res.getString("Course_Id").trim(),
-                        res.getDouble("Assignment"),
+                        res.getDouble("In_class"),
                         res.getDouble("Midterm"),
                         res.getDouble("Final"),
                         res.getDouble("Total")
@@ -169,17 +169,16 @@ public class StudentQueries extends Querier {
     public ObservableList<CourseInformation> getCurrentRunningCourse(String studentId) {
         ObservableList<CourseInformation> courseInformations = FXCollections.observableArrayList();
 
-        String SQL = "select Course_Id, Credit from CourseRegistrationTemporary\n" +
+        String SQL = "select Course_Id from Enrolled_Course\n" +
                 "where Student_Id='%s';";
         SQL = String.format(SQL, studentId);
         System.out.println(SQL);
         ResultSet res = runGetQuery(SQL);
         try {
             while (res.next()) {
-                courseInformations.add(new CourseInformation(
-                        res.getString("Course_Id").trim(),
-                        res.getInt("Credit")
-                ));
+                CourseInformation course = new CourseInformation();
+                course.setCourseId(res.getString("Course_Id").trim());
+                courseInformations.add(course);
             }
         } catch (Exception e) {
             e.printStackTrace();

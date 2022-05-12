@@ -47,14 +47,16 @@
                     <children>
                         <TableView fx:id="teacherTableView" layoutX="974.0" layoutY="65.0" prefHeight="525.0" prefWidth="712.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
                             <columns>
-                                <TableColumn fx:id="teacherColumnID" prefWidth="138.0" text="Student ID" />
-                                <TableColumn fx:id="teacherColumnName" prefWidth="163.0" text="Student Name" />
-                                <TableColumn fx:id="teacherColumnGPA" prefWidth="106.0" text="This Course GPA" />
-                                <TableColumn fx:id="teacherColumnPhone" prefWidth="132.0" text="Phone" />
-                                <TableColumn fx:id="teacherEmail" prefWidth="172.0" text="Email" />
+                                <TableColumn fx:id="teacherColumnID" prefWidth="74.0" text="Student ID" />
+                                <TableColumn fx:id="teacherColumnName" prefWidth="109.0" text="First Name" />
+                                <TableColumn fx:id="teacherColumnGPA" prefWidth="112.0" text="Last name" />
+                                <TableColumn fx:id="teacherColumnPhone" prefWidth="87.0" text="In class" />
+                                <TableColumn fx:id="teacherEmail" prefWidth="95.0" text="Midterm" />
+                        <TableColumn fx:id="teacherEmail1" prefWidth="88.0" text="Final" />
+                        <TableColumn fx:id="teacherEmail11" prefWidth="146.0" text="Total" />
                             </columns>
                         </TableView>
-                        <ComboBox fx:id="teacherTableSecChoose" layoutX="468.0" layoutY="14.0" prefWidth="150.0" promptText="Choose a Section" />
+                        <ComboBox fx:id="teacherChooseCLass" layoutX="468.0" layoutY="14.0" prefWidth="150.0" promptText="Choose a class" />
                         <Button fx:id="teacherLoadButton" layoutX="633.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #f57c00;" text="Load" textFill="WHITE" />
                         <Text fill="#0e3ec3" layoutX="75.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA Calculation :">
                             <font>
@@ -107,7 +109,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Button>
-                        <Button fx:id="teacherCancelButton" disable="true" layoutX="273.0" layoutY="463.0" mnemonicParsing="false" onAction="#setTeacherCancelClick" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #f57c00;" text="Cancel" textFill="WHITE">
+                        <Button fx:id="teacherCancelButton" disable="true" layoutX="273.0" layoutY="463.0" mnemonicParsing="false" onAction="#setTeacherCancelClick" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #f57c00;" text="Clear" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
                             </font>

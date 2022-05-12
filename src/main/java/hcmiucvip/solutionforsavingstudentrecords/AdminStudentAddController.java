@@ -79,7 +79,7 @@ public class AdminStudentAddController implements Initializable {
     public void setAdminCoursePanelClick() throws IOException {
         System.out.println("Cute");
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("CourseView.fxml"));
+        loader.setLocation(getClass().getResource("AdminClassAdd.fxml"));
         loader.load();
         Parent p = loader.getRoot();
         Stage stage = new Stage();

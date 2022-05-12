@@ -1,5 +1,6 @@
 package hcmiucvip.solutionforsavingstudentrecords.core.DB;
 
+import hcmiucvip.solutionforsavingstudentrecords.core.Classroom;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.FXCollections;
@@ -7,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.util.Pair;
 
 import javax.xml.transform.Result;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -22,10 +24,35 @@ public class CourseQueries extends Querier {
 
     String tempTable = "CourseRegistrationTemporary";
 
+    public ObservableList<CourseInformation> getClassList() {
+        ObservableList<CourseInformation> classrooms = FXCollections.observableArrayList();
+        try {
+            String SQL = "Select Course_Id, Teacher_Id, Section, Size, Remaining from Class;";
+            System.out.println(SQL);
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery(SQL);
+            if (!res.isBeforeFirst()) return classrooms;
+            while (res.next()) {
+                classrooms.add(new CourseInformation(
+                        res.getString("Course_Id").trim(),
+                        res.getString("Teacher_Id").trim(),
+                        res.getString("Section").trim(),
+                        res.getInt("Size"),
+                        res.getInt("Remaining")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return classrooms;
+    }
+
     public ObservableList<CourseInformation> getCoursesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Course_Id,Course_name, Credits, Description,Teacher_Id, Section,Size, Remaining from Course;";
+            String SQL = "Select Course_Id,Course_name, Credits, Description from Course;";
             System.out.println(SQL);
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
@@ -35,27 +62,23 @@ public class CourseQueries extends Querier {
                         res.getString("Course_Id").trim(),
                         res.getString("Course_name").trim(),
                         res.getInt("Credits"),
-                        res.getString("Teacher_Id").trim(),
-                        res.getString("Description").trim(),
-                        res.getString("Section").trim(),
-                        res.getInt("Size"),
-                        res.getInt("Remaining")
-                ));
+                        res.getString("Description").trim()
 
+                ));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Bug on getCoursesList");
         }
 
         return coursesInformation;
     }
 
     public ArrayList<String> getCourseRegistration(String studentId) {
-//        ObservableList<String> coursesInformation = FXCollections.observableArrayList();
         ArrayList<String> courseRegistered = new ArrayList<>();
         try {
-            String SQL = "Select Course_Id,Credit from CourseRegistrationTemporary where Student_Id='%s';";
+            String SQL = "Select Course_Id,Credit from Enrolled_Course where Student_Id='%s';";
             SQL = String.format(SQL, studentId);
 
             System.out.println(SQL);
@@ -84,20 +107,30 @@ public class CourseQueries extends Querier {
         return courseRegistered;
     }
 
-    public void addCourse(String courseId, String courseName, Integer credits, String descriptions, String teacherId,
-                          String section, Integer size, Integer remaining) {
-        if (descriptions == null) {
-            descriptions = "";
-        }
+    public void addClass(String courseId, String teacherId,
+                         String section, Integer size, Integer remaining) {
+
         ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
         courseInsert.add(new Pair<>("Course_Id", courseId));
-        courseInsert.add(new Pair<>("Course_name", courseName));
-        courseInsert.add(new Pair<>("Description", descriptions));
         courseInsert.add(new Pair<>("Teacher_Id", teacherId));
         courseInsert.add(new Pair<>("Section", section));
-        courseInsert.add(new Pair<>("Credits", credits));
         courseInsert.add(new Pair<>("Size", size));
         courseInsert.add(new Pair<>("Remaining", remaining));
+        this.insertMultiValues("Class", courseInsert);
+    }
+    public void deleteClass(String courseId, String teacherId, String section) {
+        String SQL = "delete from %s WHERE %s='%s' and %s='%s' and %s='%s' ";
+        SQL = String.format(SQL, "Class", "Course_Id", courseId,
+                "Teacher_Id", teacherId, "Section", section);
+        System.out.println(SQL);
+        runSetQuery(SQL);
+    }
+    public void addCourse(String courseId, String courseTitle, String descriptions, Integer credits) {
+        ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
+        courseInsert.add(new Pair<>("Course_Id", courseId));
+        courseInsert.add(new Pair<>("Description", descriptions));
+        courseInsert.add(new Pair<>("Course_name", courseTitle));
+        courseInsert.add(new Pair<>("Credits", credits));
         this.insertMultiValues(this.tableName, courseInsert);
     }
 
@@ -105,7 +138,6 @@ public class CourseQueries extends Querier {
         ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
         courseInsert.add(new Pair<>("Course_Id", courseId));
         courseInsert.add(new Pair<>("Student_Id", studentId));
-
         this.insertMultiValues(this.tempTable, courseInsert);
     }
 
@@ -131,6 +163,14 @@ public class CourseQueries extends Querier {
 
     public void updateCourseSection(String courseId, String newValue) {
         changeValueColumn(courseId, "Section", newValue);
+    }
+
+    public void updateCourseSize(String courseId, String teacherId, String section, Integer size) {
+        String SQL = "UPDATE %s SET %s='%s' WHERE %s='%s' and %s='%s' and %s='%s' ";
+        SQL = String.format(SQL, "Class", "Size", size, "Course_Id", courseId,
+                "Teacher_Id", teacherId, "Section", section);
+        System.out.println(SQL);
+        runSetQuery(SQL);
     }
 
     public void updateCourseSize(String courseId, Integer newValue) {
@@ -159,7 +199,6 @@ public class CourseQueries extends Querier {
         System.out.println(SQL);
         ResultSet result = runGetQuery(SQL);
         if (result == null) return 0;
-//        if (!result.isBeforeFirst()) return 0;
         try {
             result.next();
             return result.getInt("Remaining");
@@ -174,18 +213,22 @@ public class CourseQueries extends Querier {
         return getCourseValStringType("Section", courseId);
 
     }
+
     public String getCourseName(String courseId) {
         return getCourseValStringType("Course_name", courseId);
 
     }
+
     public Integer getCourseCredit(String courseId) {
         return getCourseValIntType("Credits", courseId);
     }
+
     private String getCourseValStringType(String column, String courseId) {
-        return getCourseValStringType("Course",column,"Course_Id",courseId);
+        return getCourseValStringType("Course", column, "Course_Id", courseId);
     }
+
     private Integer getCourseValIntType(String column, String courseId) {
-        return getCourseValIntType("Course",column,"Course_Id",courseId);
+        return getCourseValIntType("Course", column, "Course_Id", courseId);
 
     }
 

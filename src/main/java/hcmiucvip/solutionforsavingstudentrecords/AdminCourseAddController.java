@@ -3,7 +3,6 @@ package hcmiucvip.solutionforsavingstudentrecords;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;
-import hcmiucvip.solutionforsavingstudentrecords.core.DB.TeacherQueries;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,25 +19,23 @@ import java.util.regex.Pattern;
 
 public class AdminCourseAddController implements Initializable {
     //Todo: Add courseSize, courseRemain
-    public ChoiceBox sectionSelect;
     public Button saveButton;
     boolean isEdit = false;
     @FXML
     TextField courseIdField, courseTitleField, courseCreditField;
     @FXML
     TextArea descriptionTextArea;
-    @FXML
-    TextField teacherIdField;
+
 
     private CourseQueries courseQueries = new CourseQueries();
-    private TeacherQueries teacherQueries = new TeacherQueries();
+
     @FXML
     public TableView<CourseInformation> adminCourseView;
 
     @FXML
     public TableColumn<CourseInformation, String> courseTableId, courseTableTitle;
     @FXML
-    public TableColumn<CourseInformation, String> courseTableCredits, courseTableDescription, courseTableSection, courseTeacherName;
+    public TableColumn<CourseInformation, String> courseTableCredits, courseTableDescription;
 
     private HashMap<String, CourseInformation> courseTrace = new HashMap<>();
     private static Connection connection = DatabaseConnectionManager.getDBConnection();
@@ -47,12 +44,6 @@ public class AdminCourseAddController implements Initializable {
     public void setCourseCloseButtonClick(ActionEvent event) {
     }
 
-    ObservableList<String> Day = FXCollections.observableArrayList("Monday", "Tuesday",
-            "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-
-    public void setSectionSelect() {
-        sectionSelect.setItems(Day);
-    }
 
     public void setCourseAboutButtonClick(ActionEvent event) {
 
@@ -75,8 +66,7 @@ public class AdminCourseAddController implements Initializable {
         courseIdField.setEditable(false);
         courseTitleField.setText(course.getCourseTitle());
         courseCreditField.setText(String.valueOf(course.getCourseCredits()));
-        sectionSelect.setValue(course.getCourseSection());
-        teacherIdField.setText(course.getTeacherId());
+//        teacherIdField.setText(course.getTeacherId());
         descriptionTextArea.setText(course.getCourseDescription());
     }
 
@@ -87,10 +77,6 @@ public class AdminCourseAddController implements Initializable {
         courseTrace.remove(course.getCourseId());
         resetField();
     }
-
-    public void setCourseSearchButtonClick(ActionEvent event) {
-    }
-
     public void setCourseRefreshButtonClick(ActionEvent event) {
         adminCourseView.refresh();
     }
@@ -99,9 +85,7 @@ public class AdminCourseAddController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        // alert.setHeaderText("Results:");
         alert.setContentText(message);
-
         alert.showAndWait();
     }
 
@@ -111,7 +95,6 @@ public class AdminCourseAddController implements Initializable {
 
     private boolean inputOK() {
         Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
-        System.out.println(sectionSelect.getValue());
         if (courseIdField.getText().isBlank()) {
             showWarning("Course Id must not empty");
             return false;
@@ -124,20 +107,9 @@ public class AdminCourseAddController implements Initializable {
             showWarning("Course credit must not empty");
             return false;
         }
+
         if (!pattern.matcher(courseCreditField.getText()).matches()) {
             showWarning("Course credit be a number");
-            return false;
-        }
-        if (teacherIdField.getText().isBlank()) {
-            showWarning("Teacher Id must not empty");
-            return false;
-        }
-        if (!teacherQueries.existTeacherId(teacherIdField.getText())) {
-            showWarning("Teacher Id isn't exist");
-            return false;
-        }
-        if (sectionSelect.getValue() == null) {
-            showWarning("Course section must be chosen");
             return false;
         }
         return true;
@@ -147,19 +119,13 @@ public class AdminCourseAddController implements Initializable {
         courseIdField.clear();
         courseTitleField.clear();
         courseCreditField.clear();
-        sectionSelect.setValue("");
-        sectionSelect.setItems(Day);
-        teacherIdField.clear();
         descriptionTextArea.clear();
-
     }
 
     private void setVisibleField(boolean condition) {
         courseIdField.setVisible(condition);
         courseTitleField.setVisible(condition);
         courseCreditField.setVisible(condition);
-        sectionSelect.setVisible(condition);
-        teacherIdField.setVisible(condition);
     }
 
     private void disableVisibleField() {
@@ -171,45 +137,39 @@ public class AdminCourseAddController implements Initializable {
     }
 
     private void addCourse() {
-        // Todo: add course size field
         CourseInformation course = new CourseInformation(courseIdField.getText(), courseTitleField.getText(),
-                Integer.parseInt(courseCreditField.getText()), teacherIdField.getText(), descriptionTextArea.getText(), (String) sectionSelect.getValue());
-        Integer courseSize = 30;
-        courseQueries.addCourse(courseIdField.getText(), courseTitleField.getText(),
-                Integer.parseInt(courseCreditField.getText()), descriptionTextArea.getText(),
-                teacherIdField.getText(), (String) sectionSelect.getValue(), courseSize, courseSize);
+                Integer.parseInt(courseCreditField.getText()), descriptionTextArea.getText());
+        courseQueries.addCourse(courseIdField.getText(),
+                courseTitleField.getText(),
+                descriptionTextArea.getText(),
+                Integer.parseInt(courseCreditField.getText()));
         adminCourseView.refresh();
         courseInformations.add(course);
         courseTrace.put(course.getCourseId(), course);
         resetField();
     }
+
     private void editCourse() {
-        String courseId = courseIdField.getText().toLowerCase();
+        String courseId = courseIdField.getText().toUpperCase().trim();
         String courseTitle = courseTitleField.getText();
         Integer courseCredit = Integer.valueOf(courseCreditField.getText());
-        String courseSelection = (String) sectionSelect.getValue();
-        String teacherId = teacherIdField.getText();
         String description = descriptionTextArea.getText();
 
         if (description == null) description = "";
         courseQueries.updateCourseName(courseId, courseTitle);
-        courseQueries.updateCourseTeacherId(courseId, teacherId);
         courseQueries.updateCourseCredits(courseId, courseCredit);
         courseQueries.updateCourseDescription(courseId, description);
-        courseQueries.updateCourseSection(courseId, courseSelection);
-
         CourseInformation course = courseTrace.get(courseId);
 
         course.setCourseCredits(courseCredit);
         course.setCourseDescription(description);
         course.setCourseTitle(courseTitle);
-        course.setCourseSection(courseSelection);
-        course.setTeacherId(teacherId);
 
         adminCourseView.refresh();
         resetField();
         disableVisibleField();
     }
+
     public void setCourseSaveButtonClick() {
         if (!inputOK()) return;
         if (isEdit == true) {
@@ -230,8 +190,6 @@ public class AdminCourseAddController implements Initializable {
         courseTableTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
         courseTableCredits.setCellValueFactory(new PropertyValueFactory<>("courseCredits"));
         courseTableDescription.setCellValueFactory(new PropertyValueFactory<>("courseDescription"));
-        courseTableSection.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
-        courseTeacherName.setCellValueFactory(new PropertyValueFactory<>("teacherId"));
 
         courseInformations = courseQueries.getCoursesList();
         for (CourseInformation course : courseInformations) {

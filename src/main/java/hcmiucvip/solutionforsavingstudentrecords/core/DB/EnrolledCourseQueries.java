@@ -17,19 +17,18 @@ public class EnrolledCourseQueries extends Querier {
 
     public CourseStudentScore getStudentScore(String studentId, String courseId) {
         CourseStudentScore courseStudentScore;
-        String SQL = String.format("SELECT [Assignment]\n" +
+        String SQL = String.format("SELECT [In_class]\n" +
                 "      ,[Midterm]\n" +
                 "      ,[Final]\n" +
                 "      ,[Total]\n" +
                 "      ,[Course_Id]\n" +
                 "      ,[Student_Id]\n" +
-                "      ,[Credits]\n" +
                 "FROM [StudentRecord].[dbo].[Enrolled_Course]\n" +
                 "Where Student_Id = '%s' and Course_Id = '%s';", studentId, courseId);
         ResultSet res = runGetQuery(SQL);
         try {
             courseStudentScore = new CourseStudentScore(studentId,
-                    courseId, res.getDouble("Assignment"),
+                    courseId, res.getDouble("In_class"),
                     res.getDouble("Midterm"),
                     res.getDouble("Final"),
                     res.getDouble("Total"));
@@ -43,14 +42,13 @@ public class EnrolledCourseQueries extends Querier {
 
     public ObservableList<CourseStudentScore> getStudenScoreList(String studentId) {
         ObservableList<CourseStudentScore> courseStudentScores = FXCollections.observableArrayList();
-        String SQL = String.format("SELECT [Assignment]\n" +
+        String SQL = String.format("SELECT [In_class]\n" +
                 "      ,[Midterm]\n" +
                 "      ,[Course_Id]\n" +
                 "      ,[Final]\n" +
                 "      ,[Total]\n" +
                 "      ,[Course_Id]\n" +
                 "      ,[Student_Id]\n" +
-                "      ,[Credits]\n" +
                 "FROM [StudentRecord].[dbo].[Enrolled_Course]\n" +
                 "Where Student_Id = '%s';", studentId);
         System.out.println(SQL);
@@ -59,7 +57,7 @@ public class EnrolledCourseQueries extends Querier {
             while (res.next()) {
                 courseStudentScores.add(new CourseStudentScore(studentId,
                         res.getString("Course_Id").trim(),
-                        res.getDouble("Assignment"),
+                        res.getDouble("In_class"),
                         res.getDouble("Midterm"),
                         res.getDouble("Final"),
                         res.getDouble("Total")));
