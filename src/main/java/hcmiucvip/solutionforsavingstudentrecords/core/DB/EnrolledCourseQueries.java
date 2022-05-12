@@ -58,7 +58,7 @@ public class EnrolledCourseQueries extends Querier {
         try {
             while (res.next()) {
                 courseStudentScores.add(new CourseStudentScore(studentId,
-                        res.getString("Course_Id"),
+                        res.getString("Course_Id").trim(),
                         res.getDouble("Assignment"),
                         res.getDouble("Midterm"),
                         res.getDouble("Final"),

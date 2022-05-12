@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -41,9 +42,13 @@ public class StudentView {
             resultHistoryColumnAssignment, resultHistoryColumnMidterm, resultHistoryColumnFinal, resultHistoryColumnTotal;
     @FXML
     Label firstnameLabel, lastnameLabel, emailLabel;
+    @FXML
+    Text totalCreditsText, averageScoreText;
     ObservableList<CourseStudentScore> courseStudentScores;
     ObservableList<CourseInformation> courseSection;
 
+    private int totalCredits = 0;
+    private double totalScore = 0;
     public void setCourseCloseButtonClick(ActionEvent event) {
     }
 
@@ -102,6 +107,11 @@ public class StudentView {
         resultHistoryTable.setItems(courseStudentScores);
         studentInformation = studentQueries.getStudentInformation(this.studentId);
         updateStudentInformationField();
+        calculateRecord();
+
+        totalCreditsText.setText(String.valueOf(totalCredits));
+        averageScoreText.setText(String.format("%,.2f", totalScore/totalCredits));
+
     }
 
     private void updateStudentInformationField() {
@@ -145,7 +155,14 @@ public class StudentView {
         stage.show();
         controller.init();
     }
+    private void calculateRecord() {
+        for (CourseStudentScore course : courseStudentScores) {
+            Integer curCredits = courseQueries.getCourseCredit(course.getCourseId());
+            totalScore += course.getTotalScore() * curCredits;
+            totalCredits += curCredits;
 
+        }
+    }
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");

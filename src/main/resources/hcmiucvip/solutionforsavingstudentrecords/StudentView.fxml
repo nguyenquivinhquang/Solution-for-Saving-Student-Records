@@ -149,7 +149,6 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Text fill="#673ab7" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of credits accumulated">
@@ -157,27 +156,17 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester average mark " GridPane.rowIndex="1">
+                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="10.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accumulated average score" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="10.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accumulated average mark" GridPane.rowIndex="2">
+                        <Text fx:id="totalCreditsText" fill="#673ab7" fontSmoothingType="LCD" layoutX="10.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="103.0" GridPane.columnIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="10.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="103.0" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="224.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#673ab7" fontSmoothingType="LCD" layoutX="224.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Text fx:id="averageScoreText" fill="#673ab7" fontSmoothingType="LCD" layoutX="224.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>

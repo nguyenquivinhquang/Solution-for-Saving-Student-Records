@@ -38,7 +38,7 @@ public class StudentQueries extends Querier {
                         res.getString("Mail").trim()
                 );
                 if (res.getString("Bid") != null)
-                    student.setbId(res.getString("Bid"));
+                    student.setbId(res.getString("Bid").trim());
                 studentInformations.add(student);
                 System.out.println(student);
             }

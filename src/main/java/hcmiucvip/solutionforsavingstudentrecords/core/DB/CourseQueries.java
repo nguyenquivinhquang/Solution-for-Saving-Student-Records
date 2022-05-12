@@ -32,12 +32,12 @@ public class CourseQueries extends Querier {
             if (!res.isBeforeFirst()) return coursesInformation;
             while (res.next()) {
                 coursesInformation.add(new CourseInformation(
-                        res.getString("Course_Id"),
-                        res.getString("Course_name"),
+                        res.getString("Course_Id").trim(),
+                        res.getString("Course_name").trim(),
                         res.getInt("Credits"),
-                        res.getString("Teacher_Id"),
-                        res.getString("Description"),
-                        res.getString("Section"),
+                        res.getString("Teacher_Id").trim(),
+                        res.getString("Description").trim(),
+                        res.getString("Section").trim(),
                         res.getInt("Size"),
                         res.getInt("Remaining")
                 ));
