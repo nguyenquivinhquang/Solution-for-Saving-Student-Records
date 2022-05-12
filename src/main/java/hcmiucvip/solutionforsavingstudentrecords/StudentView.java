@@ -81,7 +81,7 @@ public class StudentView {
         courseSection = studentQueries.getCurrentRunningCourse(this.studentId);
 
         for (CourseInformation course : courseSection) {
-            course.setCourseSection(courseQueries.getCourseSection(course.getCourseId()));
+//            course.setCourseSection(courseQueries.getCourseSection(course.getCourseId()));
             course.setCourseCredits(courseQueries.getCourseCredit(course.getCourseId()));
             course.setCourseTitle(courseQueries.getCourseName(course.getCourseId()));
         }

@@ -102,6 +102,9 @@ public class CourseRegistration {
 //        courseInformationsChoosen =
         courseInformationsPossible = courseQueries.getCoursesList();
         for (CourseInformation course : courseInformationsPossible) {
+            CourseInformation _course = courseQueries.getCourseFromCourseId(course.getCourseId());
+            course.setCourseCredits(_course.getCourseCredits());
+            course.setCourseTitle(_course.getCourseTitle());
             courseInformationTrace.put(course.getCourseId(), course);
         }
         courseInformationsChoosen = FXCollections.observableArrayList();
@@ -166,7 +169,7 @@ public class CourseRegistration {
         courseInformationsChoosen.add(course);
         courseChoosenTrace.add(course.getCourseTitle());
         refresh();
-        courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId());
+        courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId(), course.getTeacherId(), course.getCourseSection());
     }
 
     private void showWarning(String message) {

@@ -169,7 +169,7 @@ public class StudentQueries extends Querier {
     public ObservableList<CourseInformation> getCurrentRunningCourse(String studentId) {
         ObservableList<CourseInformation> courseInformations = FXCollections.observableArrayList();
 
-        String SQL = "select Course_Id from Enrolled_Course\n" +
+        String SQL = "select Course_Id, Section, Teacher_Id from Enrolled_Course\n" +
                 "where Student_Id='%s';";
         SQL = String.format(SQL, studentId);
         System.out.println(SQL);
@@ -178,6 +178,8 @@ public class StudentQueries extends Querier {
             while (res.next()) {
                 CourseInformation course = new CourseInformation();
                 course.setCourseId(res.getString("Course_Id").trim());
+                course.setTeacherId(res.getString("Teacher_Id").trim());
+                course.setCourseSection(res.getString("Section").trim());
                 courseInformations.add(course);
             }
         } catch (Exception e) {
