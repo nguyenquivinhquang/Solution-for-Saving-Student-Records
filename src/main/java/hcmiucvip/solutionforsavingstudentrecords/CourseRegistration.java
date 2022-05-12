@@ -6,16 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
-import java.net.URL;
 import java.util.*;
 
 public class CourseRegistration {
+    Stage stage;
     CourseQueries courseQueries = new CourseQueries();
     private String studentId;
     ObservableList<CourseInformation> courseInformationsChoosen, courseInformationsPossible;
@@ -30,7 +30,9 @@ public class CourseRegistration {
         super();
 
     }
-
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
     public String getStudentId() {
         return studentId;
     }
@@ -70,6 +72,7 @@ public class CourseRegistration {
 
     public void setRegistrationDoneClick(ActionEvent event) {
         System.out.println(studentId);
+        this.stage.close();
     }
 
     public void refresh() {

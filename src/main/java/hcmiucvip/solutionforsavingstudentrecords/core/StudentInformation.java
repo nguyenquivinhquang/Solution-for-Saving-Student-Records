@@ -15,6 +15,7 @@ public class StudentInformation {
         this.academicYear = academicYear;
         this.day = new SimpleStringProperty(birthDay);
         this.mail = mail;
+        this.username = studentId;
         bId = "";
     }
 

@@ -1,37 +1,46 @@
 package hcmiucvip.solutionforsavingstudentrecords;
 
+import hcmiucvip.solutionforsavingstudentrecords.core.Auth.UserAuthenticator;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseStudentScore;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
+import hcmiucvip.solutionforsavingstudentrecords.core.DB.EnrolledCourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class StudentView {
     StudentInformation studentInformation;
     StudentQueries studentQueries = new StudentQueries();
     CourseQueries courseQueries = new CourseQueries();
+    EnrolledCourseQueries enrolledCourseQueries = new EnrolledCourseQueries();
     private String studentId;
     @FXML
-    public TextField firstnameField, lastnameField, emailField, oldPassword, newPassField;
+    public PasswordField oldPasswordField, newPasswordField, reNewPasswordField;
     @FXML
     TableView<CourseInformation> timeTable;
     @FXML
-    TableColumn<CourseInformation, String> studentRCourseColumnCode, studentRCourseColumnTitle, studentRCourseColumnSec,studentRCourseColumnCredits;
+    TableView<CourseStudentScore> resultHistoryTable;
+    @FXML
+    TableColumn<CourseInformation, String> studentRCourseColumnCode, studentRCourseColumnTitle, studentRCourseColumnSec, studentRCourseColumnCredits;
     @FXML
     TableColumn<CourseInformation, String> resultHistoryColumnCode, resultHistoryColumnName, resultHistoryColumnSemester,
             resultHistoryColumnAssignment, resultHistoryColumnMidterm, resultHistoryColumnFinal, resultHistoryColumnTotal;
     @FXML
-    Label firstnameLabel, lastnameLabel;
+    Label firstnameLabel, lastnameLabel, emailLabel;
     ObservableList<CourseStudentScore> courseStudentScores;
     ObservableList<CourseInformation> courseSection;
 
@@ -39,21 +48,34 @@ public class StudentView {
     }
 
     public void setStudentSaveClick(ActionEvent event) {
-        firstnameField.clear();
-        lastnameField.clear();
-        emailField.clear();
-        oldPassword.clear();
-        newPassField.clear();
+        if (oldPasswordField.getText() == "" || newPasswordField.getText() == ""
+                || reNewPasswordField.getText() == "") {
+            showWarning("Password field must not empty");
+            return;
+        }
+        if (UserAuthenticator.auth(this.studentId, oldPasswordField.getText()).getKey() == "none") {
+            showWarning("Old Password is not correct");
+            return;
+        }
+        if (newPasswordField.getText().trim().equals(reNewPasswordField.getText().trim()) == false) {
+            showWarning("New password does not match");
+            return;
+        }
+        studentQueries.updateUserPass(this.studentId, newPasswordField.getText().trim());
+        oldPasswordField.clear();
+        newPasswordField.clear();
+        reNewPasswordField.clear();
+
     }
 
-    private void getStudentScore() {
-
+    private void getStudentScoreRecord() {
+        courseStudentScores = enrolledCourseQueries.getStudenScoreList(this.studentId);
     }
 
     private void getRunningCourse() {
         courseSection = studentQueries.getCurrentRunningCourse(this.studentId);
 
-        for (CourseInformation course: courseSection) {
+        for (CourseInformation course : courseSection) {
             course.setCourseSection(courseQueries.getCourseSection(course.getCourseId()));
             course.setCourseCredits(courseQueries.getCourseCredit(course.getCourseId()));
             course.setCourseTitle(courseQueries.getCourseName(course.getCourseId()));
@@ -62,28 +84,40 @@ public class StudentView {
 
     public void init() {
         getRunningCourse();
+        getStudentScoreRecord();
         studentRCourseColumnCredits.setCellValueFactory(new PropertyValueFactory<>("courseCredits"));
         studentRCourseColumnTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
         studentRCourseColumnSec.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
 
         timeTable.setItems(courseSection);
-//        resultHistoryColumnCode.setCellValueFactory(new PropertyValueFactory<>("courseId"));
-//        resultHistoryColumnName.setCellValueFactory(new PropertyValueFactory<>("courseId"));
-//        resultHistoryColumnSemester.setCellValueFactory(new PropertyValueFactory<>("courseId"));
-//        resultHistoryColumnAssignment.setCellValueFactory(new PropertyValueFactory<>("assignmentScore"));
-//        resultHistoryColumnMidterm.setCellValueFactory(new PropertyValueFactory<>("midtermScore"));
-//        resultHistoryColumnFinal.setCellValueFactory(new PropertyValueFactory<>("finalScore"));
-//        resultHistoryColumnTotal.setCellValueFactory(new PropertyValueFactory<>("totalScore"));
-         studentInformation = studentQueries.getStudentInformation(this.studentId);
-         updateStudentInformationField();
+
+        resultHistoryColumnCode.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        resultHistoryColumnName.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        resultHistoryColumnSemester.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        resultHistoryColumnAssignment.setCellValueFactory(new PropertyValueFactory<>("assignmentScore"));
+        resultHistoryColumnMidterm.setCellValueFactory(new PropertyValueFactory<>("midtermScore"));
+        resultHistoryColumnFinal.setCellValueFactory(new PropertyValueFactory<>("finalScore"));
+        resultHistoryColumnTotal.setCellValueFactory(new PropertyValueFactory<>("totalScore"));
+
+        resultHistoryTable.setItems(courseStudentScores);
+        studentInformation = studentQueries.getStudentInformation(this.studentId);
+        updateStudentInformationField();
     }
+
     private void updateStudentInformationField() {
         if (this.studentInformation == null) return;
         firstnameLabel.setText(studentInformation.getFirstName());
         lastnameLabel.setText(studentInformation.getLastName());
-
+        emailLabel.setText(studentInformation.getMail());
+        oldPasswordField.setText("");
+        newPasswordField.setText("");
+        reNewPasswordField.setText("");
     }
+
     public void setStudentCancelClick() {
+        oldPasswordField.setText("");
+        newPasswordField.setText("");
+        reNewPasswordField.setText("");
 
     }
 
@@ -93,5 +127,32 @@ public class StudentView {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
+    }
+
+    public void setStudentRegistrationClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "CourseRegistration.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        CourseRegistration controller = loader.getController();
+        controller.setStudentId(this.studentId);
+        controller.setStage(stage);
+        stage.show();
+        controller.init();
+    }
+
+    private void showWarning(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        // alert.setHeaderText("Results:");
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 }

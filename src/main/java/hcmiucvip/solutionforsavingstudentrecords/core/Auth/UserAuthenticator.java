@@ -17,8 +17,9 @@ public class UserAuthenticator {
      * else: return Pair<"none", "none">;
      */
     public static Pair<String, String> auth(String username, String password) {
-        username = "admin_quang";
-        password = "cvip123";
+        // Todo: Remove default pass
+//        username = "admin_quang";
+//        password = "cvip123";
         Pair<String, String> result = new Pair<>("none", "none");
         try {
             String SQL = String.format("SELECT * FROM  [dbo].[User]  WHERE Username = '%s' ",
