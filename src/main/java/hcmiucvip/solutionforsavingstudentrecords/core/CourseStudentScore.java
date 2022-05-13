@@ -2,11 +2,14 @@ package hcmiucvip.solutionforsavingstudentrecords.core;
 
 public class CourseStudentScore {
     private String studentId, courseId;
+    private String firstName, lastName;
     private Double midtermScore, assignmentScore, finalScore, totalScore;
+
     public CourseStudentScore(String studentId, String courseId) {
         this.studentId = studentId;
         this.courseId = courseId;
     }
+
     public CourseStudentScore(String studentId, String courseId, Double assignmentScore,
                               Double midtermScore, Double finalScore, Double totalScore) {
         this.studentId = studentId;
@@ -63,6 +66,22 @@ public class CourseStudentScore {
 
     public void setTotalScore(Double totalScore) {
         this.totalScore = totalScore;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
 

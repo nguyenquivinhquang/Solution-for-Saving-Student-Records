@@ -15,8 +15,8 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-        temp("ITDSIU19017");
-//        teacherView();
+//        temp("ITDSIU19051");
+        teacherView();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
@@ -55,7 +55,10 @@ public class Windows extends Application {
         stage.setScene(
                 new Scene(loader.load())
         );
+        TeacherController controller = loader.getController();
+        controller.setTeacherId("hvus");
         stage.show();
+        controller.init();
     }
     public static void start(String[] args) {
         launch();
