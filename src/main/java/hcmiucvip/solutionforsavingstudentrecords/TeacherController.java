@@ -1,6 +1,7 @@
 package hcmiucvip.solutionforsavingstudentrecords;
 
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseStudentScore;
+import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.EnrolledCourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.TeacherQueries;
@@ -35,7 +36,7 @@ public class TeacherController {
     @FXML
     Button teacherAddGPAButton, teacherCancelButton;
     @FXML
-    Label studentIdLabel, totalLabel;
+    Label studentIdLabel, totalLabel,courseNameLabel;
     ObservableList<String> teacherClasses = FXCollections.observableArrayList();
 
     ObservableList<CourseStudentScore> studentRecord;
@@ -71,6 +72,9 @@ public class TeacherController {
         }
         teacherTableView.setItems(studentRecord);
         teacherTableView.refresh();
+
+        CourseQueries courseQueries = new CourseQueries();
+        courseNameLabel.setText(courseQueries.getCourseTitle(courseId));
 
     }
 

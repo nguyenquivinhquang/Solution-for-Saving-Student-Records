@@ -300,7 +300,7 @@ public class CourseQueries extends Querier {
     }
 
     public String getCourseTitle(String courseId) {
-        return getCourseValStringType("Course", "Course_name", "Course_Id", courseId);
+        return getCourseValStringType("Course", "Course_name", "Course_Id", courseId).trim();
 
     }
 

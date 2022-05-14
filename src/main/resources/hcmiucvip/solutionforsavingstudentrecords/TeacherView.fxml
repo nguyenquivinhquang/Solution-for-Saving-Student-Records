@@ -57,7 +57,7 @@
                         <TableColumn fx:id="totalCol" prefWidth="146.0" text="Total" />
                             </columns>
                         </TableView>
-                        <Button fx:id="teacherLoadButton" layoutX="633.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #f57c00;" text="Load" textFill="WHITE" />
+                        <Button fx:id="teacherLoadButton" layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #f57c00;" text="Load" textFill="WHITE" />
                         <Text fill="#0e3ec3" layoutX="20.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Calculation :" wrappingWidth="160.923828125">
                             <font>
                                 <Font size="20.0" />
@@ -115,10 +115,16 @@
                             </font>
                         </Button>
                         <Separator layoutX="21.0" layoutY="442.0" prefHeight="7.0" prefWidth="368.0" />
-                        <Button layoutX="350.0" layoutY="14.0" mnemonicParsing="false" onAction="#setTeacherSelectClick" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f57c00;" text="Select" textFill="WHITE" />
-                  <ChoiceBox fx:id="teacherChooseCLass" layoutX="468.0" layoutY="14.0" prefWidth="150.0" />
+                        <Button layoutX="292.0" layoutY="66.0" mnemonicParsing="false" onAction="#setTeacherSelectClick" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f57c00;" text="Select" textFill="WHITE" />
+                  <ChoiceBox fx:id="teacherChooseCLass" layoutX="394.0" layoutY="14.0" prefWidth="150.0" />
                   <Label fx:id="studentIdLabel" layoutX="150.0" layoutY="70.0" prefHeight="26.0" prefWidth="91.0" />
                   <Label fx:id="totalLabel" layoutX="196.0" layoutY="118.0" prefHeight="26.0" prefWidth="91.0" />
+                  <Label layoutX="659.0" layoutY="11.0" prefHeight="32.0" prefWidth="108.0" text="Course name:" textFill="#b91b1b">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="courseNameLabel" layoutX="787.0" layoutY="18.0" prefHeight="26.0" prefWidth="326.0" text="Co khong giu mat dung tim" />
                     </children>
                 </AnchorPane>
             </center>
