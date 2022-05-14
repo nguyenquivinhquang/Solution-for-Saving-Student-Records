@@ -24,13 +24,13 @@ public class TeacherQueries extends Querier {
 
     public boolean existTeacherId(String teacherId) {
 //        return true;
-        return existValueRows(this.tableName, "Teacher_Id", teacherId);
+        return existValueRows("[User]", "Username", teacherId);
     }
 
     public ObservableList<TeacherInformation> getTeacherList() {
         ObservableList<TeacherInformation> teacherInformation = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Teacher_Id,First_name, Last_name, Department ,Username, Mail from Teacher;";
+            String SQL = "Select Teacher_Id,First_name, Last_name, Department, Mail from Teacher;";
             Statement statement = connection.createStatement();
             System.out.println(SQL);
             ResultSet res = statement.executeQuery(SQL);
@@ -40,7 +40,7 @@ public class TeacherQueries extends Querier {
                         res.getString("Teacher_Id").trim(),
                         res.getString("First_name").trim(),
                         res.getString("Last_name").trim(),
-                        res.getString("Username").trim(),
+                        res.getString("Teacher_Id").trim(),
                         res.getString("Department").trim(),
                         res.getString("Mail").trim()
                 );
@@ -77,7 +77,7 @@ public class TeacherQueries extends Querier {
     }
 
     public void deleteTeacher(String teacher) {
-        String SQL = String.format("DELETE FROM Teacher Where Username='%s'", teacher);
+        String SQL = String.format("DELETE FROM Teacher Where Teacher_Id='%s'", teacher);
         System.out.println(SQL);
         runSetQuery(SQL);
     }
@@ -117,7 +117,7 @@ public class TeacherQueries extends Querier {
                 "      ,[Section]\n" +
                 "      ,[Teacher_Id]\n" +
                 "      ,[Course_Id]\n" +
-                "  FROM [StudentRecord].[dbo].[Enrolled_Course]\n" +
+                "  FROM [StudentRecord].[dbo].[Enrolled_Class]\n" +
                 "  where Teacher_Id = '%s' and Section = '%s' and Course_Id ='%s';";
         SQL = String.format(SQL, teacherId, section, courseId);
         System.out.println(SQL);

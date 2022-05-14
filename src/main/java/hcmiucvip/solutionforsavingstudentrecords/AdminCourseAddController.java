@@ -3,7 +3,6 @@ package hcmiucvip.solutionforsavingstudentrecords;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

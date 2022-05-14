@@ -1,201 +1,113 @@
-USE [StudentRecord]
-GO
-/****** Object:  Table [dbo].[Administrator]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Administrator](
-	[Admin_Id] [char](20) NOT NULL,
-	[Admin_name] [char](30) NOT NULL,
-	[Username] [char](30) NOT NULL,
-PRIMARY KEY CLUSTERED 
+CREATE TABLE Course
 (
-	[Admin_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Class]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Class](
-	[Section] [char](15) NOT NULL,
-	[Teacher_Id] [char](20) NOT NULL,
-	[Course_Id] [char](20) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Section] ASC,
-	[Teacher_Id] ASC,
-	[Course_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Course]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Course](
-	[Course_Id] [char](20) NOT NULL,
-	[Course_name] [char](100) NOT NULL,
-	[Credits] [int] NOT NULL,
-	[Description][char](100) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Course_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Enrolled_Course]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Enrolled_Course](
-	[In_class] [numeric](5, 2) NOT NULL,
-	[Midterm] [numeric](5, 2) NOT NULL,
-	[Final] [numeric](5, 2) NOT NULL,
-	[Total] [numeric](5, 2) NOT NULL,
-	[Size] [int] NOT NULL,
-	[Remaining] [int] NOT NULL,
-	[Student_Id] [char](20) NOT NULL,
-	[Section] [char](15) NOT NULL,
-	[Teacher_Id] [char](20) NOT NULL,
-	[Course_Id] [char](20) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Student_Id] ASC,
-	[Section] ASC,
-	[Teacher_Id] ASC,
-	[Course_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Scholarship]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Scholarship](
-	[Semester] [int] NOT NULL,
-	[Tuition] [float] NOT NULL,
-	[Scholarship_name] [char](50) NOT NULL,
-	[Year] [int] NOT NULL,
-	[Student_Id] [char](20) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Student_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
-UNIQUE NONCLUSTERED 
-(
-	[Year] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Semester_billing]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Semester_billing](
-	[Price_per_credit] [float] NOT NULL,
-	[Insurance_price] [float] NOT NULL,
-	[Semester] [int] NOT NULL,
-	[Year] [int] NOT NULL,
-	[Bid] [char](20) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Bid] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Student]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Student](
-	[First_name] [char](50) NOT NULL,
-	[Last_name] [char](50) NOT NULL,
-	[Birth_day] [char](10) NOT NULL,
-	[Academic_year] [int] NOT NULL,
-	[Student_Id] [char](20) NOT NULL,
-	[Bid] [char](20) NULL,
-	[Username] [char](30) NOT NULL,
-	[Mail] [char](50) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Student_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Teacher]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Teacher](
-	[Department] [char](30) NOT NULL,
-	[Teacher_name] [char](30) NOT NULL,
-	[Teacher_Id] [char](20) NOT NULL,
-	[Username] [char](30) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Teacher_Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[User]    Script Date: 5/12/2022 5:03:15 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[User](
-	[Username] [char](30) NOT NULL,
-	[Password] [char](100) NOT NULL,
-	[UserRole] [char](10) NOT NULL,
-	[UserId] [char](20) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Username] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[Administrator]  WITH CHECK ADD FOREIGN KEY([Username])
-REFERENCES [dbo].[User] ([Username])
-GO
-ALTER TABLE [dbo].[Class]  WITH CHECK ADD FOREIGN KEY([Course_Id])
-REFERENCES [dbo].[Course] ([Course_Id])
-GO
-ALTER TABLE [dbo].[Class]  WITH CHECK ADD FOREIGN KEY([Teacher_Id])
-REFERENCES [dbo].[Teacher] ([Teacher_Id])
-GO
-ALTER TABLE [dbo].[Enrolled_Course]  WITH CHECK ADD FOREIGN KEY([Student_Id])
-REFERENCES [dbo].[Student] ([Student_Id])
-GO
-ALTER TABLE [dbo].[Enrolled_Course]  WITH CHECK ADD FOREIGN KEY([Section], [Teacher_Id], [Course_Id])
-REFERENCES [dbo].[Class] ([Section], [Teacher_Id], [Course_Id])
-GO
-ALTER TABLE [dbo].[Scholarship]  WITH CHECK ADD FOREIGN KEY([Student_Id])
-REFERENCES [dbo].[Student] ([Student_Id])
-GO
-ALTER TABLE [dbo].[Student]  WITH CHECK ADD FOREIGN KEY([Bid])
-REFERENCES [dbo].[Semester_billing] ([Bid])
-GO
-ALTER TABLE [dbo].[Student]  WITH CHECK ADD FOREIGN KEY([Username])
-REFERENCES [dbo].[User] ([Username])
-GO
-ALTER TABLE [dbo].[Teacher]  WITH CHECK ADD FOREIGN KEY([Username])
-REFERENCES [dbo].[User] ([Username])
-GO
+  Course_Id CHAR(30) NOT NULL,
+  Course_name CHAR(100) NOT NULL,
+  Credits INT NOT NULL,
+  Description CHAR(500) NOT NULL,
+  PRIMARY KEY (Course_Id)
+);
 
-insert into [user]
-values ('admin_quang', '22ae1b3d5a231c373930fd723ce7200847cf81ec6d49a3fa2eeb518427e324d4','admin','admin_quang');
+CREATE TABLE [User]
+(
+  Username CHAR(30) NOT NULL,
+  Password CHAR(100) NOT NULL,
+  Role CHAR(10) NOT NULL,
+  PRIMARY KEY (Username)
+);
 
-insert into [Administrator]
-values ('admin_quang','Vinh Quang','admin_quang');
+CREATE TABLE Tuition_fee
+(
+  Price_per_credit FLOAT NOT NULL,
+  Semeter INT NOT NULL,
+  Year INT NOT NULL,
+  Insurance_price FLOAT NOT NULL,
+  PRIMARY KEY (Semeter, Year)
+);
+
+CREATE TABLE Student
+(
+  First_name CHAR(30) NOT NULL,
+  Last_name CHAR(30) NOT NULL,
+  Birth_day CHAR(12) NOT NULL,
+  Academic_year INT NOT NULL,
+  Mail CHAR(50) NOT NULL,
+  Student_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Student_Id),
+  FOREIGN KEY (Student_Id) REFERENCES [User](Username)
+);
+
+CREATE TABLE Scholarship
+(
+  Semester INT NOT NULL,
+  Tuition INT NOT NULL,
+  Scholarship_type CHAR NOT NULL,
+  Year INT NOT NULL,
+  Student_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Student_Id),
+  FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id)
+);
+
+CREATE TABLE Teacher
+(
+  Department CHAR(100) NOT NULL,
+  First_name CHAR(30) NOT NULL,
+  Last_name CHAR(30) NOT NULL,
+  Mail CHAR(50) NOT NULL,
+  Teacher_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Teacher_Id),
+  FOREIGN KEY (Teacher_Id) REFERENCES [User](Username)
+);
+
+CREATE TABLE Semester_billing
+(
+  Money_received FLOAT NOT NULL,
+  Semeter INT NOT NULL,
+  Year INT NOT NULL,
+  Student_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Student_Id),
+  FOREIGN KEY (Semeter, Year) REFERENCES Tuition_fee(Semeter, Year),
+  FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id)
+);
+
+CREATE TABLE Administrator
+(
+  Admin_name CHAR(50) NOT NULL,
+  Admin_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Admin_Id),
+  FOREIGN KEY (Admin_Id) REFERENCES [User](Username)
+);
+
+CREATE TABLE Class
+(
+  Section CHAR(10),
+  Size INT NOT NULL,
+  Course_Id CHAR(30) NOT NULL,
+  Teacher_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Section, Course_Id, Teacher_Id),
+  FOREIGN KEY (Course_Id) REFERENCES Course(Course_Id),
+  FOREIGN KEY (Teacher_Id) REFERENCES Teacher(Teacher_Id)
+);
+
+CREATE TABLE Enrolled_Class
+(
+  In_class NUMERIC(5,2) NOT NULL,
+  Midterm NUMERIC(5,2) NOT NULL,
+  Final NUMERIC(5,2) NOT NULL,
+  Section CHAR(10) NOT NULL,
+  Course_Id CHAR(30) NOT NULL,
+  Teacher_Id CHAR(30) NOT NULL,
+  Student_Id CHAR(30) NOT NULL,
+  PRIMARY KEY (Section, Course_Id, Teacher_Id, Student_Id),
+  FOREIGN KEY (Section, Course_Id, Teacher_Id) REFERENCES Class(Section, Course_Id, Teacher_Id),
+  FOREIGN KEY (Student_Id) REFERENCES Student(Student_Id),
+  
+);
+
+insert into [user](Username, Password,Role)
+values ('admin_quang', '22ae1b3d5a231c373930fd723ce7200847cf81ec6d49a3fa2eeb518427e324d4','admin');
+
+insert into [Administrator](Admin_Id, Admin_name)
+values ('admin_quang','Vinh Quang');
 
 
 INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('CH012IU','','Chemistry Laboratory',1);
@@ -204,5 +116,26 @@ INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT082IU'
 INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('MA023IU','','Calculus 3',4);
 INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT090IU','','Object-Oriented Analysis and Design',4);
 INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT013IU','DSA','Algorithms & Data Structures',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT097IU','','Introduction to Artificial Intelligence',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT136IU','','Regression Analysis',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT138IU','','Data Science and Data Visualization',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT149IU','','Fundamentals of Programming',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT151IU','','Statistical Methods',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('CH012IU','','Chemistry Laboratory',1);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT120IU','','Entrepreneurship',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('EN007IU','','Writing AE1',2);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT154IU','','Linear Algebra',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT140IU','','Fundamental Concepts of Data Security',4);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('IT135IU','','Introduction to Data Science',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('EN008IU','','Listening AE1',2);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PE016IU','','Political economics of Marxism and Leninism',2);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PE008IU','','Critical Thinking',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PE015IU','','Philosophy of Marxism and Leninism',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PT001IU','','Physical Training 1',3);
+INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PH013IU','','Physics 1',2);
 
+
+
+INSERT INTO [User](Username, Password,Role) VALUES ('hvus','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Teacher')
+INSERT INTO Teacher (First_name,Last_name,Teacher_Id,Department,Mail) VALUES ('Uyen Synh','Ha Viet','hvus','IT','hvus@hcmiu.edu.vn');
 

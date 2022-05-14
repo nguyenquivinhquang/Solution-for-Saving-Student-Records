@@ -13,16 +13,16 @@ public class Windows extends Application {
     public static Stage windowStage;
     @Override
     public void start(Stage stage) throws IOException {
-//        adminDebug(stage);
+        adminDebug(stage);
 //        temp("II");
 //        temp("ITDSIU19051");
-        teacherView();
+//        teacherView();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
         CourseRegistration course = new CourseRegistration();
         course.setStudentId("12");
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("AdminStudentAdd.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("AdminClassAdd.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setTitle("Student records database!");
         stage.setScene(scene);

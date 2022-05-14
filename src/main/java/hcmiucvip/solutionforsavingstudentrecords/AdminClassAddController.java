@@ -1,6 +1,5 @@
 package hcmiucvip.solutionforsavingstudentrecords;
 
-import hcmiucvip.solutionforsavingstudentrecords.core.Classroom;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;

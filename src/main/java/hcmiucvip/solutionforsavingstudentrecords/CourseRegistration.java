@@ -100,7 +100,7 @@ public class CourseRegistration {
         courseChoosenTrace.clear();
         ArrayList<String> courseRegistered = courseQueries.getCourseRegistration(this.studentId);
 //        courseInformationsChoosen =
-        courseInformationsPossible = courseQueries.getCoursesList();
+        courseInformationsPossible = courseQueries.getClassesList();
         for (CourseInformation course : courseInformationsPossible) {
             CourseInformation _course = courseQueries.getCourseFromCourseId(course.getCourseId());
             course.setCourseCredits(_course.getCourseCredits());

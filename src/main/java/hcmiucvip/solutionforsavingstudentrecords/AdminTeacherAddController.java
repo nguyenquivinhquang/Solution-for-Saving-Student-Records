@@ -109,9 +109,9 @@ public class AdminTeacherAddController implements Initializable {
         insertValues.add(new Pair<>("Teacher_Id", teacherId));
         insertValues.add(new Pair<>("Department", department));
         insertValues.add(new Pair<>("Mail", mail));
-        insertValues.add(new Pair<>("Username", teacherId));
 
-        teacherQueries.addNewUser(teacherId, password, "Teacher", teacherId);
+
+        teacherQueries.addNewUser(teacherId, password, "Teacher");
         teacherQueries.insertMultiValues(insertValues);
 
         TeacherInformation teacher = new TeacherInformation(teacherId, firstName, lastName,
