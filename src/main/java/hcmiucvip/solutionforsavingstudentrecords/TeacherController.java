@@ -81,7 +81,7 @@ public class TeacherController {
         Double totalScore = 0.3 * inClassScore + 0.3 * midtermScore + 0.4 * finalScore;
         CourseStudentScore studentScore = studentRecordTrace.get(studentIdLabel.getText());
 
-        enrolledCourseQueries.updateScore(inClassScore, midtermScore,finalScore, totalScore,
+        enrolledCourseQueries.updateScore(inClassScore, midtermScore,finalScore,
                 teacherId, studentScore.getCourseId(),curSection,studentScore.getStudentId());
 
         studentScore.setAssignmentScore(inClassScore);

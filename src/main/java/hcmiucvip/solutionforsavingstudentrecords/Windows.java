@@ -15,8 +15,8 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-        temp("ITDSIU19017");
-//        teacherView();
+//        temp("ITDSIU19017");
+        teacherView();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;

@@ -89,16 +89,15 @@ public class EnrolledCourseQueries extends Querier {
     }
 
     public void updateScore(Double inClassScore, Double midtermScore,
-                            Double finalScore, Double total, String teacherId,
+                            Double finalScore, String teacherId,
                             String courseId, String section, String studentID) {
         String SQL = "UPDATE Enrolled_Class set " +
                 "In_class=%.2f, " +
                 "Midterm=%.2f, " +
-                "Final=%.2f, " +
-                "Total=%.2f" +
+                "Final=%.2f " +
                 " Where Student_Id = '%s' and Course_Id = '%s'" +
                 " and Section = '%s' and Teacher_Id='%s';";
-        SQL = String.format(SQL, inClassScore, midtermScore, finalScore, total,
+        SQL = String.format(SQL, inClassScore, midtermScore, finalScore,
                 studentID, courseId, section, teacherId);
         System.out.println(SQL);
         runSetQuery(SQL);

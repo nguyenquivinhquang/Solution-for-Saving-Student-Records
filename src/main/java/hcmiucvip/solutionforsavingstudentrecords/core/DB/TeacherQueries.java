@@ -108,11 +108,11 @@ public class TeacherQueries extends Querier {
     }
 
     public ObservableList<CourseStudentScore> getStudentRecordList(String teacherId, String courseId, String section) {
+        EnrolledCourseQueries enrolledCourseQueries = new EnrolledCourseQueries();
         ObservableList<CourseStudentScore> studentScores = FXCollections.observableArrayList();
         String SQL = "SELECT TOP (1000) [In_class]\n" +
                 "      ,[Midterm]\n" +
                 "      ,[Final]\n" +
-                "      ,[Total]\n" +
                 "      ,[Student_Id]\n" +
                 "      ,[Section]\n" +
                 "      ,[Teacher_Id]\n" +
@@ -124,14 +124,23 @@ public class TeacherQueries extends Querier {
         ResultSet res = runGetQuery(SQL);
         try {
             while (res.next()) {
-                studentScores.add(new CourseStudentScore(
+                CourseStudentScore courseStudentScore = new CourseStudentScore(
                         res.getString("Student_Id").trim(),
                         courseId.trim(),
                         res.getDouble("In_class"),
                         res.getDouble("Midterm"),
                         res.getDouble("Final"),
-                        res.getDouble("Total")
+                        (double) 0);
+
+                courseStudentScore.setTotalScore(enrolledCourseQueries.countTotalScore(
+                        res.getDouble("In_class"),
+                        res.getDouble("Midterm"),
+                        res.getDouble("Final"),
+                        courseId,
+                        section,
+                        teacherId
                 ));
+                studentScores.add(courseStudentScore);
             }
         } catch (Exception e) {
             e.printStackTrace();
