@@ -1,14 +1,10 @@
 package hcmiucvip.solutionforsavingstudentrecords.core.DB;
 
-import hcmiucvip.solutionforsavingstudentrecords.core.Classroom;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
-import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
 
-import javax.xml.transform.Result;
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -48,6 +44,7 @@ public class CourseQueries extends Querier {
 
         return classrooms;
     }
+
     public CourseInformation getCourseFromCourseId(String courseId) {
         CourseInformation course = new CourseInformation();
         try {
@@ -74,10 +71,11 @@ public class CourseQueries extends Querier {
         }
         return course;
     }
-    public ObservableList<CourseInformation> getCoursesList() {
+
+    public ObservableList<CourseInformation> getClassesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Course_Id, Section,Teacher_Id,Size,Remaining from Class;";
+            String SQL = "Select Course_Id, Section,Teacher_Id,Size from Class;";
             System.out.println(SQL);
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
@@ -87,8 +85,33 @@ public class CourseQueries extends Querier {
                 course.setCourseId(res.getString("Course_Id").trim());
                 course.setCourseSection(res.getString("Section").trim());
                 course.setTeacherId(res.getString("Teacher_Id").trim());
-                course.setRemaining(res.getInt("Remaining"));
+                course.setRemaining(res.getInt("Size"));
                 course.setSize(res.getInt("Size"));
+                coursesInformation.add(course);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Bug on getCoursesList");
+        }
+
+        return coursesInformation;
+    }
+
+    public ObservableList<CourseInformation> getCoursesList() {
+        ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
+        try {
+            String SQL = "Select Course_Id, Description,Course_name,Credits from Course;";
+            System.out.println(SQL);
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery(SQL);
+            if (!res.isBeforeFirst()) return coursesInformation;
+            while (res.next()) {
+                CourseInformation course = new CourseInformation();
+                course.setCourseId(res.getString("Course_Id").trim());
+                course.setCourseDescription(res.getString("Description").trim());
+                course.setCourseTitle(res.getString("Course_name").trim());
+                course.setCourseCredits(res.getInt("Credits"));
                 coursesInformation.add(course);
             }
 
@@ -103,7 +126,7 @@ public class CourseQueries extends Querier {
     public ArrayList<String> getCourseRegistration(String studentId) {
         ArrayList<String> courseRegistered = new ArrayList<>();
         try {
-            String SQL = "Select Course_Id from Enrolled_Course where Student_Id='%s';";
+            String SQL = "Select Course_Id from Enrolled_Class where Student_Id='%s';";
             SQL = String.format(SQL, studentId);
 
             System.out.println(SQL);
@@ -143,6 +166,7 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Remaining", remaining));
         this.insertMultiValues("Class", courseInsert);
     }
+
     public void deleteClass(String courseId, String teacherId, String section) {
         String SQL = "delete from %s WHERE %s='%s' and %s='%s' and %s='%s' ";
         SQL = String.format(SQL, "Class", "Course_Id", courseId,
@@ -150,6 +174,7 @@ public class CourseQueries extends Querier {
         System.out.println(SQL);
         runSetQuery(SQL);
     }
+
     public void addCourse(String courseId, String courseTitle, String descriptions, Integer credits) {
         ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
         courseInsert.add(new Pair<>("Course_Id", courseId));
@@ -165,12 +190,12 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("In_class", 0));
         courseInsert.add(new Pair<>("Midterm", 0));
         courseInsert.add(new Pair<>("Final", 0));
-        courseInsert.add(new Pair<>("Total", 0));
+//        courseInsert.add(new Pair<>("Total", 0));
         courseInsert.add(new Pair<>("Student_Id", studentId));
         courseInsert.add(new Pair<>("Teacher_Id", teacherId));
         courseInsert.add(new Pair<>("Section", section));
 
-        this.insertMultiValues("Enrolled_Course", courseInsert);
+        this.insertMultiValues("Enrolled_Class", courseInsert);
     }
 
     public void updateCourseId(String courseId, String newValue) {
@@ -241,6 +266,29 @@ public class CourseQueries extends Querier {
         return 0;
     }
 
+    public double getPercentage(String courseId, String section, String teacherId, String percentageRow) {
+        String SQL = "SELECT [Section]\n" +
+                "      ,[Size]\n" +
+                "      ,[Course_Id]\n" +
+                "      ,[Teacher_Id]\n" +
+                "      ,[Midterm_percentage]\n" +
+                "      ,[Inclass_percentage]\n" +
+                "      ,[Final_percentage]\n" +
+                "  FROM [StudentRecord].[dbo].[Class]\n" +
+                "  where Course_Id = '%s' and Teacher_Id = '%s' and Section = '%s';";
+
+        SQL = String.format(SQL, courseId, teacherId, section );
+        ResultSet res = runGetQuery(SQL);
+        try {
+            res.next();
+            return res.getInt(percentageRow);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Bug on getPercentage-" + percentageRow);
+        }
+        return 0;
+    }
+
     public String getCourseSection(String courseId) {
         return getCourseValStringType("Section", courseId);
 
@@ -250,10 +298,12 @@ public class CourseQueries extends Querier {
         return getCourseValStringType("Course_name", courseId);
 
     }
+
     public String getCourseTitle(String courseId) {
-        return getCourseValStringType("Course", "Course_name", "Course_Id", courseId);
+        return getCourseValStringType("Course", "Course_name", "Course_Id", courseId).trim();
 
     }
+
     public Integer getCourseCredit(String courseId) {
         return getCourseValIntType("Credits", courseId);
     }
@@ -269,7 +319,7 @@ public class CourseQueries extends Querier {
 
     public boolean deleteCourseRegistered(String studentId, String courseId) {
         String SQL = "Delete from %s where Student_Id='%s' and Course_Id='%s'";
-        SQL = String.format(SQL, "Enrolled_Course", studentId, courseId);
+        SQL = String.format(SQL, "Enrolled_Class", studentId, courseId);
         return runSetQuery(SQL);
     }
 }

@@ -178,7 +178,7 @@ public class AdminStudentAddController implements Initializable {
             email =  studentId + "@hcmiu.edu.vn";
         }
         password = AuthUtil.hashString(password);
-        studentQueries.addNewUser(studentId,password,"Student",studentId);
+        studentQueries.addNewUser(studentId,password,"Student");
         ArrayList<Pair<String, Object>> insertValues = new ArrayList<>();
         insertValues.add(new Pair<>("First_name", firstName));
         insertValues.add(new Pair<>("Last_name", lastName));
@@ -186,7 +186,7 @@ public class AdminStudentAddController implements Initializable {
         insertValues.add(new Pair<>("Birth_day", birthday));
         insertValues.add(new Pair< >("Academic_year", academicYear));
         insertValues.add(new Pair<>("Mail", email));
-        insertValues.add(new Pair<>("Username", studentId));
+
 
         if (!studentQueries.insertMultiValues(insertValues)){
             return;

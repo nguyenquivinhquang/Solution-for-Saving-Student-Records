@@ -173,6 +173,7 @@
                         </Text>
                      </children>
                   </GridPane>
+                  <Button fx:id="studentCancelClick1" layoutX="397.0" layoutY="36.0" mnemonicParsing="false" onAction="#refreshClick" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #00897b;" text="Refresh" textFill="WHITE" />
                     </children>
                 </AnchorPane>
             </center>

@@ -24,7 +24,7 @@ public class StudentQueries extends Querier {
     public ObservableList<StudentInformation> getStudentList() {
         ObservableList<StudentInformation> studentInformations = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Student_Id,First_name, Last_name, Birth_day, Academic_year,Bid,Username, Mail from Student;";
+            String SQL = "Select Student_Id,First_name, Last_name, Birth_day, Academic_year, Mail from Student;";
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
             if (!res.isBeforeFirst()) return studentInformations;
@@ -37,8 +37,7 @@ public class StudentQueries extends Querier {
                         res.getString("Birth_day").trim(),
                         res.getString("Mail").trim()
                 );
-                if (res.getString("Bid") != null)
-                    student.setbId(res.getString("Bid").trim());
+
                 studentInformations.add(student);
                 System.out.println(student);
             }
@@ -52,7 +51,7 @@ public class StudentQueries extends Querier {
     public StudentInformation getStudentInformation(String studentId) {
         StudentInformation student;
         try {
-            String SQL = "Select Student_Id,First_name, Last_name, Birth_day, Academic_year,Bid,Username, Mail from Student where Student_Id = '%s';";
+            String SQL = "Select Student_Id,First_name, Last_name, Birth_day, Academic_year, Mail from Student where Student_Id = '%s';";
             SQL = String.format(SQL, studentId);
             System.out.println(SQL);
             Statement statement = connection.createStatement();
@@ -67,8 +66,7 @@ public class StudentQueries extends Querier {
                     res.getString("Birth_day").trim(),
                     res.getString("Mail").trim()
             );
-            if (res.getString("Bid") != null)
-                student.setbId(res.getString("Bid"));
+
             System.out.println(student);
             return student;
         } catch (Exception e) {
@@ -116,32 +114,19 @@ public class StudentQueries extends Querier {
     }
 
     public void deleteStudent(String student) {
-        String SQL = String.format("DELETE FROM Student Where Username='%s'", student);
+        String SQL = String.format("DELETE FROM Student Where Student_Id='%s'", student);
         System.out.println(SQL);
         runSetQuery(SQL);
     }
 
     public boolean existStudentId(String username) {
-        return this.existUsername("Student", username);
+        return this.existUsername("[User]", username);
     }
 
-    //    public boolean existUsername(String username) {
-//        String SQL = "SELECT Username FROM  [dbo].[Student]  WHERE Student_id = '%s' ";
-//        SQL = String.format(SQL, username);
-//        System.out.println(SQL);
-//        ResultSet res = runGetQuery(SQL);
-//        if (res == null) return false;
-//        try {
-//            if (res.isBeforeFirst()) return true;
-//        } catch (Exception e) {
-////            e.printStackTrace();
-//            return false;
-//        }
-//        return false;
-//    }
+
     public ArrayList<CourseStudentScore> courseStudentScore(String studentId) {
         ArrayList<CourseStudentScore> records = new ArrayList<>();
-        String SQL = "Select Course_Id, Final, Total, In_class, Midterm from Enrolled_Course where Student_Id = '%s'";
+        String SQL = "Select Course_Id, Final, Total, In_class, Midterm from Enrolled_Class where Student_Id = '%s'";
 
         SQL = String.format(SQL, studentId);
 
@@ -169,7 +154,7 @@ public class StudentQueries extends Querier {
     public ObservableList<CourseInformation> getCurrentRunningCourse(String studentId) {
         ObservableList<CourseInformation> courseInformations = FXCollections.observableArrayList();
 
-        String SQL = "select Course_Id, Section, Teacher_Id from Enrolled_Course\n" +
+        String SQL = "select Course_Id, Section, Teacher_Id from Enrolled_Class\n" +
                 "where Student_Id='%s';";
         SQL = String.format(SQL, studentId);
         System.out.println(SQL);

@@ -107,9 +107,9 @@ public abstract class Querier {
         return runOk;
     }
 
-    public boolean addNewUser(String username, String password, String userRole, String Userid) {
-        String SQL = "INSERT INTO [User] VALUES ('%s','%s','%s','%s')";
-        SQL = String.format(SQL, username, password, userRole, Userid);
+    public boolean addNewUser(String username, String password, String userRole) {
+        String SQL = "INSERT INTO [User](Username, Password,Role) VALUES ('%s','%s','%s')";
+        SQL = String.format(SQL, username, password, userRole);
         System.out.println(SQL);
         return runSetQuery(SQL);
     }
