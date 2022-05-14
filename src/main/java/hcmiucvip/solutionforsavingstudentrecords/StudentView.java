@@ -171,4 +171,7 @@ public class StudentView {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    public void refreshClick() {
+        init();
+    }
 }

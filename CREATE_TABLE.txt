@@ -139,3 +139,17 @@ INSERT INTO Course (Course_Id,Description,Course_name,Credits) VALUES ('PH013IU'
 INSERT INTO [User](Username, Password,Role) VALUES ('hvus','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Teacher')
 INSERT INTO Teacher (First_name,Last_name,Teacher_Id,Department,Mail) VALUES ('Uyen Synh','Ha Viet','hvus','IT','hvus@hcmiu.edu.vn');
 
+
+
+INSERT INTO [User](Username, Password,Role) VALUES ('ITDSIU19051','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Truc Quyen ','Huynh','ITDSIU19051','2001/07/05',2019,'ITDSIU19051@hcmiu.edu.vn');
+INSERT INTO [User](Username, Password,Role) VALUES ('ITDSIU19017','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Minh Thong','Nguyen Duy','ITDSIU19017','2001-01-01',2019,'ITDSIU19017@hcmiu.edu.vn');
+INSERT INTO [User](Username, Password,Role) VALUES ('ITDSIU19060','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Ai Vuong','Nguyen','ITDSIU19060','2001-01-01',2019,'ITDSIU19060@hcmiu.edu.vn');
+INSERT INTO [User](Username, Password,Role) VALUES ('ITITIU19059','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Cong Trung','Truong','ITITIU19059','2001-01-01',2019,'ITITIU19059@hcmiu.edu.vn');
+INSERT INTO [User](Username, Password,Role) VALUES ('ITITIU20177','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Minh Dang','Le Do','ITITIU20177','2001-01-01',2020,'ITITIU20177@hcmiu.edu.vn');
+INSERT INTO [User](Username, Password,Role) VALUES ('ITITIU20213','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Student')
+INSERT INTO Student (First_name,Last_name,Student_Id,Birth_day,Academic_year,Mail) VALUES ('Anh Huy','Le Dinh','ITITIU20213','2001-01-01',2020,'ITITIU20213@hcmiu.edu.vn');

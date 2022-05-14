@@ -45,7 +45,6 @@ public class EnrolledCourseQueries extends Querier {
                 "      ,[Midterm]\n" +
                 "      ,[Course_Id]\n" +
                 "      ,[Final]\n" +
-                "      ,[Total]\n" +
                 "      ,[Course_Id]\n" +
                 "      ,[Student_Id]\n" +
                 "      ,[Course_Id]\n" +

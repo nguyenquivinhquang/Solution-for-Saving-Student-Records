@@ -190,7 +190,7 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("In_class", 0));
         courseInsert.add(new Pair<>("Midterm", 0));
         courseInsert.add(new Pair<>("Final", 0));
-        courseInsert.add(new Pair<>("Total", 0));
+//        courseInsert.add(new Pair<>("Total", 0));
         courseInsert.add(new Pair<>("Student_Id", studentId));
         courseInsert.add(new Pair<>("Teacher_Id", teacherId));
         courseInsert.add(new Pair<>("Section", section));

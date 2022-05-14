@@ -13,9 +13,9 @@ public class Windows extends Application {
     public static Stage windowStage;
     @Override
     public void start(Stage stage) throws IOException {
-        adminDebug(stage);
+//        adminDebug(stage);
 //        temp("II");
-//        temp("ITDSIU19051");
+        temp("ITDSIU19017");
 //        teacherView();
     }
     public void adminDebug(Stage stage) throws IOException {
