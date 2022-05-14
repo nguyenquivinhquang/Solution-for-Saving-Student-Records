@@ -1,0 +1,87 @@
+.mybutton {
+    -fx-background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+    -fx-shape: "M 200 450 A 50 50 0 1 1 200 300 Q 300 300 400 300 A 50 50 0 1 1 400 450 Q 300 450 200 450 ";
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+.textField {
+    -fx-background-color: none;
+    -fx-text-fill: none;
+    background-color: rgba(15, 15, 15, 0.76);
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+.scroll-pane .scroll-bar {
+    -fx-base: transparent;
+}
+.list-cell:filled:selected:focused,
+.list-cell:filled:selected {
+    -fx-background-color:  #50b6fe;
+    -fx-text-fill: white;
+    background-color: linear-gradient(to right, indigo, violet);
+}
+.list-cell:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+    background-color: #0093ff;
+}
+.list-cell:even {
+    -fx-background-color: black;
+    -fx-text-fill: yellow;
+    background-color: black;
+}
+.list-cell:odd {
+    -fx-background-color: black;
+    -fx-text-fill: green;
+    background-color: black;
+}
+
+.backgroundColor {
+    -fx-background-color: linear-gradient(to right, rgb(234, 249, 252), #dde2f9);
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.background {
+    -fx-background-color: #dde2f9;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+.miniBackground {
+    -fx-background-color: #f2feff;
+    -fx-background-radius: 30px;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.table-view .column-header * {
+    -fx-background-color: rgb(204, 238, 250);
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.menu-bar {
+    -fx-background-color:  #fff7f7;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.all-button {
+    -fx-background-color:  #3d30c4;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 70;
+    -fx-pref-height: 25;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.delete-button {
+    -fx-background-color:  #e97600;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 70;
+    -fx-pref-height: 25;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
+
+.save-button {
+    -fx-background-color:  #0093ff;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 70;
+    -fx-pref-height: 25;
+    background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
+}
