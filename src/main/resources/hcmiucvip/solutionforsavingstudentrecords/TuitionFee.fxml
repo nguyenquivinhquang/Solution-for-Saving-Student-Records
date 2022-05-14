@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,118 +12,101 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.StudentView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0"
+            prefWidth="782.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hcmiucvip.solutionforsavingstudentrecords.TuitionFeeView">
     <children>
-        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="620.0" prefWidth="1046.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="0.0">
+        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="577.0" prefWidth="758.0" AnchorPane.bottomAnchor="43.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="0.0">
             <top>
-                <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <MenuBar prefHeight="25.0" prefWidth="892.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-134.0" AnchorPane.topAnchor="0.0">
-                            <menus>
-                                <Menu mnemonicParsing="false" text="File">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#setCourseCloseButtonClick" text="Close" />
-                                    </items>
-                                </Menu>
-                                <Menu mnemonicParsing="false" text="Course">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#setStudentRegistrationClick" text="Registration" />
-                                    </items>
-                                </Menu>
-                            </menus>
-                        </MenuBar>
-                    </children>
-                </AnchorPane>
+                <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER"/>
             </top>
-            <center>
-                <AnchorPane prefHeight="590.0" prefWidth="859.0" BorderPane.alignment="CENTER">
+            <right>
+                <AnchorPane prefHeight="356.0" prefWidth="772.0" BorderPane.alignment="CENTER">
                     <children>
-                        <TableView fx:id="resultHistoryTable" layoutX="489.0" layoutY="35.0" prefHeight="327.0" prefWidth="401.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="489.0" AnchorPane.rightAnchor="-132.0" AnchorPane.topAnchor="35.0">
-                            <columns>
-                                <TableColumn fx:id="resultHistoryColumnCode" prefWidth="81.0" text="Course Id" />
-                                <TableColumn fx:id="resultHistoryColumnName" minWidth="0.0" prefWidth="139.0" text="Course name" />
-                                <TableColumn fx:id="resultHistoryColumnSemester" prefWidth="106.0" text="Year-Semester" />
-                            </columns>
-                        </TableView>
-                        <GridPane layoutX="42.0" layoutY="73.0" prefHeight="239.0" prefWidth="365.0">
+                        <GridPane layoutX="42.0" layoutY="73.0" prefHeight="239.0" prefWidth="303.0">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </Text>
-                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1">
+                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester"
+                                      GridPane.rowIndex="1">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </Text>
-                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="2">
+                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Price per credit"
+                                      wrappingWidth="182.01806640625" GridPane.rowIndex="2">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </Text>
-                                <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Password" GridPane.rowIndex="3">
+                                <Text fill="#673ab7" layoutX="10.0" layoutY="184.0" strokeType="OUTSIDE"
+                                      strokeWidth="0.0" text="Insurance price" wrappingWidth="140.45263671875"
+                                      GridPane.rowIndex="3">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </Text>
-                                <Text fill="#673ab7" layoutX="10.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new password" wrappingWidth="140.45263671875" GridPane.rowIndex="4">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Text>
-                                <Label fx:id="firstnameLabel" prefHeight="33.0" prefWidth="184.0" text="None" GridPane.columnIndex="1">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="lastnameLabel" prefHeight="29.0" prefWidth="167.0" text="None" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="emailLabel" layoutX="193.0" layoutY="66.0" prefHeight="29.0" prefWidth="167.0" text="None" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Label>
-                                <Text fill="#673ab7" layoutX="10.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm new password" wrappingWidth="169.45263671875" GridPane.rowIndex="5">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Text>
-                                <PasswordField fx:id="oldPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                <PasswordField fx:id="newPasswordField" layoutX="193.0" layoutY="137.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                <PasswordField fx:id="reNewPasswordField" layoutX="193.0" layoutY="175.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <TextField fx:id="yearField" prefHeight="25.0" prefWidth="47.0"
+                                           GridPane.columnIndex="1"/>
+                                <TextField fx:id="semesterField" layoutX="162.0" layoutY="10.0" prefHeight="25.0"
+                                           prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <TextField fx:id="priceField" layoutX="162.0" layoutY="70.0" prefHeight="25.0"
+                                           prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField fx:id="insuranceField" layoutX="162.0" layoutY="132.0" prefHeight="25.0"
+                                           prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                             </children>
                         </GridPane>
-                        <Text fill="#0091ea" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Information: ">
+                        <Text fill="#0091ea" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Tuition Information: ">
                             <font>
-                                <Font size="20.0" />
+                                <Font size="20.0"/>
                             </font>
                         </Text>
-                        <Text fill="#0091ea" layoutX="496.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student mark">
+                        <Text fill="#0091ea" layoutX="386.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Tuition Record: " wrappingWidth="234.224609375">
                             <font>
-                                <Font size="20.0" />
+                                <Font size="20.0"/>
                             </font>
                         </Text>
-                        <Button fx:id="studentSaveClick" layoutX="225.0" layoutY="325.0" mnemonicParsing="false" onAction="#setStudentSaveClick" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE" />
-                        <Button fx:id="studentCancelClick" layoutX="334.0" layoutY="325.0" mnemonicParsing="false" onAction="#setStudentCancelClick" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #00897b;" text="Clear" textFill="WHITE" />
+                        <Button fx:id="saveButton" layoutX="104.0" layoutY="319.0" mnemonicParsing="false"
+                                onAction="#saveClick" prefHeight="25.0" prefWidth="70.0"
+                                style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE"/>
+                        <Button fx:id="clearButton" layoutX="205.0" layoutY="319.0" mnemonicParsing="false"
+                                onAction="#clearClick" prefHeight="25.0" prefWidth="64.0"
+                                style="-fx-background-color: #00897b;" text="Clear" textFill="WHITE"/>
+                        <Button fx:id="saveButton1" layoutX="370.0" layoutY="14.0" mnemonicParsing="false"
+                                onAction="#addNewClick" prefHeight="25.0" prefWidth="70.0"
+                                style="-fx-background-color: #2196F3;" text="Add new" textFill="WHITE"/>
+                        <Button fx:id="saveButton11" layoutX="451.0" layoutY="14.0" mnemonicParsing="false"
+                                onAction="#saveClick" prefHeight="25.0" prefWidth="70.0"
+                                style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE"/>
                     </children>
                 </AnchorPane>
-            </center>
+            </right>
         </BorderPane>
+        <TableView fx:id="tuitionRecordTable" layoutX="391.0" layoutY="112.0" prefHeight="254.0" prefWidth="377.0"
+                   AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="391.0" AnchorPane.rightAnchor="14.0"
+                   AnchorPane.topAnchor="112.0">
+            <columns>
+                <TableColumn fx:id="yearCol" prefWidth="81.0" text="Year"/>
+                <TableColumn fx:id="semesterCol" minWidth="0.0" prefWidth="62.0" text="Semester"/>
+                <TableColumn fx:id="priceCol" prefWidth="109.0" text="Price per credit"/>
+                <TableColumn fx:id="insuranceCol" prefWidth="123.0" text="Insurance price"/>
+            </columns>
+        </TableView>
     </children>
 </AnchorPane>

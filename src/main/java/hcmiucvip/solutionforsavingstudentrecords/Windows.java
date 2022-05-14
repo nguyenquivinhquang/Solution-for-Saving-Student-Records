@@ -16,17 +16,34 @@ public class Windows extends Application {
 //        adminDebug(stage);
 //        temp("II");
 //        temp("ITDSIU19017");
-        teacherView();
+//        teacherView();
+        tuitionFee();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
         CourseRegistration course = new CourseRegistration();
         course.setStudentId("12");
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("AdminClassAdd.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("TuitionFee.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setTitle("Student records database!");
         stage.setScene(scene);
         stage.show();
+    }
+    public void tuitionFee() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "TuitionFee.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        TuitionFeeView controller = loader.getController();
+
+        stage.show();
+        controller.init();
+//        controller.initialize();
     }
     public void temp(String mssv) throws IOException {
         FXMLLoader loader = new FXMLLoader(

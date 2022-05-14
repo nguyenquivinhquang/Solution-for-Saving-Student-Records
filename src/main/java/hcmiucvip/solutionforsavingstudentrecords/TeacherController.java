@@ -164,7 +164,6 @@ public class TeacherController {
         midtermField.setDisable(!condition);
         finalField.setDisable(!condition);
         inclassField.setDisable(!condition);
-
     }
     public void setTeacherSelectClick(ActionEvent event) {
         CourseStudentScore studentRecord = teacherTableView.getSelectionModel().getSelectedItem();
