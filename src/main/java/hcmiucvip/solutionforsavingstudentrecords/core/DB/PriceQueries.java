@@ -30,7 +30,7 @@ public class PriceQueries extends Querier {
                         res.getInt("Semeter"),
                         res.getInt("Year"),
                         res.getDouble("Price_per_credit"),
-                        res.getDouble("insurancePrice")
+                        res.getDouble("Insurance_price")
                 ));
             }
         } catch (Exception e) {
@@ -39,5 +39,20 @@ public class PriceQueries extends Querier {
         }
 
         return tuitionFees;
+    }
+
+    public void addTuition(Integer semester, Integer year,
+                           Double pricePerCredit, Double insurancePrice) {
+        String SQL = "insert into [Tuition_fee](Year, Semeter, Price_per_credit, Insurance_price)\n" +
+                "Values (%s,%s,%s,%s);";
+        SQL = String.format(SQL, year, semester, pricePerCredit, insurancePrice);
+        runSetQuery(SQL);
+
+    }
+    public void updateValues(Integer year, Integer semester, String columnChange, Double newVal) {
+        String SQL = "UPDATE %s SET %s=%s WHERE Year=%s and Semeter=%s";
+        SQL = String.format(SQL, "Tuition_fee", columnChange, newVal, year, semester);
+        System.out.println(SQL);
+        runSetQuery(SQL);
     }
 }
