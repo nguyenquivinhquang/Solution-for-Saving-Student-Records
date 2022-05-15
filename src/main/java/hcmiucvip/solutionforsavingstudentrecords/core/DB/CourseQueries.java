@@ -76,7 +76,7 @@ public class CourseQueries extends Querier {
     public ObservableList<CourseInformation> getClassesList() {
         ObservableList<CourseInformation> coursesInformation = FXCollections.observableArrayList();
         try {
-            String SQL = "Select Course_Id, Section,Teacher_Id,Size from Class;";
+            String SQL = "Select Course_Id, Section,Teacher_Id,Size,Remaining from Class;";
             System.out.println(SQL);
             Statement statement = connection.createStatement();
             ResultSet res = statement.executeQuery(SQL);
@@ -86,7 +86,7 @@ public class CourseQueries extends Querier {
                 course.setCourseId(res.getString("Course_Id").trim());
                 course.setCourseSection(res.getString("Section").trim());
                 course.setTeacherId(res.getString("Teacher_Id").trim());
-                course.setRemaining(res.getInt("Size"));
+                course.setRemaining(res.getInt("Remaining"));
                 course.setSize(res.getInt("Size"));
                 coursesInformation.add(course);
             }
@@ -235,16 +235,26 @@ public class CourseQueries extends Querier {
         runSetQuery(SQL);
     }
 
-    public void updateCourseSize(String courseId, Integer newValue) {
-        updateRowInteger("Course_Id", courseId, "Size", newValue);
+
+
+    public void updateCourseRemaining(String courseId, String teacherId, String section, Integer newValue) {
+        String SQL = "UPDATE Class SET Remaining=%s WHERE [Course_Id]='%s' and [Teacher_Id]='%s' and [Section]='%s' ";
+        SQL = String.format(SQL, newValue, courseId, teacherId, section);
+        System.out.println(SQL);
+        runSetQuery(SQL);
 
     }
-
-    public void updateCourseRemaining(String courseId, Integer newValue) {
-        updateRowInteger("Course_Id", courseId, "Size", newValue);
+    public void increaseCourseRemaining(String courseId, String teacherId, String section) {
+        Integer remaining = getRemainSlot(courseId, teacherId, section);
+        updateCourseRemaining(courseId, teacherId, section, remaining + 1);
 
     }
+    public void decreaseCourseRemaining(String courseId, String teacherId, String section) {
+        Integer remaining = getRemainSlot(courseId, teacherId, section);
+        if (remaining > 0)
+            updateCourseRemaining(courseId, teacherId, section, remaining - 1);
 
+    }
     private void changeValueColumn(String courseId, String columnName, String newValue) {
         updateRowString("Course_Id", courseId, columnName, newValue);
     }

@@ -30,9 +30,11 @@ public class CourseRegistration {
         super();
 
     }
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+
     public String getStudentId() {
         return studentId;
     }
@@ -76,8 +78,7 @@ public class CourseRegistration {
     }
 
     public void refresh() {
-        tableCourseChosen.refresh();
-        tableCoursePossible.refresh();
+        init();
 
     }
 
@@ -136,16 +137,20 @@ public class CourseRegistration {
     }
 
     public void setRegistrationRefreshClick() {
-        refresh();
         init();
     }
 
     public void deleteRegisterClick() {
+
         CourseInformation course = tableCourseChosen.getSelectionModel().getSelectedItem();
+        Integer remaining = courseQueries.getRemainSlot(course.getCourseId(), course.getTeacherId(), course.getCourseSection());
 
         courseQueries.deleteCourseRegistered(this.studentId, course.getCourseId());
+        courseQueries.updateCourseRemaining(course.getCourseId(),course.getTeacherId(),course.getCourseSection(), remaining + 1);
+
         courseChoosenTrace.remove(course.getCourseTitle());
         courseInformationsChoosen.remove(course);
+        init();
     }
 
     boolean checkCanAddCourse(CourseInformation course) {
@@ -163,13 +168,21 @@ public class CourseRegistration {
     public void chooseRegisterClick() {
         System.out.println(tableCoursePossible.getSelectionModel().getSelectedItem());
         CourseInformation course = tableCoursePossible.getSelectionModel().getSelectedItem();
-        if (checkCanAddCourse(course) == false) {
+
+        if (courseChoosenTrace.contains(course.getCourseTitle())) {
+            showWarning("Course already registered");
+            return;
+        }
+        Integer remaining = courseQueries.getRemainSlot(course.getCourseId(), course.getTeacherId(), course.getCourseSection());
+        if (remaining < 1) {
+            showWarning("Out of slot!!!!");
             return;
         }
         courseInformationsChoosen.add(course);
         courseChoosenTrace.add(course.getCourseTitle());
         refresh();
         courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId(), course.getTeacherId(), course.getCourseSection());
+        courseQueries.updateCourseRemaining(course.getCourseId(),course.getTeacherId(),course.getCourseSection(), remaining - 1);
         init();
     }
 
