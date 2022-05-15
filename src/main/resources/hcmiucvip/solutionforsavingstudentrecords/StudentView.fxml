@@ -33,6 +33,7 @@
                         <Menu mnemonicParsing="false" text="Course">
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#setStudentRegistrationClick" text="Registration" />
+                              <MenuItem mnemonicParsing="false" onAction="#setSemesterBillingClick" text="Semester billing" />
                            </items>
                         </Menu>
                             </menus>

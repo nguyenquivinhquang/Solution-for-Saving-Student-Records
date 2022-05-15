@@ -147,20 +147,9 @@ public class StudentView {
     }
 
     public void setStudentRegistrationClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource(
-                        "CourseRegistration.fxml"
-                )
-        );
-        Stage stage = new Stage(StageStyle.DECORATED);
-        stage.setScene(
-                new Scene(loader.load())
-        );
-        CourseRegistration controller = loader.getController();
-        controller.setStudentId(this.studentId);
-        controller.setStage(stage);
-        stage.show();
-        controller.init();
+        LoadScene loadScene = new LoadScene();
+
+        loadScene.studentRegistration(this.studentId);
     }
     private void calculateRecord() {
         totalScore = 0;
@@ -185,5 +174,10 @@ public class StudentView {
     }
     public void refreshClick() {
         init();
+    }
+    public void setSemesterBillingClick() throws IOException {
+        LoadScene loadScene = new LoadScene();
+
+        loadScene.semesterBilling(this.studentId);
     }
 }

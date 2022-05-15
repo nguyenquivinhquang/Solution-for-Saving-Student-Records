@@ -11,13 +11,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.CourseRegistration">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.CourseRegistration">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-                <AnchorPane prefHeight="14.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="36.0" prefWidth="850.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar layoutY="2.0" prefHeight="24.0" prefWidth="1034.0" stylesheets="@../css/Design.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                        <MenuBar layoutX="7.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -34,28 +34,28 @@
                     </children>
                 </AnchorPane>
             </top>
-         <bottom>
-                <AnchorPane prefHeight="586.0" prefWidth="1034.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" BorderPane.alignment="CENTER">
+            <center>
+                <AnchorPane prefHeight="584.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Text fill="#0091ea" layoutX="26.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List">
+                        <Text fill="#0091ea" layoutX="529.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Course List :">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </Text>
-                        <Text fill="#0091ea" layoutX="583.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Course">
+                        <Text fill="#0091ea" layoutX="5.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Course :">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </Text>
-                        <Button layoutX="935.0" layoutY="110.0" mnemonicParsing="false" onAction="#deleteRegisterClick" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #f57c00;" styleClass="all-button" stylesheets="@../css/Design.css" text="Delete" textFill="WHITE" />
-                        <Button layoutX="174.0" layoutY="107.0" mnemonicParsing="false" onAction="#chooseRegisterClick" prefHeight="25.0" prefWidth="114.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Register" textFill="WHITE" />
-                        <Button layoutX="759.0" layoutY="520.0" mnemonicParsing="false" onAction="#setRegistrationDoneClick" prefHeight="35.0" prefWidth="157.0" style="-fx-background-color: #f57c00;" styleClass="all-button" stylesheets="@../css/Design.css" text="Done" textFill="WHITE">
+                        <Button layoutX="82.0" layoutY="387.0" mnemonicParsing="false" onAction="#deleteRegisterClick" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #09B28C;" text="Delete" textFill="WHITE" />
+                        <Button layoutX="233.0" layoutY="387.0" mnemonicParsing="false" onAction="#chooseRegisterClick" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #09B28C;" text="Choose Register" textFill="WHITE" />
+                        <Button layoutX="439.0" layoutY="494.0" mnemonicParsing="false" onAction="#setRegistrationDoneClick" prefHeight="35.0" prefWidth="157.0" style="-fx-background-color: #f57c00;" text="Done" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
                             </font>
                         </Button>
-                        <Button layoutX="743.0" layoutY="109.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" />
-                  <TableView fx:id="tableCoursePossible" layoutX="26.0" layoutY="151.0" prefHeight="400.0" prefWidth="503.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
+                        <Button layoutX="335.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" />
+                  <TableView fx:id="tableCoursePossible" layoutX="528.0" layoutY="40.0" prefHeight="400.0" prefWidth="503.0">
                      <columns>
                         <TableColumn fx:id="courseIdPossible" prefWidth="67.0" style="-fx-alignment: center;" text="Course ID" />
                         <TableColumn fx:id="courseTitlePossible" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -66,7 +66,7 @@
                         <TableColumn fx:id="courseRemainPossible" maxWidth="3000.0" prefWidth="50.0" text="Remain" />
                      </columns>
                   </TableView>
-                  <TableView fx:id="tableCourseChosen" layoutX="583.0" layoutY="151.0" prefHeight="335.0" prefWidth="422.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
+                  <TableView fx:id="tableCourseChosen" layoutY="66.0" prefHeight="321.0" prefWidth="422.0">
                      <columns>
                         <TableColumn fx:id="courseIdChose" prefWidth="78.0" style="-fx-alignment: center;" text="Course ID" />
                         <TableColumn fx:id="courseTitleChose" prefWidth="79.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -75,14 +75,9 @@
                         <TableColumn fx:id="courseSectionChose" maxWidth="3000.0" prefWidth="106.0" text="Course Section" />
                      </columns>
                   </TableView>
-                  <Text fill="#3c00e8" layoutX="26.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Registration">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Text>
                     </children>
                 </AnchorPane>
-         </bottom>
+            </center>
         </BorderPane>
     </children>
 </AnchorPane>

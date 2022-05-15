@@ -43,4 +43,37 @@ public class LoadScene {
         stage.show();
         controller.init();
     }
+
+    public void semesterBilling(String studentId) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "SemesterBiilling.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        SemesterBillingView controller = loader.getController();
+        controller.setStudentId(studentId);
+        controller.setStage(stage);
+        stage.show();
+        controller.init();
+    }
+    public void studentRegistration(String studentId) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "CourseRegistration.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        CourseRegistration controller = loader.getController();
+        controller.setStudentId(studentId);
+        controller.setStage(stage);
+        stage.show();
+        controller.init();
+    }
 }
