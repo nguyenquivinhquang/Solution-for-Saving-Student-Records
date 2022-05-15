@@ -25,8 +25,8 @@ import static hcmiucvip.solutionforsavingstudentrecords.core.Auth.UserAuthentica
 public class LoginController implements Initializable {
     public Button loginButton;
     public Button signupButton;
-    public PasswordField passwordField;
-    public TextField accountField;
+//    public PasswordField passwordField;
+    public TextField accountField, passwordField;
     public AnchorPane rootPane;
     public Label loginNoti, passwordIncorrect;
 
@@ -51,6 +51,7 @@ public class LoginController implements Initializable {
             return;
         }
         LoadScene loadScene = new LoadScene();
+        System.out.println(loadInfor.getValue());
         if (loadInfor.getValue().equals("Student")){
             loadScene.loadStudent(loadInfor.getKey());
             this.stage.close();
