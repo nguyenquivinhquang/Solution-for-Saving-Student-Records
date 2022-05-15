@@ -116,6 +116,9 @@ public class StudentView {
         else avgScore = totalScore / totalCredits;
         averageScoreText.setText(String.format("%.2f", avgScore));
 
+        reNewPasswordField.setEditable(true);
+        reNewPasswordField.setVisible(true);
+
     }
 
     private void updateStudentInformationField() {

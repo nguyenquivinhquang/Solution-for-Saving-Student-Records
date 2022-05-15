@@ -97,9 +97,7 @@
                         </Label>
                             </children>
                         </GridPane>
-                  <PasswordField fx:id="reNewPasswordField" layoutX="42.0" layoutY="317.0" mouseTransparent="true" prefHeight="25.0" prefWidth="227.0" promptText="Current Password" styleClass="textField" stylesheets="@../css/Design.css" />
-                  <PasswordField fx:id="newPasswordField" layoutX="42.0" layoutY="367.0" mouseTransparent="true" prefHeight="25.0" prefWidth="227.0" promptText="New Password" styleClass="textField" stylesheets="@../css/Design.css" />
-                  <PasswordField fx:id="oldPasswordField" layoutX="42.0" layoutY="420.0" mouseTransparent="true" prefHeight="25.0" prefWidth="227.0" promptText="Confirm New Password" styleClass="textField" stylesheets="@../css/Design.css" />
+                  <PasswordField fx:id="reNewPasswordField" layoutX="42.0" layoutY="420.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm New Password" styleClass="textField" stylesheets="@../css/Design.css" />
                         <Text fill="#3300e8" layoutX="42.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Information " wrappingWidth="285.04736328125">
                             <font>
                                 <Font name="System Bold" size="30.0" />
@@ -152,6 +150,8 @@
                   <Line endX="124.0" layoutX="143.0" layoutY="342.0" startX="-100.0" />
                   <Line endX="124.0" layoutX="143.0" layoutY="392.0" startX="-100.0" />
                   <Line endX="124.0" layoutX="143.0" layoutY="447.0" startX="-100.0" />
+                  <PasswordField fx:id="oldPasswordField" layoutX="42.0" layoutY="317.0" prefHeight="25.0" prefWidth="227.0" promptText="Old Password" styleClass="textField" stylesheets="@../css/Design.css" />
+                  <PasswordField fx:id="newPasswordField" layoutX="42.0" layoutY="360.0" prefHeight="25.0" prefWidth="227.0" promptText="New Password" styleClass="textField" stylesheets="@../css/Design.css" />
                     </children>
                 </AnchorPane>
          </right>
