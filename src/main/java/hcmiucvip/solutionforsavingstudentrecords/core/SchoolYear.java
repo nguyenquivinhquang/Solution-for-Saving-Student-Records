@@ -1,6 +1,6 @@
 package hcmiucvip.solutionforsavingstudentrecords.core;
 
 public class SchoolYear {
-    public static int Year = 2022;
-    public static int Semester = 2;
+    public static Integer Year = 2022;
+    public static Integer Semester = 2;
 }
