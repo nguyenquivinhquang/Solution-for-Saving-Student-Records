@@ -109,6 +109,7 @@ public class AdminStudentAddController implements Initializable {
         studentIDField.setEditable(true);
         passwordField.setEditable(true);
         saveButton.setText("Add");
+        isEdit = false;
 
     }
 
@@ -236,6 +237,8 @@ public class AdminStudentAddController implements Initializable {
         String studentId = studentIDField.getText();
         resetField();
         studentIDField.setEditable(true);
+        setVisibleField(false);
+
     }
 
     public void setAdminEditButtonClick(ActionEvent event) {
@@ -255,7 +258,6 @@ public class AdminStudentAddController implements Initializable {
         saveButton.setText("Save");
 
         isEdit = true;
-
 
     }
 

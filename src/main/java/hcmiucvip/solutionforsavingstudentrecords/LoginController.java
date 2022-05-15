@@ -55,6 +55,11 @@ public class LoginController implements Initializable {
         if (loadInfor.getValue().equals("Student")){
             loadScene.loadStudent(loadInfor.getKey());
             this.stage.close();
+
+        } else if (loadInfor.getValue().equals("Teacher")){
+            loadScene.loadTeacherView(loadInfor.getKey());
+            this.stage.close();
+
         }
 //        loadAdmin(event);
     }

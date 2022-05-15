@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -25,7 +26,7 @@ import java.util.Map;
 
 public class TeacherController {
     @FXML
-    public ChoiceBox teacherChooseCLass;
+    public ComboBox teacherChooseCLass;
     String teacherId;
     @FXML
     protected TextField inclassField, midtermField, finalField;
@@ -36,7 +37,9 @@ public class TeacherController {
     @FXML
     Button teacherAddGPAButton, teacherCancelButton;
     @FXML
-    Label studentIdLabel, totalLabel,courseNameLabel;
+    Label studentIdLabel, totalLabel;
+    @FXML
+    Text courseNameLabel;
     ObservableList<String> teacherClasses = FXCollections.observableArrayList();
 
     ObservableList<CourseStudentScore> studentRecord;
@@ -167,6 +170,7 @@ public class TeacherController {
     }
     public void setTeacherSelectClick(ActionEvent event) {
         CourseStudentScore studentRecord = teacherTableView.getSelectionModel().getSelectedItem();
+        System.out.println(studentRecord.getStudentId());
         inclassField.setText(String.format("%.0f", studentRecord.getAssignmentScore()));
         midtermField.setText(String.format("%.0f", studentRecord.getMidtermScore()));
         finalField.setText(String.format("%.0f", studentRecord.getFinalScore()));
