@@ -15,11 +15,20 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-//        temp("ITDSIU19017");
+        temp("ITDSIU19060");
 //        teacherView();
 //        tuitionFee();
-        semesterBilling();
+//        semesterBilling();
+//        Login();
+//        LoadScene loadScene = new LoadScene();
+//        loadScene.adminClassAdd();
+//    loadScene.adminTeacherAdd();
+//        loadScene.adminClassAdd();
+//        loadScene.adminStudentAdd();
+//        loadScene.loadTeacherView("hvus");
     }
+
+
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
         CourseRegistration course = new CourseRegistration();
@@ -93,6 +102,21 @@ public class Windows extends Application {
         controller.setTeacherId("hvus");
         stage.show();
         controller.init();
+    }
+    void Login() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "LoginForm.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        LoginController controller = loader.getController();
+
+        stage.show();
+        controller.setStage(stage);
     }
     public static void start(String[] args) {
         launch();

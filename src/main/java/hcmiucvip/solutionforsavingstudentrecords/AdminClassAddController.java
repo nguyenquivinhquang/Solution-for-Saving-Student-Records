@@ -4,6 +4,7 @@ import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.TeacherQueries;
+import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
 import hcmiucvip.solutionforsavingstudentrecords.core.TeacherInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,7 +85,8 @@ public class AdminClassAddController implements Initializable {
 
     public void setCourseDeleteButtonClick(ActionEvent event) {
         CourseInformation course = adminClassView.getSelectionModel().getSelectedItem();
-        courseQueries.deleteClass(course.getCourseId(), course.getTeacherId(), course.getCourseSection());
+        DeleteTable deleteTable = new DeleteTable();
+        deleteTable.deleteClass(course.getCourseId(), course.getTeacherId(), course.getCourseSection());
         classInformation.remove(course);
 
         classTrace.remove(getHashKeyCourse(course));
