@@ -3,6 +3,7 @@ package hcmiucvip.solutionforsavingstudentrecords;
 import hcmiucvip.solutionforsavingstudentrecords.core.Auth.AuthUtil;
 //import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
+import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
 import hcmiucvip.solutionforsavingstudentrecords.core.SchoolYear;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.ObservableList;
@@ -288,8 +289,9 @@ public class AdminStudentAddController implements Initializable {
 
     public void setAdminDeleteButtonClick(ActionEvent event) {
         StudentInformation studentChose = adminTableView.getSelectionModel().getSelectedItem();
-        studentQueries.deleteStudent(studentChose.getStudentId());
-        studentQueries.deleteUser(studentChose.getStudentId());
+
+        DeleteTable deleteTable = new DeleteTable();
+        deleteTable.deleteStudent(studentChose.getStudentId());
         studentInformations.remove(studentChose);
         studentTrace.remove(studentChose.getStudentId());
         resetField();

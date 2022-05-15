@@ -123,7 +123,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #dde2f9;">
                             <children>
-                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                                <TableView fx:id="adminTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                                     <columns>
                                         <TableColumn fx:id="adminTableStudentID" prefWidth="135.0" text="Student ID" />
                                         <TableColumn fx:id="adminTableFirstName" prefWidth="161.0" text="First Name" />

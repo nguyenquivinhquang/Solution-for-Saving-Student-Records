@@ -21,6 +21,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class StudentView {
+    boolean isEdit = false;
     StudentInformation studentInformation;
     StudentQueries studentQueries = new StudentQueries();
     CourseQueries courseQueries = new CourseQueries();
@@ -38,7 +39,9 @@ public class StudentView {
     TableColumn<CourseStudentScore, String> resultHistoryColumnCode, resultHistoryColumnName, resultHistoryColumnSemester,
             resultHistoryColumnAssignment, resultHistoryColumnMidterm, resultHistoryColumnFinal, resultHistoryColumnTotal;
     @FXML
-    Label firstnameLabel, lastnameLabel, emailLabel;
+    TextField firstnameLabel, lastnameLabel, emailLabel;
+    @FXML
+    Button saveProfile;
     @FXML
     Text totalCreditsText, averageScoreText;
     ObservableList<CourseStudentScore> courseStudentScores;
@@ -63,10 +66,10 @@ public class StudentView {
             showWarning("New password does not match");
             return;
         }
-        studentQueries.updateUserPass(this.studentId, newPasswordField.getText().trim());
-        oldPasswordField.clear();
-        newPasswordField.clear();
-        reNewPasswordField.clear();
+            studentQueries.updateUserPass(this.studentId, newPasswordField.getText().trim());
+            oldPasswordField.clear();
+            newPasswordField.clear();
+            reNewPasswordField.clear();
 
     }
 
@@ -119,8 +122,16 @@ public class StudentView {
         reNewPasswordField.setEditable(true);
         reNewPasswordField.setVisible(true);
 
-    }
+        labelFieldEditable(false);
+        isEdit = false;
+        saveProfile.setVisible(false);
 
+    }
+    private void labelFieldEditable(boolean condition) {
+        firstnameLabel.setEditable(condition);
+        lastnameLabel.setEditable(condition);
+        emailLabel.setEditable(condition);
+    }
     private void updateStudentInformationField() {
         if (this.studentInformation == null) return;
         firstnameLabel.setText(studentInformation.getFirstName());
@@ -179,5 +190,19 @@ public class StudentView {
         LoadScene loadScene = new LoadScene();
 
         loadScene.semesterBilling(this.studentId);
+    }
+    public void setStudentEditClick() {
+        isEdit = true;
+        labelFieldEditable(true);
+        saveProfile.setVisible(true);
+    }
+    public void saveProfileClick() {
+        studentQueries.updateFirstName(this.studentId,firstnameLabel.getText());
+        studentQueries.updateLastName(this.studentId, lastnameLabel.getText());
+        studentQueries.updateMail(this.studentId, emailLabel.getText());
+        isEdit = false;
+        labelFieldEditable(false);
+        saveProfile.setVisible(false);
+
     }
 }

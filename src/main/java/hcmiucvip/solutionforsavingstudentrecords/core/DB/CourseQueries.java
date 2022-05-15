@@ -177,7 +177,9 @@ public class CourseQueries extends Querier {
         System.out.println(SQL);
         runSetQuery(SQL);
     }
+    public void runDelQuery(String SQL) {
 
+    }
     public void addCourse(String courseId, String courseTitle, String descriptions, Integer credits) {
         ArrayList<Pair<String, Object>> courseInsert = new ArrayList<>();
         courseInsert.add(new Pair<>("Course_Id", courseId));

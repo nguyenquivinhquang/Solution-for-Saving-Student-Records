@@ -15,7 +15,7 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-        temp("ITDSIU19017");
+        temp("ITDSIU19060");
 //        teacherView();
 //        tuitionFee();
 //        semesterBilling();
@@ -23,7 +23,7 @@ public class Windows extends Application {
 //        LoadScene loadScene = new LoadScene();
 //        loadScene.adminClassAdd();
 //    loadScene.adminTeacherAdd();
-//        loadScene.adminCourseAdd();
+//        loadScene.adminClassAdd();
 //        loadScene.adminStudentAdd();
 //        loadScene.loadTeacherView("hvus");
     }
