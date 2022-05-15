@@ -5,8 +5,8 @@
 }
 .textField {
     -fx-background-color: none;
-    -fx-text-fill: none;
-    background-color: rgba(15, 15, 15, 0.76);
+    -fx-text-fill: black;
+    background-color: rgba(15, 9, 9, 0.76);
 }
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
