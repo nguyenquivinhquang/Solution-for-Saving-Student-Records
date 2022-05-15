@@ -55,7 +55,7 @@
                             </font>
                         </Button>
                         <Button layoutX="743.0" layoutY="109.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" />
-                  <TableView fx:id="tableCoursePossible" layoutX="26.0" layoutY="151.0" prefHeight="400.0" prefWidth="503.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
+                  <TableView fx:id="tableCoursePossible" layoutX="26.0" layoutY="151.0" prefHeight="400.0" prefWidth="504.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
                      <columns>
                         <TableColumn fx:id="courseIdPossible" prefWidth="67.0" style="-fx-alignment: center;" text="Course ID" />
                         <TableColumn fx:id="courseTitlePossible" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -75,7 +75,7 @@
                         <TableColumn fx:id="courseSectionChose" maxWidth="3000.0" prefWidth="106.0" text="Course Section" />
                      </columns>
                   </TableView>
-                  <Text fill="#3c00e8" layoutX="26.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Registration">
+                  <Text fill="#505b9e" layoutX="26.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Registration">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>

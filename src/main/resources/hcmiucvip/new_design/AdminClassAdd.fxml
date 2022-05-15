@@ -121,7 +121,7 @@
                               </Text>
                                     </children>
                                 </GridPane>
-                                <Text fill="#424496" layoutX="22.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Information" AnchorPane.bottomAnchor="498.470703125" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="78.1923828125" AnchorPane.topAnchor="49.626953125">
+                                <Text fill="#505b9e" layoutX="22.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Information" AnchorPane.bottomAnchor="498.470703125" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="78.1923828125" AnchorPane.topAnchor="49.626953125">
                                     <font>
                                         <Font name="System Bold" size="30.0" />
                                     </font>
@@ -133,7 +133,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="640.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <TableView fx:id="adminClassView" layoutX="8.0" layoutY="59.0" prefHeight="257.0" prefWidth="810.0" style="-fx-background-radius: 30;" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="59.0">
+                                <TableView fx:id="adminClassView" layoutX="10.0" layoutY="51.0" prefHeight="265.0" prefWidth="809.0" style="-fx-background-radius: 10;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="51.0">
                                     <columns>
                                         <TableColumn fx:id="courseIdClass" prefWidth="98.0" style="-fx-alignment: center;" text="Course ID" />
                                         <TableColumn fx:id="courseTitleClass" prefWidth="188.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -148,14 +148,14 @@
                                         <Font size="25.0" />
                                     </font>
                                 </Text>
-                        <TableView fx:id="teacherViewTable" layoutX="417.0" layoutY="374.0" prefHeight="200.0" prefWidth="401.0" style="-fx-background-radius: 30;">
+                        <TableView fx:id="teacherViewTable" layoutX="417.0" layoutY="374.0" prefHeight="200.0" prefWidth="401.0" style="-fx-background-radius: 10;" styleClass="miniBackground" stylesheets="@../css/Design.css">
                            <columns>
                               <TableColumn fx:id="teacherIdCol" prefWidth="97.0" text="Teacher ID" />
                               <TableColumn fx:id="teacherNameCol" prefWidth="187.0" text="Teacher Name" />
                               <TableColumn fx:id="teacherDepartmentRow" prefWidth="114.0" text="Department" />
                            </columns>
                         </TableView>
-                        <TableView fx:id="adminCourseView" layoutX="8.0" layoutY="374.0" prefHeight="200.0" prefWidth="387.0" style="-fx-background-radius: 30;">
+                        <TableView fx:id="adminCourseView" layoutX="8.0" layoutY="374.0" prefHeight="200.0" prefWidth="387.0" style="-fx-background-radius: 10;" styleClass="miniBackground" stylesheets="@../css/Design.css">
                           <columns>
                             <TableColumn fx:id="courseIdDetail" prefWidth="104.0" text="Course ID" />
                             <TableColumn fx:id="courseTitleDetail" prefWidth="195.0" text="Course Title" />

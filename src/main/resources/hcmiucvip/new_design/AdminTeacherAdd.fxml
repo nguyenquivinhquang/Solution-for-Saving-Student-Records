@@ -46,12 +46,12 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="596.0" prefWidth="352.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
                                 <Button layoutX="79.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="79.0" />
-                                <Text fill="#4226a8" layoutX="32.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Information" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.396484375" AnchorPane.topAnchor="39.0">
+                                <Text fill="#505b9e" layoutX="32.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Information" wrappingWidth="288.603515625" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="45.0">
                                     <font>
                                         <Font name="System Bold" size="30.0" />
                                     </font>
                                 </Text>
-                                <Separator layoutX="13.0" layoutY="85.0" prefHeight="4.0" prefWidth="322.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="85.0" />
+                                <Separator layoutX="32.0" layoutY="88.0" prefHeight="4.0" prefWidth="288.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="88.0" />
                                 <GridPane layoutX="32.0" layoutY="101.0" prefHeight="263.0" prefWidth="289.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="101.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="99.0" />
@@ -105,8 +105,8 @@
                                     </children>
                                 </GridPane>
                                 <Button fx:id="adminTeacherClearButtonClick" layoutX="199.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: e97600; -fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" AnchorPane.rightAnchor="83.0" />
-                                <Separator layoutX="9.0" layoutY="381.0" prefHeight="2.0" prefWidth="330.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
                                 <Button layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="262.0" />
+                        <Separator layoutX="32.0" layoutY="381.0" prefHeight="4.0" prefWidth="288.0" />
                             </children>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="820.0" style="-fx-background-color: #dde2f9;" styleClass="backgroundColor" stylesheets="@../css/Design.css">

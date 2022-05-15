@@ -51,7 +51,7 @@
                     <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="291.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <Text fill="#393097" layoutX="37.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Information" AnchorPane.bottomAnchor="500.470703125" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="48.400390625" AnchorPane.topAnchor="47.626953125">
+                                <Text fill="#505b9e" layoutX="37.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Information" AnchorPane.bottomAnchor="490.470703125" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="48.400390625" AnchorPane.topAnchor="57.626953125">
                                     <font>
                                         <Font name="System Bold" size="30.0" />
                                     </font>
