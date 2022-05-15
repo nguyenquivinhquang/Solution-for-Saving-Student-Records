@@ -40,7 +40,7 @@ public class UserAuthenticator {
                 return result;
             }
 
-            result = new Pair<>(res.getString("UserRole"), res.getString("UserId"));
+            result = new Pair<>(username.toLowerCase(), res.getString("Role"));
         } catch (Exception e) {
             e.printStackTrace();
         }

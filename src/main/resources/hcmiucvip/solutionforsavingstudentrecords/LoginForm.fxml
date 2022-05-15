@@ -42,12 +42,12 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <TextField fx:id="usernameTextField" layoutX="81.0" layoutY="154.0" prefHeight="30.0" prefWidth="301.0" promptText="Username" style="-fx-background-color: #EFFFFD;" styleClass="textField" stylesheets="@../css/Design.css">
+        <TextField fx:id="accountField" layoutX="81.0" layoutY="154.0" prefHeight="30.0" prefWidth="301.0" promptText="Username" style="-fx-background-color: #EFFFFD;" styleClass="textField" stylesheets="@../css/Design.css">
             <font>
                 <Font size="13.0" />
             </font>
         </TextField>
-        <TextField fx:id="serverPortTextField" layoutX="81.0" layoutY="229.0" prefHeight="30.0" prefWidth="301.0" promptText="Password" style="-fx-background-color: #EFFFFD;" styleClass="textField" stylesheets="@../css/Design.css">
+        <TextField fx:id="passwordField" layoutX="81.0" layoutY="229.0" prefHeight="30.0" prefWidth="301.0" promptText="Password" style="-fx-background-color: #EFFFFD;" styleClass="textField" stylesheets="@../css/Design.css">
             <font>
                 <Font size="13.0" />
             </font>
