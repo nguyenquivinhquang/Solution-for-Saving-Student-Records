@@ -1,9 +1,12 @@
 package hcmiucvip.solutionforsavingstudentrecords.core;
 
+import java.security.PrivateKey;
+
 public class CourseInformation {
     private String courseId, courseTitle, courseDescription, courseSection;
     private String teacherId;
     private Integer courseCredits, size, remaining;
+    String courseName;
     public CourseInformation() {
 
     }
@@ -147,5 +150,12 @@ public class CourseInformation {
         return courseId + '-' + courseTitle + '-' + courseCredits + '-' + courseSection;
     }
 
+    public String getCourseName() {
+        return courseTitle;
+    }
 
+    public void setCourseName(String courseName) {
+        this.courseTitle = courseName;
+        this.courseName = courseName;
+    }
 }

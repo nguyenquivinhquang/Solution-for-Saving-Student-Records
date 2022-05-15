@@ -35,7 +35,7 @@ public class StudentView {
 //    @FXML
 //    TableColumn<CourseInformation, String> studentRCourseColumnCode, studentRCourseColumnTitle, studentRCourseColumnSec, studentRCourseColumnCredits;
     @FXML
-    TableColumn<CourseInformation, String> resultHistoryColumnCode, resultHistoryColumnName, resultHistoryColumnSemester,
+    TableColumn<CourseStudentScore, String> resultHistoryColumnCode, resultHistoryColumnName, resultHistoryColumnSemester,
             resultHistoryColumnAssignment, resultHistoryColumnMidterm, resultHistoryColumnFinal, resultHistoryColumnTotal;
     @FXML
     Label firstnameLabel, lastnameLabel, emailLabel;
@@ -72,6 +72,9 @@ public class StudentView {
 
     private void getStudentScoreRecord() {
         courseStudentScores = enrolledCourseQueries.getStudentScoreList(this.studentId);
+        for (CourseStudentScore courseStudentScore: courseStudentScores) {
+            courseStudentScore.setCourseName(courseQueries.getCourseName(courseStudentScore.getCourseId()));
+        }
     }
 
     private void getRunningCourse() {
@@ -94,7 +97,7 @@ public class StudentView {
 //        timeTable.setItems(courseSection);
 
         resultHistoryColumnCode.setCellValueFactory(new PropertyValueFactory<>("courseId"));
-        resultHistoryColumnName.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        resultHistoryColumnName.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         resultHistoryColumnSemester.setCellValueFactory(new PropertyValueFactory<>("courseId"));
         resultHistoryColumnAssignment.setCellValueFactory(new PropertyValueFactory<>("assignmentScore"));
         resultHistoryColumnMidterm.setCellValueFactory(new PropertyValueFactory<>("midtermScore"));

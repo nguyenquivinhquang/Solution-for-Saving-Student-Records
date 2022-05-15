@@ -153,7 +153,7 @@ public class CourseRegistration {
             showWarning("Course already registered");
             return false;
         }
-        if (courseQueries.getRemainSlot(course.getCourseId()) < 1) {
+        if (courseQueries.getRemainSlot(course.getCourseId(), course.getTeacherId(), course.getCourseSection()) < 1) {
             showWarning("Out of slot!!!!");
             return false;
         }
@@ -170,6 +170,7 @@ public class CourseRegistration {
         courseChoosenTrace.add(course.getCourseTitle());
         refresh();
         courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId(), course.getTeacherId(), course.getCourseSection());
+        init();
     }
 
     private void showWarning(String message) {

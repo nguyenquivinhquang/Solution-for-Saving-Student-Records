@@ -197,6 +197,8 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Student_Id", studentId));
         courseInsert.add(new Pair<>("Teacher_Id", teacherId));
         courseInsert.add(new Pair<>("Section", section));
+        String year = String.valueOf(SchoolYear.Year), semester = String.valueOf(SchoolYear.Semester);
+        courseInsert.add(new Pair<>("[Year-Semester]", year+'-'+semester));
 
         this.insertMultiValues("Enrolled_Class", courseInsert);
     }
@@ -253,9 +255,9 @@ public class CourseQueries extends Querier {
         runSetQuery(SQL);
     }
 
-    public int getRemainSlot(String courseId) {
+    public int getRemainSlot(String courseId, String teacherId, String section) {
         String SQL = String.format("select Remaining " +
-                "FROM Class Where Course_Id='%s'", courseId);
+                "FROM Class Where Course_Id='%s' and Teacher_Id='%s' and Section='%s'", courseId, teacherId, section);
         System.out.println(SQL);
         ResultSet result = runGetQuery(SQL);
         if (result == null) return 0;
