@@ -81,9 +81,9 @@ public class EnrolledCourseQueries extends Querier {
     public double countTotalScore(Double inClass, Double midterm, Double finalScore,
                                   String courseId, String section, String teacherId) {
         CourseQueries courseQueries = new CourseQueries();
-        Double midtermPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Midterm_percentage") ;
-        Double inclassPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Inclass_percentage") ;
-        Double finalPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Final_percentage") ;
+        Double midtermPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Midterm_percentage") / 100;
+        Double inclassPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Inclass_percentage") /100;
+        Double finalPercentage = courseQueries.getPercentage(courseId, section, teacherId,"Final_percentage") /100;
 
         return inclassPercentage * inClass + midtermPercentage * midterm + finalPercentage * finalScore;
     }
