@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.SemesterBiilling">
+   <children>
+      <Label layoutX="21.0" layoutY="27.0" prefHeight="43.0" prefWidth="80.0" text="Student ID" />
+      <Text layoutX="111.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ITITIU19252" wrappingWidth="158.13671875" />
+      <TableView fx:id="semesterbBllingTable" layoutX="69.0" layoutY="117.0" prefHeight="200.0" prefWidth="438.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Year" />
+          <TableColumn prefWidth="75.0" text="Semester" />
+            <TableColumn prefWidth="75.0" text="Total credits" />
+            <TableColumn prefWidth="111.0" text="Insurance price" />
+            <TableColumn prefWidth="101.0" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
