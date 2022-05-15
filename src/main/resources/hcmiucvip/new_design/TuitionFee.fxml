@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.TuitionFeeView">
+    <children>
+        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="435.0" prefWidth="782.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
+               <children>
+                      <AnchorPane prefHeight="435.0" prefWidth="804.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
+                          <children>
+                              <GridPane layoutX="41.0" layoutY="87.0" prefHeight="239.0" prefWidth="281.0">
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </Text>
+                                      <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester" GridPane.rowIndex="1">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </Text>
+                                      <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Price per credit" wrappingWidth="182.01806640625" GridPane.rowIndex="2">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </Text>
+                                      <Text fill="#673ab7" layoutX="10.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance price" wrappingWidth="140.45263671875" GridPane.rowIndex="3">
+                                          <font>
+                                              <Font size="15.0" />
+                                          </font>
+                                      </Text>
+                                      <TextField fx:id="yearField" prefHeight="25.0" prefWidth="47.0" GridPane.columnIndex="1" />
+                                      <TextField fx:id="semesterField" layoutX="162.0" layoutY="10.0" prefHeight="25.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                      <TextField fx:id="priceField" layoutX="162.0" layoutY="70.0" prefHeight="25.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                      <TextField fx:id="insuranceField" layoutX="162.0" layoutY="132.0" prefHeight="25.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                  </children>
+                              </GridPane>
+                              <Text fill="#505b9e" layoutX="41.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuition Information">
+                                  <font>
+                                      <Font name="System Bold" size="30.0" />
+                                  </font>
+                              </Text>
+                              <Text fill="#0091ea" layoutX="391.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuition Record" wrappingWidth="234.224609375">
+                                  <font>
+                                      <Font size="20.0" />
+                                  </font>
+                              </Text>
+                              <Button fx:id="saveButton" layoutX="625.0" layoutY="77.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="70.0" styleClass="save-button" stylesheets="@../css/Design.css" text="Save" textFill="WHITE" />
+                              <Button fx:id="clearButton" layoutX="210.0" layoutY="353.0" mnemonicParsing="false" onAction="#clearClick" prefHeight="25.0" prefWidth="64.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" textFill="WHITE" />
+                              <Button fx:id="saveButton1" layoutX="85.0" layoutY="353.0" mnemonicParsing="false" onAction="#addNewClick" prefHeight="25.0" prefWidth="70.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" />
+                              <Button fx:id="saveButton11" layoutX="537.0" layoutY="77.0" mnemonicParsing="false" onAction="#editClick" prefHeight="25.0" prefWidth="70.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="WHITE" />
+                          <TableView fx:id="tuitionRecordTable" layoutX="391.0" layoutY="112.0" prefHeight="254.0" prefWidth="378.0" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="391.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="112.0">
+                              <columns>
+                                  <TableColumn fx:id="yearCol" prefWidth="70.0" text="Year" />
+                                  <TableColumn fx:id="semesterCol" minWidth="0.0" prefWidth="70.0" text="Semester" />
+                                  <TableColumn fx:id="priceCol" prefWidth="120.0" text="Price per credit" />
+                                  <TableColumn fx:id="insuranceCol" prefWidth="120.0" text="Insurance price" />
+                              </columns>
+                          </TableView>
+                          </children>
+                      </AnchorPane>
+               </children></AnchorPane>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
