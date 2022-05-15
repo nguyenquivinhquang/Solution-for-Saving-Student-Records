@@ -271,6 +271,7 @@ public class CourseQueries extends Querier {
         return 0;
     }
 
+
     public double getPercentage(String courseId, String section, String teacherId, String percentageRow) {
         String SQL = "SELECT [Section]\n" +
                 "      ,[Size]\n" +

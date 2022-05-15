@@ -15,9 +15,10 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-        temp("ITDSIU19017");
+//        temp("ITDSIU19017");
 //        teacherView();
 //        tuitionFee();
+        semesterBilling();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
@@ -44,6 +45,22 @@ public class Windows extends Application {
         stage.show();
         controller.init();
 //        controller.initialize();
+    }
+    public void semesterBilling() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "SemesterBiilling.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        SemesterBillingView controller = loader.getController();
+        controller.setStudentId("ITDSIU19017");
+        controller.setStage(stage);
+        stage.show();
+        controller.init();
     }
     public void temp(String mssv) throws IOException {
         FXMLLoader loader = new FXMLLoader(

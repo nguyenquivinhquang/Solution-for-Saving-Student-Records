@@ -3,6 +3,7 @@ package hcmiucvip.solutionforsavingstudentrecords.core.DB;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseStudentScore;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ColorPicker;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -101,5 +102,33 @@ public class EnrolledCourseQueries extends Querier {
                 studentID, courseId, section, teacherId);
         System.out.println(SQL);
         runSetQuery(SQL);
+    }
+    public int getTotalSemesterYearCredits(String studentId, String semesterYear) {
+        String SQL = "SELECT [In_class]\n" +
+                "      ,[Midterm]\n" +
+                "      ,[Final]\n" +
+                "      ,[Section]\n" +
+                "      ,[Course_Id]\n" +
+                "      ,[Teacher_Id]\n" +
+                "      ,[Student_Id]\n" +
+                "      ,[Year-Semester]\n" +
+                "  FROM [StudentRecord].[dbo].[Enrolled_Class]\n" +
+                "  where Student_Id='%s' and [Year-Semester]='%s';";
+        SQL = String.format(SQL, studentId, semesterYear);
+        System.out.println(SQL);
+        int totalCredits = 0;
+        try {
+            ResultSet res = runGetQuery(SQL);
+            CourseQueries courseQueries = new CourseQueries();
+            while (res.next()) {
+                String courseId = res.getString("Course_Id");
+                totalCredits += courseQueries.getCourseCredit(courseId);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Bug on  getTotalSemesterYearCredits");
+
+        }
+        return totalCredits;
     }
 }
