@@ -40,7 +40,7 @@
       </Text>
       <ImageView fitHeight="74.0" fitWidth="76.0" layoutX="467.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/invoices.png" />
+            <Image url="@../../../images/invoices.png" />
          </image>
       </ImageView>
     </children>
