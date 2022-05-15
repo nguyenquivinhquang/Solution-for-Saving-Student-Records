@@ -165,6 +165,9 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Section", section));
         courseInsert.add(new Pair<>("Size", size));
         courseInsert.add(new Pair<>("Remaining", remaining));
+        courseInsert.add(new Pair<>("Midterm_percentage", 30));
+        courseInsert.add(new Pair<>("[Inclass_percentage]", 30));
+        courseInsert.add(new Pair<>("[Final_percentage]", 40));
         String year = String.valueOf(SchoolYear.Year), semester = String.valueOf(SchoolYear.Semester);
         courseInsert.add(new Pair<>("[Year-Semester]", year+'-'+semester));
         this.insertMultiValues("Class", courseInsert);

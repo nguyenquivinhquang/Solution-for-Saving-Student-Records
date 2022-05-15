@@ -55,15 +55,15 @@
                             </font>
                         </Button>
                         <Button layoutX="743.0" layoutY="109.0" mnemonicParsing="false" onAction="#setRegistrationRefreshClick" prefHeight="25.0" prefWidth="82.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" />
-                  <TableView fx:id="tableCoursePossible" layoutX="26.0" layoutY="151.0" prefHeight="400.0" prefWidth="503.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
+                  <TableView fx:id="tableCoursePossible" layoutX="26.0" layoutY="151.0" prefHeight="400.0" prefWidth="541.0" styleClass="miniBackground" stylesheets="@../css/Design.css">
                      <columns>
-                        <TableColumn fx:id="courseIdPossible" prefWidth="67.0" style="-fx-alignment: center;" text="Course ID" />
-                        <TableColumn fx:id="courseTitlePossible" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
-                        <TableColumn fx:id="teacherIdPossible" minWidth="0.0" prefWidth="73.0" text="Teacher ID" />
-                        <TableColumn fx:id="courseCreditPossible" prefWidth="89.0" text="Course Credit" />
-                        <TableColumn fx:id="courseSectionPossible" maxWidth="3000.0" prefWidth="90.0" text="Course Section" />
-                        <TableColumn fx:id="courseSizePossible" maxWidth="3000.0" prefWidth="53.0" text="Size" />
-                        <TableColumn fx:id="courseRemainPossible" maxWidth="3000.0" prefWidth="50.0" text="Remain" />
+                        <TableColumn fx:id="courseIdPossible" prefWidth="63.0" style="-fx-alignment: center;" text="Course ID" />
+                        <TableColumn fx:id="courseTitlePossible" prefWidth="117.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
+                        <TableColumn fx:id="teacherIdPossible" minWidth="0.0" prefWidth="76.0" text="Teacher ID" />
+                        <TableColumn fx:id="courseCreditPossible" prefWidth="83.0" text="Course Credit" />
+                        <TableColumn fx:id="courseSectionPossible" maxWidth="3000.0" prefWidth="93.0" text="Course Section" />
+                        <TableColumn fx:id="courseSizePossible" maxWidth="3000.0" prefWidth="50.0" text="Size" />
+                        <TableColumn fx:id="courseRemainPossible" maxWidth="3000.0" prefWidth="67.0" text="Remain" />
                      </columns>
                   </TableView>
                   <TableView fx:id="tableCourseChosen" layoutX="583.0" layoutY="151.0" prefHeight="335.0" prefWidth="422.0" styleClass="miniBackground" stylesheets="@../css/Design.css">

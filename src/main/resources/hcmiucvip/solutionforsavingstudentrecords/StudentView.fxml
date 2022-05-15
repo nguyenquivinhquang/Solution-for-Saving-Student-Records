@@ -28,6 +28,7 @@
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#setCourseCloseButtonClick" text="Close" />
+                              <MenuItem mnemonicParsing="false" onAction="#setSemesterBillingClick" text="Semester Billing" />
                                     </items>
                                 </Menu>
                         <Menu mnemonicParsing="false" text="Course">

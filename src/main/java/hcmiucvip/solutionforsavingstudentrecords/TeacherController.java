@@ -37,7 +37,7 @@ public class TeacherController {
     @FXML
     Button teacherAddGPAButton, teacherCancelButton;
     @FXML
-    Label studentIdLabel, totalLabel;
+    Text studentIdLabel;
     @FXML
     Text courseNameLabel;
     ObservableList<String> teacherClasses = FXCollections.observableArrayList();
@@ -85,7 +85,8 @@ public class TeacherController {
         Double inClassScore = Double.valueOf(inclassField.getText());
         Double midtermScore = Double.valueOf(midtermField.getText());
         Double finalScore = Double.valueOf(finalField.getText());
-        Double totalScore = 0.3 * inClassScore + 0.3 * midtermScore + 0.4 * finalScore;
+        Double totalScore = enrolledCourseQueries.countTotalScore(inClassScore, midtermScore, finalScore,
+                curCourseId, curSection, this.teacherId);
         CourseStudentScore studentScore = studentRecordTrace.get(studentIdLabel.getText());
 
         enrolledCourseQueries.updateScore(inClassScore, midtermScore,finalScore,
@@ -100,7 +101,7 @@ public class TeacherController {
         setEditableField(false);
         setVisibleField(false);
         studentIdLabel.setText("");
-        totalLabel.setText("");
+
     }
 
     public String getTeacherId() {
@@ -175,7 +176,7 @@ public class TeacherController {
         midtermField.setText(String.format("%.0f", studentRecord.getMidtermScore()));
         finalField.setText(String.format("%.0f", studentRecord.getFinalScore()));
         finalField.setText(String.format("%.0f", studentRecord.getFinalScore()));
-        totalLabel.setText(String.format("%.2f", studentRecord.getTotalScore()));
+//        totalLabel.setText(String.format("%.2f", studentRecord.getTotalScore()));
 
         teacherCancelButton.setDisable(false);
         teacherAddGPAButton.setDisable(false);

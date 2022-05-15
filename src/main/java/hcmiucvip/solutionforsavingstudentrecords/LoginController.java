@@ -60,6 +60,9 @@ public class LoginController implements Initializable {
             loadScene.loadTeacherView(loadInfor.getKey());
             this.stage.close();
 
+        } else {
+            loadScene.loadAdmin();
+            this.stage.close();
         }
 //        loadAdmin(event);
     }

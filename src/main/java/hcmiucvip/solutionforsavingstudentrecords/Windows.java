@@ -15,17 +15,20 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-        temp("ITDSIU19060");
+//        temp("ITDSIU19017");
 //        teacherView();
 //        tuitionFee();
 //        semesterBilling();
-//        Login();
+        Login();
 //        LoadScene loadScene = new LoadScene();
 //        loadScene.adminClassAdd();
 //    loadScene.adminTeacherAdd();
 //        loadScene.adminClassAdd();
 //        loadScene.adminStudentAdd();
-//        loadScene.loadTeacherView("hvus");
+//        loadScene.loadTeacherView("ltson");
+//        loadScene.tuitionFee();
+//        loadScene.loadAdmin();
+
     }
 
 

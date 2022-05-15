@@ -24,7 +24,19 @@ public class LoadScene {
         controller.init();
     }
 
-    public void loadAdmin() {
+    public void loadAdmin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "AdminHome.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        AdminController controller = loader.getController();
+        controller.setStage(stage);
+        stage.show();
 
     }
 
@@ -131,6 +143,7 @@ public class LoadScene {
         AdminStudentAddController controller = loader.getController();
         stage.show();
     }
+
     public void loadTeacherView(String teacherId) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
@@ -146,4 +159,21 @@ public class LoadScene {
         stage.show();
         controller.init();
     }
+    public void tuitionFee() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "TuitionFee.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        TuitionFeeView controller = loader.getController();
+
+        stage.show();
+        controller.init();
+//        controller.initialize();
+    }
+
 }
