@@ -28,12 +28,12 @@ public class StudentView {
     private String studentId;
     @FXML
     public PasswordField oldPasswordField, newPasswordField, reNewPasswordField;
-    @FXML
-    TableView<CourseInformation> timeTable;
+//    @FXML
+//    TableView<CourseInformation> timeTable;
     @FXML
     TableView<CourseStudentScore> resultHistoryTable;
-    @FXML
-    TableColumn<CourseInformation, String> studentRCourseColumnCode, studentRCourseColumnTitle, studentRCourseColumnSec, studentRCourseColumnCredits;
+//    @FXML
+//    TableColumn<CourseInformation, String> studentRCourseColumnCode, studentRCourseColumnTitle, studentRCourseColumnSec, studentRCourseColumnCredits;
     @FXML
     TableColumn<CourseInformation, String> resultHistoryColumnCode, resultHistoryColumnName, resultHistoryColumnSemester,
             resultHistoryColumnAssignment, resultHistoryColumnMidterm, resultHistoryColumnFinal, resultHistoryColumnTotal;
@@ -87,11 +87,11 @@ public class StudentView {
     public void init() {
         getRunningCourse();
         getStudentScoreRecord();
-        studentRCourseColumnCredits.setCellValueFactory(new PropertyValueFactory<>("courseCredits"));
-        studentRCourseColumnTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
-        studentRCourseColumnSec.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
+//        studentRCourseColumnCredits.setCellValueFactory(new PropertyValueFactory<>("courseCredits"));
+//        studentRCourseColumnTitle.setCellValueFactory(new PropertyValueFactory<>("courseTitle"));
+//        studentRCourseColumnSec.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
 
-        timeTable.setItems(courseSection);
+//        timeTable.setItems(courseSection);
 
         resultHistoryColumnCode.setCellValueFactory(new PropertyValueFactory<>("courseId"));
         resultHistoryColumnName.setCellValueFactory(new PropertyValueFactory<>("courseId"));
@@ -108,9 +108,10 @@ public class StudentView {
 
         totalCreditsText.setText(String.valueOf(totalCredits));
         Double avgScore;
+        System.out.println(totalScore / totalCredits);
         if (totalCredits == 0) avgScore = 0.0;
         else avgScore = totalScore / totalCredits;
-        averageScoreText.setText(String.format("%,.2f", avgScore));
+        averageScoreText.setText(String.format("%.2f", avgScore));
 
     }
 
@@ -156,12 +157,17 @@ public class StudentView {
         controller.init();
     }
     private void calculateRecord() {
+        totalScore = 0;
+        totalCredits = 0;
         for (CourseStudentScore course : courseStudentScores) {
+
             Integer curCredits = courseQueries.getCourseCredit(course.getCourseId());
             totalScore += course.getTotalScore() * curCredits;
+
             totalCredits += curCredits;
 
         }
+
     }
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
