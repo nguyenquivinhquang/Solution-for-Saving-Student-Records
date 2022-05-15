@@ -19,13 +19,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1181.0" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AdminClassAddController">
+<AnchorPane  stylesheets="@../css/Design.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1181.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AdminClassAddController">
     <children>
         <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="200.0" prefWidth="928.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar prefHeight="25.0" prefWidth="1022.0" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="0.0">
+                        <MenuBar prefHeight="25.0" prefWidth="1022.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="0.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -50,13 +50,15 @@
             <center>
                 <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                             <children>
-                                <Separator layoutX="22.0" layoutY="99.0" prefHeight="2.0" prefWidth="301.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="99.0" />
-                                <GridPane layoutX="26.0" layoutY="111.0" prefHeight="199.0" prefWidth="295.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="111.0">
+                                <Button fx:id="logInButton" layoutX="161.0" layoutY="17.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #09B28C;" text="Edit" textFill="WHITE" />
+                                <Button alignment="CENTER" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FF3F3C; -fx-text-fill: white;" text="Delete" />
+                                <Separator layoutX="13.0" layoutY="99.0" prefHeight="4.0" prefWidth="322.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="99.0" />
+                                <GridPane layoutX="16.0" layoutY="159.0" prefHeight="192.0" prefWidth="310.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="159.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="129.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="166.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="119.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="174.0" />
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -68,7 +70,7 @@
                                     </rowConstraints>
                                     <children>
                               <TextField fx:id="classSize" layoutX="138.0" layoutY="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID" wrappingWidth="75.92236328125">
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID" wrappingWidth="70.92236328125">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
@@ -83,7 +85,7 @@
                                                 <Font size="15.0" />
                                             </font>
                                         </Text>
-                                        <ChoiceBox fx:id="sectionSelect" onMouseClicked="#setSectionSelect" prefHeight="25.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <ChoiceBox fx:id="sectionSelect" onMouseClicked="#setSectionSelect" prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                         <Text layoutX="10.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Id" GridPane.rowIndex="3">
                                             <font>
                                                 <Font size="15.0" />
@@ -121,20 +123,20 @@
                               </Text>
                                     </children>
                                 </GridPane>
-                                <Text fill="#424496" layoutX="22.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Information" AnchorPane.bottomAnchor="498.470703125" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="78.1923828125" AnchorPane.topAnchor="49.626953125">
+                                <Text layoutX="16.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Informatin" AnchorPane.bottomAnchor="444.7333984375" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="197.095703125" AnchorPane.topAnchor="120.6552734375">
                                     <font>
-                                        <Font name="System Bold" size="30.0" />
+                                        <Font size="20.0" />
                                     </font>
                                 </Text>
-                                <Button fx:id="courseClearButtonClick" layoutX="200.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCourseClearButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" textFill="#f5f3f3" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="360.0" />
-                                <Button layoutX="264.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseRefreshButtonClick" prefHeight="22.0" prefWidth="78.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="#f5f3f3" AnchorPane.leftAnchor="264.0" />
-                        <Separator layoutX="24.0" layoutY="338.0" prefHeight="2.0" prefWidth="301.0" />
-                                <Button fx:id="saveButton" layoutX="106.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#setCourseSaveButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="save-button" stylesheets="@../css/Design.css" text="Save" textFill="#f5f3f3" />
+                                <Button fx:id="courseClearButtonClick" layoutX="194.0" layoutY="479.0" mnemonicParsing="false" onAction="#setCourseClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FF5151; -fx-text-fill: white;" text="Clear" AnchorPane.leftAnchor="194.0" AnchorPane.topAnchor="479.0" />
+                                <Button fx:id="saveButton" layoutX="54.0" layoutY="479.0" mnemonicParsing="false" onMouseClicked="#setCourseSaveButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #408E2F; -fx-text-fill: white;" text="Save" />
+                                <Separator layoutX="33.0" layoutY="439.0" prefHeight="4.0" prefWidth="323.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="-8.0" />
+                                <Button layoutX="16.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseRefreshButtonClick" prefHeight="22.0" prefWidth="78.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="16.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="640.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="640.0">
                             <children>
-                                <TableView fx:id="adminClassView" layoutX="8.0" layoutY="59.0" prefHeight="257.0" prefWidth="810.0" style="-fx-background-radius: 30;" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="59.0">
+                                <TableView fx:id="adminClassView" layoutX="1.0" layoutY="50.0" prefHeight="257.0" prefWidth="819.0" AnchorPane.bottomAnchor="281.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
                                     <columns>
                                         <TableColumn fx:id="courseIdClass" prefWidth="98.0" style="-fx-alignment: center;" text="Course ID" />
                                         <TableColumn fx:id="courseTitleClass" prefWidth="188.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -144,39 +146,37 @@
                               <TableColumn fx:id="classRemainingClass" maxWidth="3000.0" prefWidth="158.0" text="Class remaining" />
                                     </columns>
                                 </TableView>
-                                <Text layoutX="8.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Details" AnchorPane.bottomAnchor="538.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="673.75146484375" AnchorPane.topAnchor="14.0">
+                                <Text layoutX="8.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class Details:" AnchorPane.bottomAnchor="538.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="673.75146484375" AnchorPane.topAnchor="14.0">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
                                 </Text>
-                        <TableView fx:id="teacherViewTable" layoutX="417.0" layoutY="374.0" prefHeight="200.0" prefWidth="401.0" style="-fx-background-radius: 30;">
+                        <TableView fx:id="teacherViewTable" layoutX="432.0" layoutY="368.0" prefHeight="200.0" prefWidth="399.0">
                            <columns>
                               <TableColumn fx:id="teacherIdCol" prefWidth="97.0" text="Teacher ID" />
                               <TableColumn fx:id="teacherNameCol" prefWidth="187.0" text="Teacher Name" />
                               <TableColumn fx:id="teacherDepartmentRow" prefWidth="114.0" text="Department" />
                            </columns>
                         </TableView>
-                        <TableView fx:id="adminCourseView" layoutX="8.0" layoutY="374.0" prefHeight="200.0" prefWidth="387.0" style="-fx-background-radius: 30;">
+                        <TableView fx:id="adminCourseView" layoutY="368.0" prefHeight="200.0" prefWidth="385.0">
                           <columns>
                             <TableColumn fx:id="courseIdDetail" prefWidth="104.0" text="Course ID" />
                             <TableColumn fx:id="courseTitleDetail" prefWidth="195.0" text="Course Title" />
                               <TableColumn fx:id="courseCreditsDetail" prefWidth="85.0" text="Credit" />
                           </columns>
                         </TableView>
-                        <Text layoutX="9.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Details">
+                        <Text layoutX="8.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Details:">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Text layoutX="433.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Details">
+                        <Text layoutX="432.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Details:">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Button layoutX="313.0" layoutY="335.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                        <Button layoutX="735.0" layoutY="335.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                                <Button fx:id="logInButton" layoutX="638.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="#f5f3f3" />
-                                <Button alignment="CENTER" layoutX="741.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" textFill="#f5f3f3" />
+                        <Button layoutX="186.0" layoutY="329.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #09B28C;" text="Choose" textFill="WHITE" />
+                        <Button layoutX="692.0" layoutY="323.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #09B28C;" text="Choose" textFill="WHITE" />
                             </children>
                         </AnchorPane>
                     </items>

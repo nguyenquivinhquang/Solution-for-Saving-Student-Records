@@ -23,7 +23,7 @@
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar layoutY="2.0" prefHeight="27.0" prefWidth="1180.0" styleClass="column-header" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                        <MenuBar prefHeight="25.0" prefWidth="1180.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -43,18 +43,21 @@
             <center>
                 <SplitPane dividerPositions="0.30135823429541597" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="596.0" prefWidth="352.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="543.0">
                             <children>
-                                <Text fill="#4226a8" layoutX="32.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Information" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.396484375" AnchorPane.topAnchor="39.0">
+                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" style="-fx-background-color: #0B9CE3; -fx-text-fill: white;" text="AddNew" AnchorPane.leftAnchor="14.0" />
+                                <Button layoutX="134.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherEditButtonClick" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Edit" textFill="WHITE" />
+                                <Button alignment="CENTER" layoutX="254.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FF3F3C; -fx-text-fill: white;" text="Delete" />
+                                <Text layoutX="16.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Details:" AnchorPane.bottomAnchor="504.482421875" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="214.33203125" AnchorPane.topAnchor="59.576171875">
                                     <font>
-                                        <Font name="System Bold" size="30.0" />
+                                        <Font size="25.0" />
                                     </font>
                                 </Text>
-                                <Separator layoutX="13.0" layoutY="85.0" prefHeight="4.0" prefWidth="322.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="85.0" />
-                                <GridPane layoutX="32.0" layoutY="101.0" prefHeight="263.0" prefWidth="289.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="101.0">
+                                <Separator layoutX="13.0" layoutY="99.0" prefHeight="4.0" prefWidth="322.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="99.0" />
+                                <GridPane layoutX="28.0" layoutY="159.0" prefHeight="230.0" prefWidth="314.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="159.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="99.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="190.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="95.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="201.0" />
                                     </columnConstraints>
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -70,19 +73,19 @@
                                                 <Font size="15.0" />
                                             </font>
                                         </Text>
-                                        <TextField fx:id="firstnameField" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" />
+                                        <TextField fx:id="firstnameField" GridPane.columnIndex="1" />
                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
                                         </Text>
                                         <TextField fx:id="lastnameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher ID" GridPane.rowIndex="2">
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Id" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
                                         </Text>
-                                        <TextField fx:id="teacherIdField" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="teacherIdField" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
                                             <font>
                                                 <Font size="15.0" />
@@ -103,26 +106,30 @@
                               <TextField fx:id="passField" layoutX="114.0" layoutY="171.0" promptText="Default: 123" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     </children>
                                 </GridPane>
-                                <Button fx:id="adminTeacherClearButtonClick" layoutX="192.0" layoutY="407.0" mnemonicParsing="false" onAction="#setAdminTeacherClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: e97600; -fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" AnchorPane.rightAnchor="90.0" />
-                                <Separator layoutX="9.0" layoutY="381.0" prefHeight="2.0" prefWidth="330.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
-                        <Button fx:id="saveButton" layoutX="78.0" layoutY="407.0" mnemonicParsing="false" onAction="#setAdminTeacherSaveButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="all-button" stylesheets="@../css/Design.css" text="Save" />
+                                <Text layoutX="16.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Information" AnchorPane.bottomAnchor="444.7333984375" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="197.095703125" AnchorPane.topAnchor="120.6552734375">
+                                    <font>
+                                        <Font size="23.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="adminTeacherClearButtonClick" layoutX="214.0" layoutY="439.0" mnemonicParsing="false" onAction="#setAdminTeacherClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FF5151; -fx-text-fill: white;" text="Clear" AnchorPane.rightAnchor="54.0" />
+                                <Button fx:id="saveButton" layoutX="78.0" layoutY="439.0" mnemonicParsing="false" onAction="#setAdminTeacherSaveButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #408E2F; -fx-text-fill: white;" text="Save" AnchorPane.rightAnchor="190.0" />
+                                <Separator layoutX="9.0" layoutY="412.0" prefHeight="2.0" prefWidth="330.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="820.0" style="-fx-background-color: #dde2f9;" styleClass="backgroundColor" stylesheets="@../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="747.0">
                             <children>
-                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                                <TextField fx:id="adminTeacherTFSearch" layoutX="548.0" layoutY="14.0" promptText="Teacher ID" AnchorPane.rightAnchor="127.0" />
+                                <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherSearchButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
+                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="14.0" />
+                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                                     <columns>
-                                        <TableColumn fx:id="teacherIdCol" prefWidth="100.0" text="Teacher Id" />
-                                        <TableColumn fx:id="firstNameCol" prefWidth="200.0" text="First Name" />
-                              <TableColumn fx:id="lastNameCol" prefWidth="100.0" text="Last Name" />
-                                        <TableColumn fx:id="emailCol" prefWidth="240.0" text="Email" />
-                                        <TableColumn fx:id="departmentCol" prefWidth="177.0" text="Department" />
+                                        <TableColumn fx:id="teacherIdCol" prefWidth="152.0" text="Teacher Id" />
+                                        <TableColumn fx:id="firstNameCol" prefWidth="116.0" text="First Name" />
+                              <TableColumn fx:id="lastNameCol" prefWidth="117.0" text="Last Name" />
+                                        <TableColumn fx:id="emailCol" prefWidth="265.0" text="Email" />
+                                        <TableColumn fx:id="departmentCol" prefWidth="171.0" text="Department" />
                                     </columns>
                                 </TableView>
-                                <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminTeacherEditButtonClick" prefHeight="26.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="WHITE" />
-                                <Button alignment="CENTER" layoutX="185.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminTeacherDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" />
-                                <Button layoutX="94.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="94.0" />
-                                <Button layoutX="726.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="726.0" />
                             </children></AnchorPane>
                     </items>
                 </SplitPane>

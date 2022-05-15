@@ -76,4 +76,33 @@ public class LoadScene {
         stage.show();
         controller.init();
     }
+    public void adminClassAdd() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "AdminClassAdd.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        AdminClassAddController controller = loader.getController();
+//        controller.setStudentId(studentId);
+//        controller.setStage(stage);
+        stage.show();
+//        controller.init();
+    }
+    public void adminTeacherAdd() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "AdminTeacherAdd.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        AdminTeacherAddController controller = loader.getController();
+        stage.show();
+    }
 }
