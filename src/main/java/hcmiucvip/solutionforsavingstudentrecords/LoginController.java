@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
     public AnchorPane rootPane;
     public Label loginNoti, passwordIncorrect;
 
-
+    Stage stage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,8 +40,8 @@ public class LoginController implements Initializable {
 
     }
     @FXML
-    private void loadLogin(ActionEvent event) throws IOException {
-        Pair<String, String> loadInfor = auth(accountField.getText(),passwordField.getText());
+    private void logIn(ActionEvent event) throws IOException {
+        Pair<String, String> loadInfor = auth(accountField.getText().toLowerCase(),passwordField.getText());
 
         if (loadInfor.getKey() == "none") {
             // Login fail
@@ -50,22 +50,33 @@ public class LoginController implements Initializable {
             passwordField.clear();
             return;
         }
-        loadAdmin(event);
+        LoadScene loadScene = new LoadScene();
+        if (loadInfor.getValue().equals("Student")){
+            loadScene.loadStudent(loadInfor.getKey());
+            this.stage.close();
+        }
+//        loadAdmin(event);
     }
     private void loadAdmin(ActionEvent event) throws IOException{
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         Parent adminParent = FXMLLoader.load(getClass().getResource("AdminStudentAdd.fxml"));
         Scene adminScene = new Scene(adminParent);
         Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        adminStage.hide();
         adminStage.setScene(adminScene);
         adminStage.setTitle("Admin Panel");
         adminStage.setX(50);
         adminStage.setY(10);
         adminStage.show();
     }
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
     private void signIn2Admin(ActionEvent event) throws IOException {
 
     }
+    private void loadStudent(String studentId) {
+
+    }
+
 
 }
