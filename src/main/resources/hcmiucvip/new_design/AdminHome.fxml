@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="463.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.GraphicalUserInterface">
+    <children>
+      <ImageView fitHeight="313.0" fitWidth="470.0" layoutX="-6.0" layoutY="-117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/tree.jpg" />
+         </image></ImageView>
+        <Button fx:id="logInButton" layoutX="375.0" layoutY="14.0" mnemonicParsing="false" onAction="#logIn" prefHeight="33.0" prefWidth="75.0" styleClass="mybutton" stylesheets="@../css/Design.css" text="LOG OUT" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="12.0" />
+            </font>
+        </Button>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5fdff" height="78.0" layoutX="53.0" layoutY="274.0" stroke="#f5fdff" strokeType="INSIDE" width="162.0" AnchorPane.leftAnchor="53.0">
+         <effect>
+            <DropShadow height="153.6325" radius="76.865625" spread="0.11" width="155.83">
+               <color>
+                  <Color opacity="0.11450382322072983" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text fill="#5e5b5b" layoutX="56.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adding">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5fdff" height="78.0" layoutX="248.0" layoutY="274.0" stroke="#f5fdff" strokeType="INSIDE" width="162.0" AnchorPane.rightAnchor="54.0">
+         <effect>
+            <DropShadow height="151.435" radius="76.31625" spread="0.11" width="155.83">
+               <color>
+                  <Color opacity="0.11450382322072983" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5fdff" height="78.0" layoutX="53.0" layoutY="382.0" stroke="#f5fdff" strokeType="INSIDE" width="162.0">
+         <effect>
+            <DropShadow height="77.42" radius="54.88250000000001" spread="0.11" width="144.11">
+               <color>
+                  <Color opacity="0.221374049782753" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5fdff" height="78.0" layoutX="249.0" layoutY="382.0" stroke="#f5fdff" strokeType="INSIDE" width="162.0">
+         <effect>
+            <DropShadow height="77.42" radius="54.88250000000001" spread="0.11" width="144.11">
+               <color>
+                  <Color opacity="0.221374049782753" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5fdff" height="78.0" layoutX="53.0" layoutY="491.0" stroke="#f5fdff" strokeType="INSIDE" width="162.0">
+         <effect>
+            <DropShadow height="151.435" radius="76.31625" spread="0.11" width="155.83">
+               <color>
+                  <Color opacity="0.11450382322072983" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text fill="#796d6d" layoutX="144.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi Admin !">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="47.0" fitWidth="55.0" layoutX="60.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="55.0">
+         <image>
+            <Image url="@../../../images/student.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="258.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/lecturer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="61.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="399.0">
+         <image>
+            <Image url="@../../../images/course.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="258.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0">
+         <image>
+            <Image url="@../../../images/class.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="61.0" layoutX="64.0" layoutY="508.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="64.0">
+         <image>
+            <Image url="@../../../images/tuition.png" />
+         </image>
+      </ImageView>
+      <Text fill="#441554" layoutX="121.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student" AnchorPane.leftAnchor="121.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#441554" layoutX="316.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#441554" layoutX="125.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#441554" layoutX="329.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#441554" layoutX="125.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuition">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label layoutX="61.0" layoutY="274.0" prefHeight="78.0" prefWidth="146.0" />
+      <Label layoutX="61.0" layoutY="383.0" prefHeight="78.0" prefWidth="146.0" />
+      <Label layoutX="256.0" layoutY="275.0" prefHeight="78.0" prefWidth="146.0" />
+      <Label layoutX="260.0" layoutY="383.0" prefHeight="78.0" prefWidth="146.0" />
+      <Label layoutX="61.0" layoutY="492.0" prefHeight="78.0" prefWidth="146.0" />
+    </children>
+</AnchorPane>

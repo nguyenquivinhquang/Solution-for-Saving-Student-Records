@@ -89,17 +89,17 @@
                         </TableView>
                         <ComboBox fx:id="teacherChooseCLass" layoutX="323.0" layoutY="123.0" prefWidth="150.0" promptText="Choose a class" />
                         <Button fx:id="teacherLoadButton" layoutX="502.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Load" textFill="WHITE" />
-                        <Text fill="#505b9e" layoutX="29.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA Calculation ">
+                        <Text fill="#505b9e" layoutX="23.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA Calculation ">
                             <font>
                                 <Font name="Berlin Sans FB" size="37.0" />
                             </font>
                         </Text>
-                        <Text fx:id="name" fill="#0091ea" layoutX="92.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="73.38671875">
+                        <Text fx:id="name" fill="#0091ea" layoutX="23.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="73.38671875">
                             <font>
                                 <Font size="27.0" />
                             </font>
                         </Text>
-                        <Text fx:id="id" fill="#f57c00" layoutX="167.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(ID)" AnchorPane.bottomAnchor="611.984375" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="987.8671875" AnchorPane.topAnchor="124.734375">
+                        <Text fx:id="id" fill="#f57c00" layoutX="96.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(ID)" AnchorPane.bottomAnchor="674.984375" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="1058.8671875" AnchorPane.topAnchor="61.734375">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -116,6 +116,16 @@
                         </Button>
                         <Separator layoutX="33.0" layoutY="426.0" prefHeight="4.0" prefWidth="220.0" />
                         <Button layoutX="601.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherSelectClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Select" textFill="WHITE" />
+                  <Text fx:id="id1" fill="#f50000" layoutX="131.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="207.1328125">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="id11" fill="#f50000" layoutX="699.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="447.1328125">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
                     </children>
                 </AnchorPane>
             </center>

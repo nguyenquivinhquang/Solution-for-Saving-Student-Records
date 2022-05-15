@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="464.0" style="-fx-background-color: #EFFFFD;" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.GraphicalUserInterface">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="464.0" style="-fx-background-color: #EFFFFD;" styleClass="backgroundColor" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.GraphicalUserInterface">
     <children>
         <Button fx:id="logInButton" layoutX="177.0" layoutY="355.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="112.0" styleClass="mybutton" stylesheets="@../css/Design.css" text="LOG IN" textAlignment="CENTER" textFill="#f2e6e6">
             <font>
@@ -44,7 +44,7 @@
                 </LinearGradient>
             </stroke>
         </Line>
-        <TextField fx:id="usernameTextField" layoutX="82.0" layoutY="193.0" prefHeight="30.0" prefWidth="301.0" promptText="Username" style="-fx-background-color: #EFFFFD;" styleClass="textField" stylesheets="@../css/Design.css">
+        <TextField fx:id="usernameTextField" layoutX="82.0" layoutY="193.0" prefHeight="30.0" prefWidth="301.0" promptText="Username" styleClass="textField" stylesheets="@../css/Design.css">
             <font>
                 <Font size="13.0" />
             </font>
