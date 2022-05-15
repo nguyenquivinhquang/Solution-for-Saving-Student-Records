@@ -1,6 +1,7 @@
 package hcmiucvip.solutionforsavingstudentrecords.core.DB;
 
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
+import hcmiucvip.solutionforsavingstudentrecords.core.SchoolYear;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
@@ -164,6 +165,8 @@ public class CourseQueries extends Querier {
         courseInsert.add(new Pair<>("Section", section));
         courseInsert.add(new Pair<>("Size", size));
         courseInsert.add(new Pair<>("Remaining", remaining));
+        String year = String.valueOf(SchoolYear.Year), semester = String.valueOf(SchoolYear.Semester);
+        courseInsert.add(new Pair<>("[Year-Semester]", year+'-'+semester));
         this.insertMultiValues("Class", courseInsert);
     }
 

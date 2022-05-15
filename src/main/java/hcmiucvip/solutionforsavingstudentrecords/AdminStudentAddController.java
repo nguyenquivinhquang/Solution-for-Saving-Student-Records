@@ -3,6 +3,7 @@ package hcmiucvip.solutionforsavingstudentrecords;
 import hcmiucvip.solutionforsavingstudentrecords.core.Auth.AuthUtil;
 //import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
+import hcmiucvip.solutionforsavingstudentrecords.core.SchoolYear;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -186,6 +187,7 @@ public class AdminStudentAddController implements Initializable {
         insertValues.add(new Pair<>("Birth_day", birthday));
         insertValues.add(new Pair< >("Academic_year", academicYear));
         insertValues.add(new Pair<>("Mail", email));
+
 
 
         if (!studentQueries.insertMultiValues(insertValues)){
