@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="464.0" style="-fx-background-color: #EFFFFD;" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.GraphicalUserInterface">
     <children>
-        <Button fx:id="logInButton" layoutX="175.0" layoutY="332.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="112.0" styleClass="mybutton" stylesheets="@../../../css/Design.css" text="LOG IN" textAlignment="CENTER" textFill="#f2e6e6">
+        <Button fx:id="logInButton" layoutX="175.0" layoutY="332.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="112.0" styleClass="mybutton" stylesheets="@../css/Design.css" text="LOG IN" textAlignment="CENTER" textFill="#f2e6e6">
             <font>
                 <Font name="Segoe UI Semibold" size="12.0" />
             </font>

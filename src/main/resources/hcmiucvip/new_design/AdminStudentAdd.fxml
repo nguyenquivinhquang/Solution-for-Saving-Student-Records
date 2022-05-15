@@ -23,7 +23,7 @@
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar layoutY="2.0" prefHeight="45.0" prefWidth="614.0" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                        <MenuBar layoutY="2.0" prefHeight="45.0" prefWidth="614.0" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -49,9 +49,9 @@
             <center>
                 <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseEntered="#fillEmail" prefHeight="160.0" prefWidth="100.0" styleClass="backgroundColor" stylesheets="@../../../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseEntered="#fillEmail" prefHeight="160.0" prefWidth="100.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <Button layoutX="80.0" layoutY="433.0" mnemonicParsing="false" onAction="#setAdminAddNewButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="80.0" />
+                                <Button layoutX="80.0" layoutY="433.0" mnemonicParsing="false" onAction="#setAdminAddNewButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="80.0" />
                                 <Separator layoutX="43.0" layoutY="102.0" prefHeight="3.0" prefWidth="291.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="102.0" />
                                 <GridPane layoutX="47.0" layoutY="120.0" prefHeight="252.0" prefWidth="284.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="120.0">
                                     <columnConstraints>
@@ -117,16 +117,16 @@
                                         <Font name="System Bold" size="30.0" />
                                     </font>
                                 </Text>
-                                <Button fx:id="cleanButton" layoutX="207.0" layoutY="433.0" mnemonicParsing="false" onAction="#setAdminClearButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Clear" textFill="#fffbfb" AnchorPane.bottomAnchor="130.0" AnchorPane.rightAnchor="101.0" />
-                                <Button layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="291.0" />
+                                <Button fx:id="cleanButton" layoutX="207.0" layoutY="433.0" mnemonicParsing="false" onAction="#setAdminClearButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" textFill="#fffbfb" AnchorPane.bottomAnchor="130.0" AnchorPane.rightAnchor="101.0" />
+                                <Button layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="291.0" />
                         <Separator layoutX="43.0" layoutY="398.0" prefHeight="3.0" prefWidth="291.0" />
                             </children>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #dde2f9;">
                             <children>
                                 <TextField fx:id="adminTFSearch" layoutX="548.0" layoutY="14.0" prefHeight="25.0" prefWidth="140.0" promptText="Student ID" AnchorPane.rightAnchor="102.0" />
-                                <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminSearchButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
-                                <TableView fx:id="adminTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                                <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminSearchButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
+                                <TableView fx:id="adminTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                                     <columns>
                                         <TableColumn fx:id="adminTableStudentID" prefWidth="135.0" text="Student ID" />
                                         <TableColumn fx:id="adminTableFirstName" prefWidth="161.0" text="First Name" />
@@ -136,9 +136,9 @@
                                         <TableColumn fx:id="adminTableBirthday" prefWidth="189.0" text="Birthday" />
                                     </columns>
                                 </TableView>
-                                <Button alignment="CENTER" layoutX="215.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Delete" textFill="#fffbfb" />
-                                <Button fx:id="saveButton" layoutX="116.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminSaveButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="save-button" stylesheets="@../../../css/Design.css" text="Save" textFill="#fffbfb" AnchorPane.bottomAnchor="549.0" AnchorPane.rightAnchor="708.0" />
-                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminEditButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Edit" textFill="WHITE" />
+                                <Button alignment="CENTER" layoutX="215.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" textFill="#fffbfb" />
+                                <Button fx:id="saveButton" layoutX="116.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminSaveButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="save-button" stylesheets="@../css/Design.css" text="Save" textFill="#fffbfb" AnchorPane.bottomAnchor="549.0" AnchorPane.rightAnchor="708.0" />
+                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminEditButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="WHITE" />
                             </children>
                         </AnchorPane>
                     </items>

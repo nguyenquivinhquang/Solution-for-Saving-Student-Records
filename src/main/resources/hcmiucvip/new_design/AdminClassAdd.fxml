@@ -25,7 +25,7 @@
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar prefHeight="25.0" prefWidth="1022.0" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="0.0">
+                        <MenuBar prefHeight="25.0" prefWidth="1022.0" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="0.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -50,7 +50,7 @@
             <center>
                 <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="backgroundColor" stylesheets="@../../../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
                                 <Separator layoutX="22.0" layoutY="99.0" prefHeight="2.0" prefWidth="301.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="99.0" />
                                 <GridPane layoutX="26.0" layoutY="111.0" prefHeight="199.0" prefWidth="295.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="111.0">
@@ -126,14 +126,14 @@
                                         <Font name="System Bold" size="30.0" />
                                     </font>
                                 </Text>
-                                <Button fx:id="courseClearButtonClick" layoutX="219.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCourseClearButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Clear" textFill="#f5f3f3" AnchorPane.leftAnchor="219.0" AnchorPane.topAnchor="360.0" />
-                                <Button layoutX="264.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseRefreshButtonClick" prefHeight="22.0" prefWidth="78.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Refresh" textFill="#f5f3f3" AnchorPane.leftAnchor="264.0" />
+                                <Button fx:id="courseClearButtonClick" layoutX="219.0" layoutY="360.0" mnemonicParsing="false" onAction="#setCourseClearButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" textFill="#f5f3f3" AnchorPane.leftAnchor="219.0" AnchorPane.topAnchor="360.0" />
+                                <Button layoutX="264.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseRefreshButtonClick" prefHeight="22.0" prefWidth="78.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="#f5f3f3" AnchorPane.leftAnchor="264.0" />
                         <Separator layoutX="24.0" layoutY="338.0" prefHeight="2.0" prefWidth="301.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="640.0" styleClass="backgroundColor" stylesheets="@../../../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="640.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <TableView fx:id="adminClassView" layoutX="8.0" layoutY="59.0" prefHeight="257.0" prefWidth="810.0" style="-fx-background-radius: 30;" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="59.0">
+                                <TableView fx:id="adminClassView" layoutX="8.0" layoutY="59.0" prefHeight="257.0" prefWidth="810.0" style="-fx-background-radius: 30;" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="272.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="59.0">
                                     <columns>
                                         <TableColumn fx:id="courseIdClass" prefWidth="98.0" style="-fx-alignment: center;" text="Course ID" />
                                         <TableColumn fx:id="courseTitleClass" prefWidth="188.0" style="-fx-alignment: CENTER_RIGHT; -fx-alignment: CENTER_RIGHT;" text="Course Title" />
@@ -172,11 +172,11 @@
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Button layoutX="313.0" layoutY="335.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                        <Button layoutX="735.0" layoutY="335.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                                <Button fx:id="logInButton" layoutX="545.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Edit" textFill="#f5f3f3" />
-                                <Button alignment="CENTER" layoutX="741.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Delete" textFill="#f5f3f3" />
-                                <Button fx:id="saveButton" layoutX="643.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#setCourseSaveButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="save-button" stylesheets="@../../../css/Design.css" text="Save" textFill="#f5f3f3" />
+                        <Button layoutX="313.0" layoutY="335.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
+                        <Button layoutX="735.0" layoutY="335.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
+                                <Button fx:id="logInButton" layoutX="545.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="#f5f3f3" />
+                                <Button alignment="CENTER" layoutX="741.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" textFill="#f5f3f3" />
+                                <Button fx:id="saveButton" layoutX="643.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#setCourseSaveButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="save-button" stylesheets="@../css/Design.css" text="Save" textFill="#f5f3f3" />
                             </children>
                         </AnchorPane>
                     </items>

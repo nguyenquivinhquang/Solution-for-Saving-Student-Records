@@ -23,7 +23,7 @@
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar layoutY="2.0" prefHeight="27.0" prefWidth="1180.0" styleClass="column-header" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                        <MenuBar layoutY="2.0" prefHeight="27.0" prefWidth="1180.0" styleClass="column-header" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -43,9 +43,9 @@
             <center>
                 <SplitPane dividerPositions="0.30135823429541597" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="596.0" prefWidth="352.0" styleClass="backgroundColor" stylesheets="@../../../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="596.0" prefWidth="352.0" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <Button layoutX="79.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="79.0" />
+                                <Button layoutX="79.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="79.0" />
                                 <Text fill="#4226a8" layoutX="32.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Information" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="31.396484375" AnchorPane.topAnchor="39.0">
                                     <font>
                                         <Font name="System Bold" size="30.0" />
@@ -104,16 +104,16 @@
                               <TextField fx:id="passField" layoutX="114.0" layoutY="171.0" promptText="Default: 123" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     </children>
                                 </GridPane>
-                                <Button fx:id="adminTeacherClearButtonClick" layoutX="199.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: e97600; -fx-text-fill: white;" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Clear" AnchorPane.rightAnchor="83.0" />
+                                <Button fx:id="adminTeacherClearButtonClick" layoutX="199.0" layoutY="409.0" mnemonicParsing="false" onAction="#setAdminTeacherClearButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: e97600; -fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Clear" AnchorPane.rightAnchor="83.0" />
                                 <Separator layoutX="9.0" layoutY="381.0" prefHeight="2.0" prefWidth="330.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" />
-                                <Button layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="262.0" />
+                                <Button layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="262.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="820.0" style="-fx-background-color: #dde2f9;" styleClass="backgroundColor" stylesheets="@../../../css/Design.css">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="820.0" style="-fx-background-color: #dde2f9;" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
                                 <TextField fx:id="adminTeacherTFSearch" layoutX="548.0" layoutY="14.0" prefHeight="25.0" prefWidth="140.0" promptText="Teacher ID" AnchorPane.rightAnchor="101.0" />
-                                <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherSearchButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
-                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                                <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherSearchButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
+                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                                     <columns>
                                         <TableColumn fx:id="teacherIdCol" prefWidth="100.0" text="Teacher Id" />
                                         <TableColumn fx:id="firstNameCol" prefWidth="200.0" text="First Name" />
@@ -122,9 +122,9 @@
                                         <TableColumn fx:id="departmentCol" prefWidth="177.0" text="Department" />
                                     </columns>
                                 </TableView>
-                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherEditButtonClick" prefHeight="26.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Edit" textFill="WHITE" />
-                                <Button fx:id="saveButton" layoutX="114.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherSaveButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #0093ff; -fx-text-fill: white;" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Save" AnchorPane.rightAnchor="636.0" />
-                                <Button alignment="CENTER" layoutX="214.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="delete-button" stylesheets="@../../../css/Design.css" text="Delete" />
+                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherEditButtonClick" prefHeight="26.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="WHITE" />
+                                <Button fx:id="saveButton" layoutX="114.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherSaveButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #0093ff; -fx-text-fill: white;" styleClass="all-button" stylesheets="@../css/Design.css" text="Save" AnchorPane.rightAnchor="636.0" />
+                                <Button alignment="CENTER" layoutX="214.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" />
                             </children></AnchorPane>
                     </items>
                 </SplitPane>

@@ -23,7 +23,7 @@
             <top>
                 <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar prefHeight="28.0" prefWidth="1180.0" style="-fx-background-color: fff7f7;" stylesheets="@../../../css/Design.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <MenuBar prefHeight="28.0" prefWidth="1180.0" style="-fx-background-color: fff7f7;" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <menus>
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
@@ -43,7 +43,7 @@
                 </AnchorPane>
             </top>
             <center>
-                <AnchorPane prefHeight="651.0" prefWidth="1180.0" styleClass="backgroundColor" stylesheets="@../../../css/Design.css" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="651.0" prefWidth="1180.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" BorderPane.alignment="CENTER">
                     <children>
                         <GridPane layoutX="33.0" layoutY="149.0" prefHeight="267.0" prefWidth="217.0">
                             <columnConstraints>
@@ -88,7 +88,7 @@
                             </columns>
                         </TableView>
                         <ComboBox fx:id="teacherChooseCLass" layoutX="323.0" layoutY="123.0" prefWidth="150.0" promptText="Choose a class" />
-                        <Button fx:id="teacherLoadButton" layoutX="502.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Load" textFill="WHITE" />
+                        <Button fx:id="teacherLoadButton" layoutX="502.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherLoadClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Load" textFill="WHITE" />
                         <Text fill="#5f47d7" layoutX="29.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA Calculation ">
                             <font>
                                 <Font name="Berlin Sans FB" size="37.0" />
@@ -104,18 +104,18 @@
                                 <Font size="16.0" />
                             </font>
                         </Text>
-                        <Button fx:id="teacherAddGPAButton" layoutX="33.0" layoutY="462.0" mnemonicParsing="false" onAction="#setTeacherAddGPAClick" prefHeight="25.0" prefWidth="86.0" style="-fx-background-radius: 10; -fx-background-color: #3d30c4;" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Add" textFill="WHITE">
+                        <Button fx:id="teacherAddGPAButton" layoutX="33.0" layoutY="462.0" mnemonicParsing="false" onAction="#setTeacherAddGPAClick" prefHeight="25.0" prefWidth="86.0" style="-fx-background-radius: 10; -fx-background-color: #3d30c4;" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
                             </font>
                         </Button>
-                        <Button fx:id="teacherCancelButton" layoutX="180.0" layoutY="462.0" mnemonicParsing="false" onAction="#setTeacherCancelClick" prefHeight="25.0" prefWidth="88.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Clear" textFill="WHITE">
+                        <Button fx:id="teacherCancelButton" layoutX="180.0" layoutY="462.0" mnemonicParsing="false" onAction="#setTeacherCancelClick" prefHeight="25.0" prefWidth="88.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Clear" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
                             </font>
                         </Button>
                         <Separator layoutX="33.0" layoutY="426.0" prefHeight="4.0" prefWidth="220.0" />
-                        <Button layoutX="601.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherSelectClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../../../css/Design.css" text="Select" textFill="WHITE" />
+                        <Button layoutX="601.0" layoutY="123.0" mnemonicParsing="false" onAction="#setTeacherSelectClick" prefHeight="25.0" prefWidth="75.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Select" textFill="WHITE" />
                     </children>
                 </AnchorPane>
             </center>

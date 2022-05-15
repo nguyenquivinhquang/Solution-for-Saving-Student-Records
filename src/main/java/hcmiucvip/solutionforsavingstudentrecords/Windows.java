@@ -15,15 +15,15 @@ public class Windows extends Application {
     public void start(Stage stage) throws IOException {
 //        adminDebug(stage);
 //        temp("II");
-//        temp("ITDSIU19017");
+        temp("ITDSIU19017");
 //        teacherView();
-        tuitionFee();
+//        tuitionFee();
     }
     public void adminDebug(Stage stage) throws IOException {
         windowStage = stage;
         CourseRegistration course = new CourseRegistration();
         course.setStudentId("12");
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("TuitionFee.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("AdminClassAdd.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setTitle("Student records database!");
         stage.setScene(scene);
