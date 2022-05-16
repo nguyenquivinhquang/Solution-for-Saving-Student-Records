@@ -40,8 +40,7 @@ This is our team solution for saving student record  created by HTQ CVIP Team as
 
 ```bash
 
-https://github.com/nguyenquivinhquang/OOP-rereversi-game
-
+git clone https://github.com/nguyenquivinhquang/Solution-for-Saving-Student-Records.git
 ```
 
 ## Run
