@@ -121,10 +121,10 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="56.0" layoutY="270.0" mnemonicParsing="false" onAction="#loadAddClass" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
+      <Button layoutX="56.0" layoutY="270.0" mnemonicParsing="false" onAction="#loadStudent" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
       <Button layoutX="247.0" layoutY="271.0" mnemonicParsing="false" onAction="#loadTeacher" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
       <Button layoutX="53.0" layoutY="376.0" mnemonicParsing="false" onAction="#loadAddCourse" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
-      <Button layoutX="252.0" layoutY="378.0" mnemonicParsing="false" onAction="#loadAddCourse" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
+      <Button layoutX="252.0" layoutY="378.0" mnemonicParsing="false" onAction="#loadAddClass" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
       <Button layoutX="53.0" layoutY="488.0" mnemonicParsing="false" onAction="#loadAddTuition" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: transaction;" text="Button" textFill="TRANSPARENT" />
     </children>
 </AnchorPane>
