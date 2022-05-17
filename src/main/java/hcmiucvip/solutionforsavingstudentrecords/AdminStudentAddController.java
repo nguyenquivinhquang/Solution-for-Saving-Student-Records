@@ -8,6 +8,7 @@ import hcmiucvip.solutionforsavingstudentrecords.core.SchoolYear;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -42,8 +44,9 @@ public class AdminStudentAddController implements Initializable {
     @FXML
     public Label warningField;
     private HashMap<String, StudentInformation> studentTrace = new HashMap<>();
-//    private static Connection connection = DatabaseConnectionManager.getDBConnection();
+    //    private static Connection connection = DatabaseConnectionManager.getDBConnection();
     ObservableList<StudentInformation> studentInformations;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        adminTableStudentID = new TableColumn<>("Debug");
@@ -65,11 +68,19 @@ public class AdminStudentAddController implements Initializable {
         adminTableView.setItems(studentInformations);
 //        adminTableView.getItems().add(new StudentInformation("QUang","aa","aa",1,"2"));
         disableVisibleField();
+
+//        adminTableView.setOnMouseClicked();
     }
 
-    public void renderStudentList() {
-    }
 
+
+    public void doubleClickChoose(MouseEvent mouseEvent) throws IOException {
+        if (mouseEvent.getClickCount() > 1) {
+            StudentInformation student = adminTableView.getSelectionModel().getSelectedItem();
+            LoadScene loadScene = new LoadScene();
+            loadScene.loadStudent(student.getStudentId());
+        }
+    }
 
     @FXML
     private TextField studentIDField, firstNameField, lastNameField, mailField, academicField, addressField;
@@ -140,6 +151,7 @@ public class AdminStudentAddController implements Initializable {
         // Change mode
         isEdit = false;
     }
+
     private void addStudent() {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -178,30 +190,30 @@ public class AdminStudentAddController implements Initializable {
             birthday = "2001-01-01";
         }
         if (email.isEmpty()) {
-            email =  studentId + "@hcmiu.edu.vn";
+            email = studentId + "@hcmiu.edu.vn";
         }
         password = AuthUtil.hashString(password);
-        studentQueries.addNewUser(studentId,password,"Student");
+        studentQueries.addNewUser(studentId, password, "Student");
         ArrayList<Pair<String, Object>> insertValues = new ArrayList<>();
         insertValues.add(new Pair<>("First_name", firstName));
         insertValues.add(new Pair<>("Last_name", lastName));
         insertValues.add(new Pair<>("Student_Id", studentId));
         insertValues.add(new Pair<>("Birth_day", birthday));
-        insertValues.add(new Pair< >("Academic_year", academicYear));
+        insertValues.add(new Pair<>("Academic_year", academicYear));
         insertValues.add(new Pair<>("Mail", email));
 
 
-
-        if (!studentQueries.insertMultiValues(insertValues)){
+        if (!studentQueries.insertMultiValues(insertValues)) {
             return;
         }
 
-        StudentInformation student = new StudentInformation(studentId,firstName,lastName, academicYear,birthday, email);
+        StudentInformation student = new StudentInformation(studentId, firstName, lastName, academicYear, birthday, email);
         studentTrace.put(studentId, student);
         studentInformations.add(student);
         resetField();
         adminTableView.refresh();
     }
+
     private void editStudent() {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -271,6 +283,7 @@ public class AdminStudentAddController implements Initializable {
         academicField.clear();
         birthdayField.clear();
     }
+
     private void setVisibleField(boolean condition) {
         studentIDField.setVisible(condition);
         firstNameField.setVisible(condition);
@@ -280,9 +293,11 @@ public class AdminStudentAddController implements Initializable {
         academicField.setVisible(condition);
         birthdayField.setVisible(condition);
     }
+
     private void disableVisibleField() {
         setVisibleField(false);
     }
+
     private void enableVisibleField() {
         setVisibleField(true);
     }
@@ -297,6 +312,7 @@ public class AdminStudentAddController implements Initializable {
         resetField();
 
     }
+
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Error");
@@ -305,4 +321,5 @@ public class AdminStudentAddController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

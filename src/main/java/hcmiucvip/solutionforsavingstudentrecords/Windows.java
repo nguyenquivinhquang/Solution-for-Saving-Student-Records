@@ -19,15 +19,15 @@ public class Windows extends Application {
 //        teacherView();
 //        tuitionFee();
 //        semesterBilling();
-        Login();
-//        LoadScene loadScene = new LoadScene();
+//        Login();
+        LoadScene loadScene = new LoadScene();
 //        loadScene.adminClassAdd();
 //    loadScene.adminTeacherAdd();
 //        loadScene.adminClassAdd();
 //        loadScene.adminStudentAdd();
 //        loadScene.loadTeacherView("ltson");
 //        loadScene.tuitionFee();
-//        loadScene.loadAdmin();
+        loadScene.loadAdmin();
 
     }
 

@@ -148,13 +148,13 @@ public class CourseRegistration {
         courseQueries.deleteCourseRegistered(this.studentId, course.getCourseId());
         courseQueries.updateCourseRemaining(course.getCourseId(),course.getTeacherId(),course.getCourseSection(), remaining + 1);
 
-        courseChoosenTrace.remove(course.getCourseTitle());
+        courseChoosenTrace.remove(course.getCourseId());
         courseInformationsChoosen.remove(course);
         init();
     }
 
     boolean checkCanAddCourse(CourseInformation course) {
-        if (courseChoosenTrace.contains(course.getCourseTitle())) {
+        if (courseChoosenTrace.contains(course.getCourseId())) {
             showWarning("Course already registered");
             return false;
         }
@@ -169,7 +169,7 @@ public class CourseRegistration {
         System.out.println(tableCoursePossible.getSelectionModel().getSelectedItem());
         CourseInformation course = tableCoursePossible.getSelectionModel().getSelectedItem();
 
-        if (courseChoosenTrace.contains(course.getCourseTitle())) {
+        if (courseChoosenTrace.contains(course.getCourseId().trim())) {
             showWarning("Course already registered");
             return;
         }
@@ -179,7 +179,7 @@ public class CourseRegistration {
             return;
         }
         courseInformationsChoosen.add(course);
-        courseChoosenTrace.add(course.getCourseTitle());
+        courseChoosenTrace.add(course.getCourseId().trim());
         refresh();
         courseQueries.addCourseStudentRegistered(this.studentId, course.getCourseId(), course.getTeacherId(), course.getCourseSection());
         courseQueries.updateCourseRemaining(course.getCourseId(),course.getTeacherId(),course.getCourseSection(), remaining - 1);
