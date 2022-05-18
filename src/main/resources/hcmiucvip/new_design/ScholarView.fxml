@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.StudentView">
+    <children>
+        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="736.0" prefWidth="862.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <MenuBar prefHeight="31.0" prefWidth="1182.0" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <menus>
+                                <Menu mnemonicParsing="false" text="File">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#setCourseCloseButtonClick" text="Close" />
+                                    </items>
+                                </Menu>
+                        <Menu mnemonicParsing="false" text="Course">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#setStudentRegistrationClick" text="Registration" />
+                           </items>
+                        </Menu>
+                            </menus>
+                        </MenuBar>
+                    </children>
+                </AnchorPane>
+            </top>
+         <left>
+                <AnchorPane prefHeight="707.0" prefWidth="832.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <TableView fx:id="resultHistoryTable" layoutX="40.0" layoutY="185.0" prefHeight="444.0" prefWidth="753.0" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="185.0">
+                            <columns>
+                                <TableColumn fx:id="resultHistoryColumnCode" prefWidth="81.0" text="Year" />
+                                <TableColumn fx:id="resultHistoryColumnSemester" prefWidth="247.0" text="Type" />
+                        <TableColumn fx:id="resultHistoryColumnAssignment" minWidth="6.0" prefWidth="248.0" text="Price" />
+                                <TableColumn fx:id="resultHistoryColumnName" minWidth="0.0" prefWidth="176.0" text="Semester" />
+                            </columns>
+                        </TableView>
+                        <Text fill="#505b9e" layoutX="39.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" text="Scholarship Information " wrappingWidth="383.04736328125">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Text>
+                  <Label layoutX="41.0" layoutY="90.0" prefHeight="33.0" prefWidth="202.0" text="Student name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="132.0" prefHeight="33.0" prefWidth="202.0" text="Student ID">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+         </left>
+        </BorderPane>
+    </children>
+</AnchorPane>

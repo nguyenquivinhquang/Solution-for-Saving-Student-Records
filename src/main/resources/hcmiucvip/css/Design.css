@@ -22,12 +22,12 @@
 .list-cell:filled:selected:focused,
 .list-cell:filled:selected {
     -fx-background-color:  #50b6fe;
-    -fx-text-fill: white;
+    -fx-text-fill: rgb(152, 36, 104);
     background-color: linear-gradient(to right, indigo, violet);
 }
 .list-cell:filled:hover {
     -fx-background-color: #0093ff;
-    -fx-text-fill: white;
+    -fx-text-fill: rgb(255, 186, 186);
     background-color: #0093ff;
 }
 .list-cell:even {
@@ -154,3 +154,10 @@
     -fx-pref-height: 25;
     background-color: linear-gradient(to right, cyan, rgb(255, 5, 213));
 }
+
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
