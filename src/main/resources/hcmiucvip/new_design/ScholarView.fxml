@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,30 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.StudentView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.StudentView">
     <children>
-        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="736.0" prefWidth="862.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <AnchorPane prefHeight="29.0" prefWidth="1180.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <MenuBar prefHeight="31.0" prefWidth="1182.0" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <menus>
-                                <Menu mnemonicParsing="false" text="File">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#setCourseCloseButtonClick" text="Close" />
-                                    </items>
-                                </Menu>
-                        <Menu mnemonicParsing="false" text="Course">
-                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#setStudentRegistrationClick" text="Registration" />
-                           </items>
-                        </Menu>
-                            </menus>
-                        </MenuBar>
-                    </children>
-                </AnchorPane>
-            </top>
-         <left>
+        <BorderPane layoutX="464.0" layoutY="248.0" prefHeight="707.0" prefWidth="830.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
                 <AnchorPane prefHeight="707.0" prefWidth="832.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" BorderPane.alignment="CENTER">
                     <children>
                         <TableView fx:id="resultHistoryTable" layoutX="40.0" layoutY="185.0" prefHeight="444.0" prefWidth="753.0" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="185.0">
@@ -62,7 +39,7 @@
                   </Label>
                     </children>
                 </AnchorPane>
-         </left>
+         </top>
         </BorderPane>
     </children>
 </AnchorPane>
