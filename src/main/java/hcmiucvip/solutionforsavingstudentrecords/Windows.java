@@ -19,7 +19,7 @@ public class Windows extends Application {
 //        teacherView();
 //        tuitionFee();
 //        semesterBilling();
-//        Login();
+        Login();
         LoadScene loadScene = new LoadScene();
 //        loadScene.adminClassAdd();
 //    loadScene.adminTeacherAdd();
@@ -27,7 +27,7 @@ public class Windows extends Application {
 //        loadScene.adminStudentAdd();
 //        loadScene.loadTeacherView("ltson");
 //        loadScene.tuitionFee();
-        loadScene.loadAdmin();
+//        loadScene.loadAdmin();
 
     }
 

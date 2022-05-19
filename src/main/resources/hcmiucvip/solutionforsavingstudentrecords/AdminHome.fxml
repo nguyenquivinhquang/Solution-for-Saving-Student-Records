@@ -11,133 +11,115 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#loadStudent" prefHeight="607.0" prefWidth="463.0" styleClass="backgroundColor" stylesheets="@../css/Design.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hcmiucvip.solutionforsavingstudentrecords.AdminController">
     <children>
-      <ImageView fitHeight="313.0" fitWidth="470.0" layoutX="-6.0" layoutY="-117.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/tree.jpg" />
-         </image></ImageView>
-      <Text fill="#5e5b5b" layoutX="56.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adding">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Text>
-      <Text fill="#796d6d" layoutX="144.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi Admin !">
-         <font>
-            <Font name="System Bold" size="35.0" />
-         </font>
-      </Text>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="53.0" layoutY="274.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Student" textFill="#441554" textOverrun="LEADING_ELLIPSIS" AnchorPane.leftAnchor="53.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1">
-               <image>
-                  <Image url="@../images/student.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="248.0" layoutY="274.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Lecturer" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" onDragDetected="#loadTeacher" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/lecturer.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="53.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadAddCourse" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Course" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/course.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="248.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadAddClass" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Class" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/class.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="53.0" layoutY="493.0" mnemonicParsing="false" onAction="#loadAddTuition" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Tuition" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/tuition.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
-      <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="248.0" layoutY="493.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Scholar" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <effect>
-            <DropShadow height="38.59" radius="26.855" width="70.83">
-               <color>
-                  <Color opacity="0.09923664480447769" />
-               </color>
-            </DropShadow>
-         </effect>
-         <graphic>
-            <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/scholarship.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+        <ImageView fitHeight="313.0" fitWidth="470.0" layoutX="-6.0" layoutY="-117.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/tree.jpg" />
+            </image>
+        </ImageView>
+        <Text fill="#5e5b5b" layoutX="56.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adding">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Text>
+        <Text fill="#796d6d" layoutX="144.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi Admin !">
+            <font>
+                <Font name="System Bold" size="35.0" />
+            </font>
+        </Text>
+        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="53.0" layoutY="274.0" mnemonicParsing="false" onAction="#loadStudent" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Student" textFill="#441554" textOverrun="LEADING_ELLIPSIS" AnchorPane.leftAnchor="53.0">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1">
+                    <image>
+                        <Image url="@../images/student.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <DropShadow height="38.59" radius="26.855" width="70.83">
+                    <color>
+                        <Color opacity="0.09923664480447769" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="248.0" layoutY="274.0" mnemonicParsing="false" onAction="#loadTeacher" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Lecturer" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="47.0" fitWidth="55.0" onDragDetected="#loadTeacher" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/lecturer.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <DropShadow height="38.59" radius="26.855" width="70.83">
+                    <color>
+                        <Color opacity="0.09923664480447769" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="53.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadAddCourse" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Course" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/course.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <DropShadow height="38.59" radius="26.855" width="70.83">
+                    <color>
+                        <Color opacity="0.09923664480447769" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="248.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadAddClass" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Class" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/class.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <DropShadow height="38.59" radius="26.855" width="70.83">
+                    <color>
+                        <Color opacity="0.09923664480447769" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="148.0" layoutY="500.0" mnemonicParsing="false" onAction="#loadAddTuition" prefHeight="78.0" prefWidth="162.0" style="-fx-background-color: #f5fdff; -fx-background-radius: 10;" text="Tuition" textFill="#441554" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/tuition.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <DropShadow height="38.59" radius="26.855" width="70.83">
+                    <color>
+                        <Color opacity="0.09923664480447769" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
     </children>
 </AnchorPane>

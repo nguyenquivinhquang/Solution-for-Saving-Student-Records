@@ -14,6 +14,7 @@ public class StudentInformation {
         this.lastName = lastName;
         this.academicYear = academicYear;
         this.day = new SimpleStringProperty(birthDay);
+        this.email = mail;
         this.mail = mail;
         this.username = studentId;
         bId = "";
@@ -79,6 +80,7 @@ public class StudentInformation {
 
     public void setEmail(String email) {
         this.email = email;
+        this.mail = email;
     }
 
     public void setFirstName(String firstName) {
@@ -96,6 +98,7 @@ public class StudentInformation {
     }
     public void setMail(String mail) {
         this.mail = mail;
+        this.email = mail;
     }
 
     public String toString() {

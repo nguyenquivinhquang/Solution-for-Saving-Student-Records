@@ -16,24 +16,27 @@ public class AdminController implements Initializable {
     }
     public void loadStudent() throws IOException {
         loadScene.adminStudentAdd();
-        stage.close();
+//        stage.close();
     }
     public void loadTeacher() throws IOException {
         loadScene.adminTeacherAdd();
-        stage.close();
+//        stage.close();
     }
     public void loadAddCourse() throws IOException {
         loadScene.adminCourseAdd();
-        stage.close();
+//        stage.close();
+    }
+    public void loadScholar() throws IOException {
+        loadScene.loadScholar();
     }
     public void loadAddClass() throws IOException {
         System.out.println("add class");
         loadScene.adminClassAdd();
-        stage.close();
+//        stage.close();
     }
     public void loadAddTuition() throws IOException {
         loadScene.tuitionFee();
-        stage.close();
+//        stage.close();
     }
     public void setStage(Stage stage) {
         this.stage = stage;

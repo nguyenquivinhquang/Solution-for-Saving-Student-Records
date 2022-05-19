@@ -173,10 +173,13 @@
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Button layoutX="313.0" layoutY="335.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                        <Button layoutX="735.0" layoutY="335.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
-                                <Button fx:id="logInButton" layoutX="638.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="#f5f3f3" />
-                                <Button alignment="CENTER" layoutX="741.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" textFill="#f5f3f3" />
+                        <Button layoutX="202.0" layoutY="335.0" mnemonicParsing="false" onAction="#chooseCourseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
+                        <Button layoutX="636.0" layoutY="335.0" mnemonicParsing="false" onAction="#teacherChooseButton" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Choose" textFill="#f5f3f3" />
+                                <Button fx:id="logInButton" layoutX="476.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="27.0" prefWidth="85.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="#f5f3f3" />
+                                <Button alignment="CENTER" layoutX="579.0" layoutY="18.0" mnemonicParsing="false" onAction="#setCourseDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" textFill="#f5f3f3" />
+                        <TextField fx:id="courseSearch" layoutX="282.0" layoutY="335.0" prefHeight="25.0" prefWidth="104.0" promptText="Search" />
+                        <TextField fx:id="teacherSearch" layoutX="719.0" layoutY="335.0" prefHeight="25.0" prefWidth="97.0" promptText="Search" />
+                        <TextField fx:id="classSearch" layoutX="689.0" layoutY="18.0" prefHeight="25.0" prefWidth="116.0" promptText="Search" />
                             </children>
                         </AnchorPane>
                     </items>

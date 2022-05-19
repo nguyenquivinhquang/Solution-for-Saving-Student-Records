@@ -1,5 +1,6 @@
 package hcmiucvip.solutionforsavingstudentrecords;
 
+import hcmiucvip.solutionforsavingstudentrecords.core.Auth.AuthUtil;
 import hcmiucvip.solutionforsavingstudentrecords.core.Auth.UserAuthenticator;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.CourseStudentScore;
@@ -66,7 +67,7 @@ public class StudentView {
             showWarning("New password does not match");
             return;
         }
-            studentQueries.updateUserPass(this.studentId, newPasswordField.getText().trim());
+            studentQueries.updateUserPass(this.studentId, AuthUtil.hashString(newPasswordField.getText().trim()));
             oldPasswordField.clear();
             newPasswordField.clear();
             reNewPasswordField.clear();

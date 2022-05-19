@@ -110,7 +110,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="820.0" style="-fx-background-color: #dde2f9;" styleClass="backgroundColor" stylesheets="@../css/Design.css">
                             <children>
-                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                                <TableView fx:id="teacherTableView" layoutX="2.0" layoutY="55.0" onMouseClicked="#doubleClickChoose" prefHeight="533.0" prefWidth="822.0" style="-fx-background-radius: 0;" styleClass="miniBackground" stylesheets="@../css/Design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                                     <columns>
                                         <TableColumn fx:id="teacherIdCol" prefWidth="100.0" text="Teacher Id" />
                                         <TableColumn fx:id="firstNameCol" prefWidth="200.0" text="First Name" />
@@ -123,6 +123,7 @@
                                 <Button alignment="CENTER" layoutX="185.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminTeacherDeleteButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-text-fill: white;" styleClass="delete-button" stylesheets="@../css/Design.css" text="Delete" />
                                 <Button layoutX="94.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminTeacherAddNewButtonClick" prefHeight="16.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="94.0" />
                                 <Button layoutX="726.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminTeacherRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="726.0" />
+                        <TextField fx:id="searchField" layoutX="580.0" layoutY="17.0" prefHeight="25.0" prefWidth="136.0" promptText="Search" />
                             </children></AnchorPane>
                     </items>
                 </SplitPane>

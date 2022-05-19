@@ -49,8 +49,8 @@ public abstract class Querier {
 
     public void updateUserPass(String username, String password) {
         System.out.println("Update Pass");
-        password = AuthUtil.hashString(password);
-        String SQL = "UPDATE [User] SET Password='%s' WHERE 'Username'='%s'";
+//        password = AuthUtil.hashString(password);
+        String SQL = "UPDATE [User] SET Password='%s' WHERE Username='%s'";
         SQL = String.format(SQL, password, username);
         System.out.println(SQL);
         runSetQuery(SQL);

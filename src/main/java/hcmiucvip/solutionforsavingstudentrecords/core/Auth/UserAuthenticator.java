@@ -21,6 +21,7 @@ public class UserAuthenticator {
 //        username = "admin_quang";
 //        password = "cvip123";
         Pair<String, String> result = new Pair<>("none", "none");
+        username = username.toLowerCase();
         try {
             String SQL = String.format("SELECT * FROM  [dbo].[User]  WHERE Username = '%s' ",
                     username);
@@ -34,9 +35,19 @@ public class UserAuthenticator {
 
             System.out.println(password);
             System.out.println(truePassword);
+            System.out.println(AuthUtil.hashString(password));
             if (!AuthUtil.hashString(password).trim().equals(truePassword)
                     &&!password.trim().equals(truePassword)) {
-                // Password is not correct
+                SQL = String.format("SELECT * FROM  [dbo].[User]  WHERE Username = '%s' ",
+                        username.toUpperCase());
+                statement = connection.createStatement();
+                res = statement.executeQuery(SQL);
+                if (!res.isBeforeFirst()) return result; // does not exist username
+                res.next();
+                truePassword = res.getString("Password").trim();
+                if (!AuthUtil.hashString(password).trim().equals(truePassword))
+                        return result;
+                result = new Pair<>(username.toUpperCase(), res.getString("Role").trim());
                 return result;
             }
 

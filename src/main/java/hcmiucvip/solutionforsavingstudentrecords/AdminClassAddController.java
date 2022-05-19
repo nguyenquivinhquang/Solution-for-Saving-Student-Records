@@ -5,16 +5,20 @@ import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.TeacherQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
+import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.TeacherInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.*;
@@ -32,7 +36,7 @@ public class AdminClassAddController implements Initializable {
     @FXML
     Text teacherIdField, teacherNameField;
     @FXML
-    TextField classSize;
+    TextField classSize, classSearch, courseSearch, teacherSearch;
     private CourseQueries courseQueries = new CourseQueries();
     private TeacherQueries teacherQueries = new TeacherQueries();
     @FXML
@@ -261,17 +265,56 @@ public class AdminClassAddController implements Initializable {
             courseTrace.put(course.getCourseId(), course);
             System.out.println(course);
         }
-        adminCourseView.setItems(courseInformations);
+//        adminCourseView.setItems(courseInformations);
+
+
+
+
+        FilteredList<CourseInformation> filteredCourseList = new FilteredList<>(courseInformations, b->true);
+        courseSearch.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredCourseList.setPredicate(course -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (course.getCourseId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseTitle().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseDescription().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+
+                return  false;
+            });
+        });
+        adminCourseView.setItems(filteredCourseList);
+
+
+
 
         // init teacher
         teacherIdCol.setCellValueFactory(new PropertyValueFactory<>("teacherId"));
         teacherNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         teacherDepartmentRow.setCellValueFactory(new PropertyValueFactory<>("department"));
         teacherInformations = teacherQueries.getTeacherList();
-        teacherViewTable.setItems(teacherInformations);
         for (TeacherInformation teacher : teacherInformations) {
             teacherInformationTrace.put(teacher.getTeacherId(), teacher);
         }
+
+        FilteredList<TeacherInformation> filteredTeacherList = new FilteredList<>(teacherInformations, b->true);
+        teacherSearch.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredTeacherList.setPredicate(teacher -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (teacher.getTeacherId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getDepartment().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+
+                return  false;
+            });
+        });
+        teacherViewTable.setItems(filteredTeacherList);
 
         // Classroom information
         courseIdClass.setCellValueFactory(new PropertyValueFactory<>("courseId"));
@@ -281,8 +324,26 @@ public class AdminClassAddController implements Initializable {
         classSizeClass.setCellValueFactory(new PropertyValueFactory<>("size"));
         classRemainingClass.setCellValueFactory(new PropertyValueFactory<>("remaining"));
         handleClassroom();
-        adminClassView.setItems(classInformation);
 
+
+        FilteredList<CourseInformation> filteredClassList = new FilteredList<>(classInformation, b->true);
+        classSearch.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredClassList.setPredicate(course -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (course.getCourseId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseTitle().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getTeacherId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseSection().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                return  false;
+            });
+        });
+
+        adminClassView.setItems(filteredClassList);
         // Clean
         disableVisibleField();
 
@@ -290,6 +351,9 @@ public class AdminClassAddController implements Initializable {
         courseTitleField.setText("");
         teacherIdField.setText("");
         teacherNameField.setText("");
+
+
+
     }
 
     public void chooseCourseButton() {

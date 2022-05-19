@@ -96,14 +96,14 @@
                                                 <Font size="14.0" />
                                             </font>
                                         </Text>
-                                        <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                         <Text layoutX="10.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Academic Year" GridPane.rowIndex="5">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                         </Text>
                                         <TextField fx:id="academicField" layoutX="157.0" layoutY="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                        <TextField fx:id="passwordField" layoutX="172.0" layoutY="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="birthdayField" layoutX="172.0" layoutY="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="89.7138671875" GridPane.rowIndex="6">
                                             <font>
                                                 <Font size="14.0" />
@@ -137,6 +137,7 @@
                                 <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setAdminEditButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Edit" textFill="WHITE" />
                                 <Button layoutX="103.0" layoutY="15.0" mnemonicParsing="false" onAction="#setAdminAddNewButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Add" textFill="WHITE" AnchorPane.leftAnchor="103.0" />
                                 <Button layoutX="803.0" layoutY="17.0" mnemonicParsing="false" onAction="#setAdminRefreshButtonClick" prefHeight="25.0" prefWidth="80.0" styleClass="all-button" stylesheets="@../css/Design.css" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="803.0" />
+                        <TextField fx:id="searchField" layoutX="641.0" layoutY="17.0" promptText="Search" />
                             </children>
                         </AnchorPane>
                     </items>

@@ -6,7 +6,9 @@ import hcmiucvip.solutionforsavingstudentrecords.core.DB.StudentQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
 import hcmiucvip.solutionforsavingstudentrecords.core.SchoolYear;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
+import hcmiucvip.solutionforsavingstudentrecords.core.TeacherInformation;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class AdminStudentAddController implements Initializable {
     boolean isEdit = false;
-    public TextField passwordField, birthdayField;
+    public TextField passwordField, birthdayField, searchField;
     public Button saveButton;
     private StudentQueries studentQueries = new StudentQueries();
     @FXML
@@ -65,7 +67,26 @@ public class AdminStudentAddController implements Initializable {
             System.out.println(student);
             studentTrace.put(student.getStudentId(), student);
         }
-        adminTableView.setItems(studentInformations);
+//        adminTableView.setItems(studentInformations);
+        FilteredList<StudentInformation> filteredTeacherList = new FilteredList<>(studentInformations, b->true);
+        searchField.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredTeacherList.setPredicate(teacher -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (teacher.getStudentId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getLastName().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+
+                return  false;
+            });
+        });
+        adminTableView.setItems(filteredTeacherList);
+
 //        adminTableView.getItems().add(new StudentInformation("QUang","aa","aa",1,"2"));
         disableVisibleField();
 
@@ -192,6 +213,7 @@ public class AdminStudentAddController implements Initializable {
         if (email.isEmpty()) {
             email = studentId + "@hcmiu.edu.vn";
         }
+        System.out.println(password);
         password = AuthUtil.hashString(password);
         studentQueries.addNewUser(studentId, password, "Student");
         ArrayList<Pair<String, Object>> insertValues = new ArrayList<>();

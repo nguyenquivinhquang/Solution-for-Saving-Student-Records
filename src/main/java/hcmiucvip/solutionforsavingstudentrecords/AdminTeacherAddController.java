@@ -6,13 +6,16 @@ import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
 import hcmiucvip.solutionforsavingstudentrecords.core.StudentInformation;
 import hcmiucvip.solutionforsavingstudentrecords.core.TeacherInformation;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Pair;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +26,7 @@ public class AdminTeacherAddController implements Initializable {
     @FXML
     protected TextField firstnameField, lastnameField, teacherIdField, mailField;
     @FXML
-    protected TextField departmentField, passField, usernameField;
+    protected TextField departmentField, passField, usernameField, searchField;
     @FXML
     protected TableView<TeacherInformation> teacherTableView;
     @FXML
@@ -166,10 +169,33 @@ public class AdminTeacherAddController implements Initializable {
         for (TeacherInformation teacher : teacherInformations) {
             teacherTrace.put(teacher.getTeacherId(), teacher);
         }
-        teacherTableView.setItems(teacherInformations);
+//        teacherTableView.setItems(teacherInformations);
+        FilteredList<TeacherInformation> filteredTeacherList = new FilteredList<>(teacherInformations, b->true);
+        searchField.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredTeacherList.setPredicate(teacher -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (teacher.getTeacherId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (teacher.getDepartment().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+
+                return  false;
+            });
+        });
+        teacherTableView.setItems(filteredTeacherList);
+
         disableVisibleField();
     }
-
+    public void doubleClickChoose(MouseEvent mouseEvent) throws IOException {
+        if (mouseEvent.getClickCount() > 1) {
+            TeacherInformation teacherInformation = teacherTableView.getSelectionModel().getSelectedItem();
+            LoadScene loadScene = new LoadScene();
+            loadScene.loadTeacher(teacherInformation.getTeacherId());
+        }
+    }
     public void setCourseCloseButtonClick(ActionEvent event) {
 
     }

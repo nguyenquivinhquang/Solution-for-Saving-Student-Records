@@ -55,7 +55,21 @@ public class LoadScene {
         stage.show();
         controller.init();
     }
-
+    public void loadScholar() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "AdminSchoolarAdd.fxml"
+                )
+        );
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setScene(
+                new Scene(loader.load())
+        );
+        AdminScholarshipAdd controller = loader.getController();
+        controller.setStage(stage);
+        stage.show();
+        controller.init();
+    }
     public void semesterBilling(String studentId) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
