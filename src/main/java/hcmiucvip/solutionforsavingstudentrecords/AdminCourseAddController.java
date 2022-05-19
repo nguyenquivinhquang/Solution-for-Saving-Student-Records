@@ -5,6 +5,7 @@ import hcmiucvip.solutionforsavingstudentrecords.core.DB.CourseQueries;
 import hcmiucvip.solutionforsavingstudentrecords.core.DB.DatabaseConnectionManager;
 import hcmiucvip.solutionforsavingstudentrecords.core.DeleteTable;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,6 +42,8 @@ public class AdminCourseAddController implements Initializable {
     private static Connection connection = DatabaseConnectionManager.getDBConnection();
     ObservableList<CourseInformation> courseInformations;
 
+    @FXML
+    TextField searchField;
     public void setCourseCloseButtonClick(ActionEvent event) {
     }
 
@@ -197,8 +200,23 @@ public class AdminCourseAddController implements Initializable {
             courseTrace.put(course.getCourseId(), course);
             System.out.println(course);
         }
-        adminCourseView.setItems(courseInformations);
-        disableVisibleField();
 
+        disableVisibleField();
+        FilteredList<CourseInformation> filteredList = new FilteredList<>(courseInformations, b->true);
+        searchField.textProperty().addListener((observable, oldValue, newValue)->{
+            filteredList.setPredicate(course -> {
+                if (newValue == null || newValue.isBlank()) return true;
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (course.getCourseId().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseTitle().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+                if (course.getCourseDescription().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                    return true;
+
+                return  false;
+            });
+        });
+        adminCourseView.setItems(courseInformations);
     }
 }
