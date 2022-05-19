@@ -217,6 +217,6 @@ public class AdminCourseAddController implements Initializable {
                 return  false;
             });
         });
-        adminCourseView.setItems(courseInformations);
+        adminCourseView.setItems(filteredList);
     }
 }
